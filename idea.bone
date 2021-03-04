@@ -1,0 +1,97 @@
+import stdio.{print, otherStuff};
+import math;
+
+struct A {
+   i32 a; // defaults to 0
+   i32 b;
+   f64 c = 10;
+
+   auto method = char (auto self, bool flag) {
+   };
+
+   auto staticMethod = void (u64 stuff) {
+   };
+}
+
+i32* aPtr;
+i32[] array = [1, 2, 3, 4];
+i32[]* ptrToArray = &[1, 2, 3, 4]; // equiv to i32[] __some_array = [1, 2, 3, 4]; i32[]* ptrToArray = &__some_array;
+i32[]& refToArray = &[1, 2, 3, 4];
+i32*[] arrayOfPtr;
+i32(char)* ptrToFuncReturnsI32;
+
+(u16)* ptrToConst;
+u16(*) constPtr;
+(u16*) constPtrToConst;
+(u16)(*) same;
+
+// default consts: function, aray
+
+/*
+ * yeah, comments
+ */
+
+char aFunction(A byValue, A* byPointer, A[] byValue, A& byReference, A[]& byReferenceOfArray) { // & is just non-nullable *
+   if(byValue.a == byPointer.b) { // . auto derefs
+      return byReference.c;
+   }
+
+   A copied = *byPointer;
+
+   A object; // default values
+   A another = {
+      1, // sets first field
+      c = 10,
+   };
+
+   return 'x';
+}
+
+void normalFunction() {
+   print(stuff);
+}
+
+i32 main() {
+   i32 a = 10;
+   while(a < 0) {
+      a -= 1;
+   }
+
+   for(i32 i = 0; i < 100; i += 1) {
+      if(i == 5) {
+         continue;
+      }
+
+      if(i == 8) {
+         break;
+      }
+   }
+
+   f32 f = math.sqrt(2);
+   f32 g = math.sqrt(2.5e-4);
+
+   if(true)
+      if(a == 10)
+         a = 11;
+      else
+         a = 10;
+
+   switch(g * 0.5) {
+      case(0)
+         print(g);
+      case(1, 2, 3) {
+         char x = '1234;
+         print(x);
+      }
+      case() {
+         print("default");
+      }
+   }
+
+}
+
+/*
+ * more ideas:
+ * template
+ * default argument / function overload
+ */
