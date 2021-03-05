@@ -20,8 +20,8 @@ char stream_peak(Stream *s) {
    if(s->ahead > 0) {
       return s->buff[s->pos];
    } else {
-      char c = fgetc(s->stream);
-      ungetc(c, s->stream);
+      char c = stream_getc(s);
+      stream_ungetc(s, 1);
       return c;
    }
 }

@@ -64,6 +64,36 @@ Token *sep_lexer(Stream *stream) {
 }
 
 Token *number_lexer(Stream *stream) {
+   stream_begins(stream);
+
+   TokenType type = INT;
+
+   while(isdigit(stream_getc(stream)));
+
+   stream_ungetc(stream, 1);
+
+   if(stream_getc(stream) == '.') {
+      type = FLOAT;
+      while(isdigit(stream_getc(stream)));
+   }
+
+   stream_ungetc(stream, 1);
+
+   char c = stream_getc(stream);
+   if(c == 'e' || c == 'E') {
+      type = FLOAT;
+      while(isdigit(stream_getc(stream)));
+   }
+
+   stream_ungetc(stream, 1);
+
+   char buff[sizeof(stream->buff)];
+   stream_ends(stream, buff, sizeof(buff));
+
+   if(strlen(buff) > 0) {
+      return token_create(type, buff);
+   }
+
    return NULL;
 }
 
@@ -91,8 +121,7 @@ Token *comment_lexer(Stream *stream) {
 Token *assign_lexer(Stream *stream) {
    stream_begins(stream);
 
-   static const char not_assign[] = { '!', '<', '>' };
-
+   static const char not_assign[] = { '<', '>', '!' }; // <=, >=, != are not assignments. == is handled later
    char c = stream_getc(stream);
    for(size_t i = 0; i < sizeof(not_assign); i++) {
       if(not_assign[i] == c) {
@@ -100,17 +129,15 @@ Token *assign_lexer(Stream *stream) {
       }
    }
 
-   if(c == '=') {
-      if(stream_getc(stream) == '=') {
-         char buff[sizeof(stream->buff)];
-         return token_create(ASSIGN, stream_ends(stream, buff, sizeof(buff)));
-      } else {
-         stream_ungetc(stream, 1);
-         return token_create(ASSIGN, "=");
-      }
+   if(c == '=' && stream_peak(stream) != '=') {
+      return token_create(ASSIGN, "=");
    }
 
 assign_lexer_end:
    stream_rollback(stream);
+   return NULL;
+}
+
+Token *symbol_lexer(Stream *stream) {
    return NULL;
 }

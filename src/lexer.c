@@ -7,11 +7,12 @@
 
 static Lexer * const lexers[] = {
    comment_lexer,
+   number_lexer,
+   string_lexer,
    ident_lexer,
    sep_lexer,
    assign_lexer,
-   number_lexer,
-   string_lexer,
+   symbol_lexer,
 };
 
 Token *lex(Stream *stream) {
@@ -26,8 +27,6 @@ Token *lex(Stream *stream) {
          while(isspace(stream_getc(stream)));
          stream_ungetc(stream, 1);
 
-         //printf("%x\n", stream_peak(stream));
-
          Token *token = lexers[i](stream);
          if(token) {
             last_token->next = token;
@@ -37,7 +36,13 @@ Token *lex(Stream *stream) {
          }
       }
 
-      if(!has_token) break;
+      if(!has_token) {
+         char c = stream_peak(stream);
+         if(c != EOF) {
+            fprintf(stderr, "Unexpected character: %c\n", c);
+         }
+         break;
+      }
    }
 
    return head_token.next;
@@ -76,6 +81,7 @@ char *token_type_name(TokenType type) {
       case KEYWORD: return "KEYWORD";
       case INT:     return "INT";
       case FLOAT:   return "FLOAT";
+      case CHAR:    return "CHAR";
       case STRING:  return "STRING";
       case COMMENT: return "COMMENT";
       case BLOCK_L: return "BLOCK_L";
@@ -87,6 +93,7 @@ char *token_type_name(TokenType type) {
       case DOT:     return "DOT";
       case COMMA:   return "COMMA";
       case SEMICOLON: return "SEMICOLON";
+      case ASSIGN:  return "ASSIGN";
       case SYMBOL:  return "SYMBOL";
       default:      return "UNKNOWN";
    }

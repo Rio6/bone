@@ -7,6 +7,7 @@ typedef enum {
    KEYWORD,
    INT,
    FLOAT,
+   CHAR,
    STRING,
    COMMENT,
    BLOCK_L,
@@ -44,3 +45,4 @@ Token *number_lexer(Stream*);
 Token *string_lexer(Stream*);
 Token *comment_lexer(Stream*);
 Token *assign_lexer(Stream*);
+Token *symbol_lexer(Stream*);
