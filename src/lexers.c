@@ -57,6 +57,10 @@ Token *sep_lexer(Stream *stream) {
          return token_create(BLOCK_L, NULL);
       case '}':
          return token_create(BLOCK_R, NULL);
+      case '@':
+         return token_create(DEREF, NULL);
+      case '#':
+         return token_create(REF, NULL);
       default:
          stream_ungetc(stream, 1);
          return NULL;
@@ -105,12 +109,17 @@ Token *comment_lexer(Stream *stream) {
    stream_begins(stream);
 
    if(stream_getc(stream) == '/') {
-      if(stream_getc(stream) == '/') {
-         char c;
+      char c = stream_getc(stream);
+      if(c == '/') {
          while(c = stream_getc(stream), c != '\n' && c != EOF);
-         stream_ungetc(stream, 1);
          return token_create(COMMENT, NULL);
-      } else if(stream_getc(stream) == '*') {
+      } else if(c == '*') {
+         while(1) {
+            while(c = stream_getc(stream), c != '*' && c != EOF);
+            if(stream_getc(stream) == '/') {
+               return token_create(COMMENT, NULL);
+            }
+         }
       }
    }
 

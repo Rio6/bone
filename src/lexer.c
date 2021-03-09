@@ -12,7 +12,7 @@ static Lexer * const lexers[] = {
    ident_lexer,
    sep_lexer,
    assign_lexer,
-   symbol_lexer,
+   operator_lexer,
 };
 
 Token *lex(Stream *stream) {
@@ -94,7 +94,9 @@ char *token_type_name(TokenType type) {
       case COMMA:   return "COMMA";
       case SEMICOLON: return "SEMICOLON";
       case ASSIGN:  return "ASSIGN";
-      case SYMBOL:  return "SYMBOL";
+      case OP:      return "OP";
+      case REF:     return "REF";
+      case DEREF:   return "DEREF";
       default:      return "UNKNOWN";
    }
 }

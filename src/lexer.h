@@ -20,7 +20,9 @@ typedef enum {
    COMMA,
    SEMICOLON,
    ASSIGN,
-   SYMBOL,
+   OP,
+   REF,
+   DEREF
 } TokenType;
 
 typedef struct Token {
@@ -45,4 +47,4 @@ Token *number_lexer(Stream*);
 Token *string_lexer(Stream*);
 Token *comment_lexer(Stream*);
 Token *assign_lexer(Stream*);
-Token *symbol_lexer(Stream*);
+Token *operator_lexer(Stream*);
