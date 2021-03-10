@@ -22,7 +22,7 @@ typedef enum {
    ASSIGN,
    OP,
    REF,
-   DEREF
+   DEREF,
 } TokenType;
 
 typedef struct Token {
@@ -35,7 +35,7 @@ typedef Token *(Lexer)(Stream *stream);
 
 Token *lex(Stream *stream);
 
-Token *token_create(TokenType type, char *value);
+Token *token_create(TokenType type, const char *value);
 void token_delete(Token*);
 void token_dump(Token*);
 

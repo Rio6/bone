@@ -21,11 +21,12 @@ Token *lex(Stream *stream) {
 
    while(1) {
       int has_token = 0;
+      char last_c = '\0';
 
       for(size_t i = 0; i < sizeof(lexers) / sizeof(lexers[0]); i++) {
          // advance until not a white space
          while(isspace(stream_getc(stream)));
-         stream_ungetc(stream, 1);
+         last_c = stream_ungetc(stream, 1);
 
          Token *token = lexers[i](stream);
          if(token) {
@@ -37,9 +38,8 @@ Token *lex(Stream *stream) {
       }
 
       if(!has_token) {
-         char c = stream_peak(stream);
-         if(c != EOF) {
-            fprintf(stderr, "Unexpected character: %c\n", c);
+         if(last_c != EOF) {
+            fprintf(stderr, "Unexpected character: %1$c (%1$X)\n", last_c);
          }
          break;
       }
@@ -48,7 +48,7 @@ Token *lex(Stream *stream) {
    return head_token.next;
 }
 
-Token *token_create(TokenType type, char *value) {
+Token *token_create(TokenType type, const char *value) {
    Token *token = calloc(1, sizeof(Token));
 
    token->type = type;

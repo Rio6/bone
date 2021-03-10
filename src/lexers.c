@@ -71,14 +71,19 @@ Token *number_lexer(Stream *stream) {
    stream_begins(stream);
 
    TokenType type = INT;
+   int digit_count = 0;
 
-   while(isdigit(stream_getc(stream)));
+   while(isdigit(stream_getc(stream))) {
+      digit_count++;
+   }
 
    stream_ungetc(stream, 1);
 
    if(stream_getc(stream) == '.') {
       type = FLOAT;
-      while(isdigit(stream_getc(stream)));
+      while(isdigit(stream_getc(stream))) {
+         digit_count++;
+      };
    }
 
    stream_ungetc(stream, 1);
@@ -91,13 +96,13 @@ Token *number_lexer(Stream *stream) {
 
    stream_ungetc(stream, 1);
 
-   char buff[sizeof(stream->buff)];
-   stream_ends(stream, buff, sizeof(buff));
-
-   if(strlen(buff) > 0) {
+   if(digit_count > 0) {
+      char buff[sizeof(stream->buff)];
+      stream_ends(stream, buff, sizeof(buff));
       return token_create(type, buff);
    }
 
+   stream_rollback(stream);
    return NULL;
 }
 
@@ -147,6 +152,29 @@ assign_lexer_end:
    return NULL;
 }
 
-Token *symbol_lexer(Stream *stream) {
+Token *operator_lexer(Stream *stream) {
+   static const char *one_symbs[] = { "+", "-", "*", "/", "%", "<", ">", "&", "|", "^" , "~", NULL };
+   static const char *two_symbs[] = { "<<", ">>", "==", "!=", "<=", ">=", NULL };
+   static const char **symbs[] = { one_symbs, two_symbs };
+
+   const char *value = NULL;
+
+   stream_begins(stream);
+
+   char buff[3];
+   for(size_t i = 0; i < sizeof(symbs) / sizeof(symbs[0]); i++) {
+      stream_getc(stream);
+      for(const char **symb = symbs[i]; *symb != NULL; symb++) {
+         stream_ends(stream, buff, i+2);
+         if(strcmp(*symb, buff) == 0) {
+            value = *symb;
+         }
+      }
+   }
+
+   if(value != NULL) {
+      return token_create(OP, value);
+   }
+
    return NULL;
 }

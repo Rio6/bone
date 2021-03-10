@@ -55,7 +55,7 @@ char *stream_ends(Stream *s, char *buff, size_t size) {
 void stream_rollback(Stream *s) {
    ssize_t rollback_size = s->pos - s->begin;
 
-   if(rollback_size > 0) {
+   if(rollback_size >= 0) {
       s->ahead += rollback_size;
    } else {
       s->ahead += sizeof(s->buff) + rollback_size;

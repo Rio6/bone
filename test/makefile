@@ -5,7 +5,7 @@ TESTS:=$(patsubst %.c, %.test, $(TESTSRCS))
 SRCDIR=$(realpath ../src)
 SRCS:=$(filter-out ../src/main.c, $(wildcard $(SRCDIR)/**.c))
 
-CFLAGS:=-O2 -Wall
+CFLAGS:=-O0 -Wall -g -ggdb
 
 .PHONY: all
 all: $(TESTS)
