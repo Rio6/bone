@@ -5,16 +5,6 @@
 #include <string.h>
 #include <ctype.h>
 
-static Lexer * const lexers[] = {
-   comment_lexer,
-   number_lexer,
-   string_lexer,
-   ident_lexer,
-   sep_lexer,
-   assign_lexer,
-   operator_lexer,
-};
-
 Token *lex(Stream *stream) {
    Token head_token = {0};
    Token *last_token = &head_token;
@@ -23,16 +13,24 @@ Token *lex(Stream *stream) {
       int has_token = 0;
       char last_c = '\0';
 
-      for(size_t i = 0; i < sizeof(lexers) / sizeof(lexers[0]); i++) {
+      for(Lexer **lexer = lexers; *lexer != NULL; lexer++) {
+
          // advance until not a white space
          while(isspace(stream_getc(stream)));
          last_c = stream_ungetc(stream, 1);
 
-         Token *token = lexers[i](stream);
+         Token *token = (*lexer)(stream);
+
          if(token) {
-            last_token->next = token;
-            last_token = token;
-            has_token = 1;
+            if(token->type == ERROR) {
+               printf("%s\n", token->value);
+               token_delete(head_token.next);
+               return NULL;
+            } else {
+               last_token->next = token;
+               last_token = token;
+               has_token = 1;
+            }
             break;
          }
       }
@@ -71,12 +69,13 @@ void token_delete(Token *token) {
 
 void token_dump(Token *token) {
    if(!token) return;
-   printf("type: %s, value: %s\n", token_type_name(token->type), token->value);
+   printf("type: %s, value: %s\n", TokenType_names[token->type], token->value);
    token_dump(token->next);
 }
 
 char *token_type_name(TokenType type) {
    switch(type) {
+      case ERROR:   return "ERROR";
       case IDENT:   return "IDENT";
       case KEYWORD: return "KEYWORD";
       case INT:     return "INT";

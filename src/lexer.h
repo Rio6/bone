@@ -3,6 +3,7 @@
 #include "stream.h"
 
 typedef enum {
+   ERROR,
    IDENT,
    KEYWORD,
    INT,
@@ -32,6 +33,9 @@ typedef struct Token {
 } Token;
 
 typedef Token *(Lexer)(Stream *stream);
+
+extern Lexer *lexers[];
+extern const char *TokenType_names[];
 
 Token *lex(Stream *stream);
 
