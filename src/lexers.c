@@ -1,6 +1,7 @@
 #include "lexer.h"
 #include "stream.h"
 
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
@@ -106,8 +107,71 @@ Token *number_lexer(Stream *stream) {
    return NULL;
 }
 
+Token *char_lexer(Stream *stream) {
+   if(stream_getc(stream) != '\'') {
+      stream_ungetc(stream, 1);
+      return NULL;
+   }
+
+   stream_begins(stream);
+
+   char c = stream_getc(stream);
+   if(c == '\\') {
+      stream_getc(stream);
+   }
+
+   if(stream_peak(stream) != '\'') {
+      return token_create(ERROR, "character literal has more than one character");
+   }
+
+   char buff[3];
+   stream_ends(stream, buff, sizeof(buff));
+   stream_getc(stream);
+
+   return token_create(CHAR, buff);
+}
+
 Token *string_lexer(Stream *stream) {
-   return NULL;
+   if(stream_getc(stream) != '"') {
+      stream_ungetc(stream, 1);
+      return NULL;
+   }
+
+   size_t batch_size = sizeof(stream->buff) - 1;
+   size_t mbuff_size = 1; // set to 1 so all the allocations will have one extra byte for \0
+   char *mbuff = NULL;
+
+   for(size_t i = 0;; i++) {
+      stream_begins(stream);
+
+      mbuff_size += batch_size;
+      mbuff = realloc(mbuff, mbuff_size);
+
+      int finished = 0;
+      for(int j = 0; j < batch_size; j++) {
+         char c = stream_getc(stream);
+         if(c == '\\') {
+            continue;
+         }
+         if(c == '"') {
+            finished = 1;
+            break;
+         }
+      }
+
+      stream_ends(stream, mbuff + mbuff_size - batch_size - 1, batch_size + 1);
+
+      if(finished) {
+         break;
+      }
+   }
+
+   // Remove trailing " and shrink the buffer
+   mbuff_size = strlen(mbuff);
+   mbuff[mbuff_size - 1] = '\0';
+   mbuff = realloc(mbuff, mbuff_size);
+
+   return token_create_raw(STRING, mbuff);
 }
 
 Token *comment_lexer(Stream *stream) {
@@ -139,7 +203,8 @@ Token *assign_lexer(Stream *stream) {
    char c = stream_getc(stream);
    for(size_t i = 0; i < sizeof(not_assign); i++) {
       if(not_assign[i] == c) {
-         goto assign_lexer_end;
+         stream_rollback(stream);
+         return NULL;
       }
    }
 
@@ -147,7 +212,6 @@ Token *assign_lexer(Stream *stream) {
       return token_create(ASSIGN, "=");
    }
 
-assign_lexer_end:
    stream_rollback(stream);
    return NULL;
 }

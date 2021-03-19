@@ -22,15 +22,16 @@ Token *lex(Stream *stream) {
          Token *token = (*lexer)(stream);
 
          if(token) {
+            last_token->next = token;
+            last_token = token;
+            has_token = 1;
+
             if(token->type == ERROR) {
-               printf("%s\n", token->value);
+               fprintf(stderr, "%s\n", token->value);
                token_delete(head_token.next);
                return NULL;
-            } else {
-               last_token->next = token;
-               last_token = token;
-               has_token = 1;
             }
+
             break;
          }
       }
@@ -47,16 +48,20 @@ Token *lex(Stream *stream) {
 }
 
 Token *token_create(TokenType type, const char *value) {
-   Token *token = calloc(1, sizeof(Token));
-
-   token->type = type;
-
+   char *copied_value = NULL;
    if(value) {
       size_t len = strlen(value) + 1;
-      token->value = malloc(len);
-      memcpy(token->value, value, len);
+      copied_value = malloc(len);
+      memcpy(copied_value, value, len);
    }
 
+   return token_create_raw(type, copied_value);
+}
+
+Token *token_create_raw(TokenType type, char *value) {
+   Token *token = calloc(1, sizeof(Token));
+   token->type = type;
+   token->value = value;
    return token;
 }
 

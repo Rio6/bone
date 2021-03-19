@@ -3,6 +3,7 @@
 Lexer *lexers[] = {
    comment_lexer,
    number_lexer,
+   char_lexer,
    string_lexer,
    ident_lexer,
    sep_lexer,
