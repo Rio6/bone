@@ -1,5 +1,5 @@
-#include "lexer.h"
-#include "stream.h"
+#include "lexer/lexer.h"
+#include "utils/stream.h"
 
 #include <stdio.h>
 

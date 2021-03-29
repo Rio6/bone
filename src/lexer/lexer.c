@@ -1,9 +1,35 @@
 #include "lexer.h"
-#include "stream.h"
+#include "utils/stream.h"
 
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+
+const char *TokenType_names[] = {
+   "ERROR",
+   "IDENT",
+   "KEYWORD",
+   "INT",
+   "FLOAT",
+   "CHAR",
+   "STRING",
+   "COMMENT",
+   "BLOCK_L",
+   "BLOCK_R",
+   "PAREN_L",
+   "PAREN_R",
+   "LIST_L",
+   "LIST_R",
+   "DOT",
+   "COMMA",
+   "SEMICOLON",
+   "COLON",
+   "ASSIGN",
+   "OP",
+   "REF",
+   "DEREF",
+   "EOT",
+};
 
 Token *lex(Stream *stream) {
    Token head_token = {0};
@@ -25,21 +51,18 @@ Token *lex(Stream *stream) {
             last_token->next = token;
             last_token = token;
             has_token = 1;
-
-            if(token->type == ERROR) {
-               fprintf(stderr, "%s\n", token->value);
-               token_delete(head_token.next);
-               return NULL;
-            }
-
             break;
          }
       }
 
       if(!has_token) {
-         if(last_c != EOF) {
-            fprintf(stderr, "Unexpected character: %1$c (%1$X)\n", last_c);
-         }
+         char buff[128];
+         snprintf(buff, sizeof(buff), "Unexpected character: %1$c (%1$X)\n", last_c);
+         last_token->next = token_create(ERROR, buff);
+         last_token = last_token->next;
+      }
+
+      if(last_token->type == ERROR || last_token->type == EOT) {
          break;
       }
    }
@@ -76,31 +99,4 @@ void token_dump(Token *token) {
    if(!token) return;
    printf("type: %s, value: %s\n", TokenType_names[token->type], token->value);
    token_dump(token->next);
-}
-
-char *token_type_name(TokenType type) {
-   switch(type) {
-      case ERROR:   return "ERROR";
-      case IDENT:   return "IDENT";
-      case KEYWORD: return "KEYWORD";
-      case INT:     return "INT";
-      case FLOAT:   return "FLOAT";
-      case CHAR:    return "CHAR";
-      case STRING:  return "STRING";
-      case COMMENT: return "COMMENT";
-      case BLOCK_L: return "BLOCK_L";
-      case BLOCK_R: return "BLOCK_R";
-      case PAREN_L: return "PAREN_L";
-      case PAREN_R: return "PAREN_R";
-      case LIST_L:  return "LIST_L";
-      case LIST_R:  return "LIST_R";
-      case DOT:     return "DOT";
-      case COMMA:   return "COMMA";
-      case SEMICOLON: return "SEMICOLON";
-      case ASSIGN:  return "ASSIGN";
-      case OP:      return "OP";
-      case REF:     return "REF";
-      case DEREF:   return "DEREF";
-      default:      return "UNKNOWN";
-   }
 }

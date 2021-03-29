@@ -3,7 +3,7 @@ TESTBINS:=$(patsubst %.c, %.bin, $(TESTSRCS))
 TESTS:=$(patsubst %.c, %.test, $(TESTSRCS))
 
 SRCDIR=$(realpath ../src)
-SRCS:=$(filter-out ../src/main.c, $(wildcard $(SRCDIR)/**.c))
+SRCS:=$(filter-out ../src/main.c, $(shell find $(SRCDIR) -name '*.c'))
 
 CFLAGS:=-O0 -Wall -g -ggdb
 

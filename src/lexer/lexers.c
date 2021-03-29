@@ -1,13 +1,34 @@
 #include "lexer.h"
-#include "stream.h"
+#include "utils/stream.h"
 
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
-static const char * const keywords[] = {
-   "import", "struct", "if", "else", "switch", "case", "while", "for", "return",
+Lexer *lexers[] = {
+   comment_lexer,
+   number_lexer,
+   char_lexer,
+   string_lexer,
+   ident_lexer,
+   sep_lexer,
+   assign_lexer,
+   operator_lexer,
+   NULL,
 };
+
+static const char * const keywords[] = {
+   "import", "export", "struct", "if", "else", "switch", "case", "while", "for", "return",
+};
+
+static const char * const one_symbs[] = {
+   "+", "-", "*", "/", "%", "<", ">", "&", "|", "^" , "~",
+};
+
+static const char * const two_symbs[] = {
+   "<<", ">>", "==", "!=", "<=", ">=",
+};
+
 
 static int isident(char c) {
    return isalnum(c) || c == '_';
@@ -16,7 +37,7 @@ static int isident(char c) {
 Token *ident_lexer(Stream *stream) {
    stream_begins(stream);
 
-   if(isdigit(stream_peak(stream))) {
+   if(isdigit(stream_peek(stream))) {
       return NULL;
    }
 
@@ -40,12 +61,16 @@ Token *ident_lexer(Stream *stream) {
 
 Token *sep_lexer(Stream *stream) {
    switch(stream_getc(stream)) {
+      case EOF:
+         return token_create(EOT, NULL);
       case '.':
          return token_create(DOT, NULL);
       case ',':
          return token_create(COMMA, NULL);
       case ';':
          return token_create(SEMICOLON, NULL);
+      case ':':
+         return token_create(COLON, NULL);
       case '(':
          return token_create(PAREN_L, NULL);
       case ')':
@@ -63,9 +88,11 @@ Token *sep_lexer(Stream *stream) {
       case '#':
          return token_create(REF, NULL);
       default:
-         stream_ungetc(stream, 1);
-         return NULL;
+         break;
    }
+
+   stream_ungetc(stream, 1);
+   return NULL;
 }
 
 Token *number_lexer(Stream *stream) {
@@ -120,7 +147,7 @@ Token *char_lexer(Stream *stream) {
       stream_getc(stream);
    }
 
-   if(stream_peak(stream) != '\'') {
+   if(stream_peek(stream) != '\'') {
       return token_create(ERROR, "character literal has more than one character");
    }
 
@@ -208,7 +235,7 @@ Token *assign_lexer(Stream *stream) {
       }
    }
 
-   if(c == '=' && stream_peak(stream) != '=') {
+   if(c == '=' && stream_peek(stream) != '=') {
       return token_create(ASSIGN, "=");
    }
 
@@ -217,22 +244,26 @@ Token *assign_lexer(Stream *stream) {
 }
 
 Token *operator_lexer(Stream *stream) {
-   static const char *one_symbs[] = { "+", "-", "*", "/", "%", "<", ">", "&", "|", "^" , "~", NULL };
-   static const char *two_symbs[] = { "<<", ">>", "==", "!=", "<=", ">=", NULL };
-   static const char **symbs[] = { one_symbs, two_symbs };
-
-   const char *value = NULL;
-
    stream_begins(stream);
 
+   const char *value = NULL;
    char buff[3];
-   for(size_t i = 0; i < sizeof(symbs) / sizeof(symbs[0]); i++) {
-      stream_getc(stream);
-      for(const char **symb = symbs[i]; *symb != NULL; symb++) {
-         stream_ends(stream, buff, i+2);
-         if(strcmp(*symb, buff) == 0) {
-            value = *symb;
-         }
+
+   stream_getc(stream);
+   for(size_t i = 0; i < sizeof(one_symbs) / sizeof(one_symbs[0]); i++) {
+      stream_ends(stream, buff, i+2);
+      if(strcmp(one_symbs[i], buff) == 0) {
+         value = one_symbs[i];
+         break;
+      }
+   }
+
+   stream_getc(stream);
+   for(size_t i = 0; i < sizeof(two_symbs) / sizeof(two_symbs[0]); i++) {
+      stream_ends(stream, buff, i+2);
+      if(strcmp(two_symbs[i], buff) == 0) {
+         value = two_symbs[i];
+         break;
       }
    }
 

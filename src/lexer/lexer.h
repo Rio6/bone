@@ -1,6 +1,6 @@
 #pragma once
 
-#include "stream.h"
+#include "utils/stream.h"
 
 typedef enum {
    ERROR,
@@ -20,10 +20,12 @@ typedef enum {
    DOT,
    COMMA,
    SEMICOLON,
+   COLON,
    ASSIGN,
    OP,
    REF,
    DEREF,
+   EOT,
 } TokenType;
 
 typedef struct Token {

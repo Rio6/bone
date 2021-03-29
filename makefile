@@ -4,14 +4,14 @@ BUILDDIR:=build
 
 CFLAGS:=-O2 -Wall
 LIBS:=
-SRCS:=$(wildcard $(SRCDIR)/*.c)
-HDRS:=$(wildcard $(SRCDIR)/*.h)
+SRCS:=$(shell find $(SRCDIR) -name '*.c')
+HDRS:=$(wildcard find $(SRCIR) -name '*.h')
 OBJS:= $(patsubst $(SRCDIR)/%.c, $(BUILDDIR)/%.o, $(SRCS))
-TGT:=name
+TGT:=$(BUILDDIR)/bone
 TESTS:= $(patsubst $(TESTDIR)/%.c, $(BUILDDIR)/test/%, $(wildcard $(TESTDIR)/*.c))
 
 .PHONY: all
-all: $(BUILDDIR) $(TGT)
+all: $(TGT)
 
 .PHONY: test
 test:
@@ -21,10 +21,8 @@ $(TGT): $(OBJS)
 	$(CC) $(CFLAGS) $(LIBS) $(OBJS) -o $(TGT)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(BUILDDIR):
-	mkdir -p $(BUILDDIR)
+	mkdir -p $(@D)
+	$(CC) $(CFLAGS) -I$(SRCDIR) -c $< -o $@
 
 .PHONY: clean
 clean:
@@ -35,6 +33,6 @@ clean:
 depend: .depend
 
 .depend: $(SRCS) $(HDRS)
-	$(CC) $(CFLAGS) -MM $^ | sed 's|[a-zA-Z0-9_-]*\.o|$(BUILDDIR)/&|' > .depend
+	$(CC) $(CFLAGS) -I$(SRCDIR) -MM $^ | sed 's|[a-zA-Z0-9_-]*\.o|$(BUILDDIR)/&|' > .depend
 
 include .depend

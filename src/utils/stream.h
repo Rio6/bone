@@ -11,7 +11,7 @@ typedef struct {
 } Stream;
 
 char stream_getc(Stream*);
-char stream_peak(Stream*);
+char stream_peek(Stream*);
 char stream_ungetc(Stream*, size_t);
 void stream_begins(Stream*);
 char *stream_ends(Stream*, char*, size_t);

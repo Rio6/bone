@@ -16,7 +16,7 @@ char stream_getc(Stream *s) {
    }
 }
 
-char stream_peak(Stream *s) {
+char stream_peek(Stream *s) {
    if(s->ahead > 0) {
       return s->buff[s->pos];
    } else {
