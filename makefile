@@ -8,7 +8,6 @@ SRCS:=$(shell find $(SRCDIR) -name '*.c')
 HDRS:=$(wildcard find $(SRCIR) -name '*.h')
 OBJS:= $(patsubst $(SRCDIR)/%.c, $(BUILDDIR)/%.o, $(SRCS))
 TGT:=$(BUILDDIR)/bone
-TESTS:= $(patsubst $(TESTDIR)/%.c, $(BUILDDIR)/test/%, $(wildcard $(TESTDIR)/*.c))
 
 .PHONY: all
 all: $(TGT)

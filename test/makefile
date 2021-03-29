@@ -1,6 +1,9 @@
 TESTSRCS:=$(wildcard *.c)
-TESTBINS:=$(patsubst %.c, %.bin, $(TESTSRCS))
-TESTS:=$(patsubst %.c, %.test, $(TESTSRCS))
+BINS:=$(patsubst %.c, %.bin, $(TESTSRCS))
+OUTS:=$(patsubst %.c, %.out, $(TESTSRCS))
+TMPS:=$(patsubst %.c, %.tmp, $(TESTSRCS))
+PRINTS:=$(patsubst %.c, %.print, $(TESTSRCS))
+TESTS:=$(patsubst %.c, %, $(TESTSRCS))
 
 SRCDIR=$(realpath ../src)
 SRCS:=$(filter-out ../src/main.c, $(shell find $(SRCDIR) -name '*.c'))
@@ -10,17 +13,32 @@ CFLAGS:=-O0 -Wall -g -ggdb
 .PHONY: all
 all: $(TESTS)
 
-.SILENT: $(TESTS)
-%.test: %.bin
-	echo
-	echo " ==== $< ===="
-	./$<
-	echo
+.PHONY: generate
+generate: clean-outs $(OUTS)
 
-.SECONDARY: $(TESTBINS)
+.PHONY: print
+print: $(PRINTS)
+
+%: %.bin %.out
+	./$< > $*.tmp
+	diff $*.out $*.tmp
+
+.SILENT: $(PRINTS)
+%.print: %.bin
+	./$<
+
+.SECONDARY: $(OUTS)
+%.out: | %.bin
+	./$| > $@
+
+.SECONDARY: $(BINS)
 %.bin: %.c $(SRCS)
 	$(CC) $(CFLAGS) -I$(SRCDIR) $(SRCS) $< -o $@
 
 .PHONY: clean
 clean:
-	rm -rf $(TESTBINS)
+	rm -rf $(BINS) $(TMPS)
+
+.PHONY: clean-outs
+clean-outs:
+	rm -rf $(OUTS)
