@@ -24,7 +24,6 @@ const char *TokenType_names[] = {
    "COMMA",
    "SEMICOLON",
    "COLON",
-   "ASSIGN",
    "OP",
    "REF",
    "DEREF",

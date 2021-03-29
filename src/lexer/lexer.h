@@ -21,7 +21,6 @@ typedef enum {
    COMMA,
    SEMICOLON,
    COLON,
-   ASSIGN,
    OP,
    REF,
    DEREF,
@@ -54,5 +53,4 @@ Token *number_lexer(Stream*);
 Token *char_lexer(Stream*);
 Token *string_lexer(Stream*);
 Token *comment_lexer(Stream*);
-Token *assign_lexer(Stream*);
 Token *operator_lexer(Stream*);

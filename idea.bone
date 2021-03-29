@@ -61,7 +61,7 @@ void normalFunction() {
 i32 main() {
    i32 a = 10;
    while(a < 0) {
-      a -= 1;
+      a <<= 1;
    }
 
    for(i32 i = 0; i < 100; i += 1) {

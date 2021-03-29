@@ -12,7 +12,6 @@ Lexer *lexers[] = {
    string_lexer,
    ident_lexer,
    sep_lexer,
-   assign_lexer,
    operator_lexer,
    NULL,
 };
@@ -21,12 +20,10 @@ static const char * const keywords[] = {
    "import", "export", "struct", "if", "else", "switch", "case", "while", "for", "return",
 };
 
-static const char * const one_symbs[] = {
-   "+", "-", "*", "/", "%", "<", ">", "&", "|", "^" , "~",
-};
-
-static const char * const two_symbs[] = {
-   "<<", ">>", "==", "!=", "<=", ">=",
+static const char * const operators[] = {
+   "+", "-", "*", "/", "%", "<", ">", "&", "|", "^" , "~", "=",
+   "<<", ">>", "==", "!=", "<=", ">=", "+=", "-=", "*=", "/=", "%=", "&=", "|=", "^=",
+   "<<=", ">>=",
 };
 
 
@@ -148,7 +145,7 @@ Token *char_lexer(Stream *stream) {
    }
 
    if(stream_peek(stream) != '\'') {
-      return token_create(ERROR, "character literal has more than one character");
+      return token_create(ERROR, "character literal can only have one character");
    }
 
    char buff[3];
@@ -223,49 +220,30 @@ Token *comment_lexer(Stream *stream) {
    return NULL;
 }
 
-Token *assign_lexer(Stream *stream) {
-   stream_begins(stream);
-
-   static const char not_assign[] = { '<', '>', '!' }; // <=, >=, != are not assignments. == is handled later
-   char c = stream_getc(stream);
-   for(size_t i = 0; i < sizeof(not_assign); i++) {
-      if(not_assign[i] == c) {
-         stream_rollback(stream);
-         return NULL;
-      }
-   }
-
-   if(c == '=' && stream_peek(stream) != '=') {
-      return token_create(ASSIGN, "=");
-   }
-
-   stream_rollback(stream);
-   return NULL;
-}
-
 Token *operator_lexer(Stream *stream) {
    stream_begins(stream);
 
    const char *value = NULL;
-   char buff[3];
+   int read = 0;
 
-   stream_getc(stream);
-   for(size_t i = 0; i < sizeof(one_symbs) / sizeof(one_symbs[0]); i++) {
+   for(size_t i = 0; i < sizeof(operators) / sizeof(operators[0]); i++) {
+      size_t op_len = strlen(operators[i]);
+      while(read < op_len) {
+         stream_getc(stream);
+         read++;
+      }
+
+      char buff[4];
       stream_ends(stream, buff, i+2);
-      if(strcmp(one_symbs[i], buff) == 0) {
-         value = one_symbs[i];
-         break;
+
+      if(strncmp(operators[i], buff, op_len) == 0) {
+         if(op_len == read) {
+            value = operators[i];
+         }
       }
    }
 
-   stream_getc(stream);
-   for(size_t i = 0; i < sizeof(two_symbs) / sizeof(two_symbs[0]); i++) {
-      stream_ends(stream, buff, i+2);
-      if(strcmp(two_symbs[i], buff) == 0) {
-         value = two_symbs[i];
-         break;
-      }
-   }
+   stream_ungetc(stream, read - strlen(value));
 
    if(value != NULL) {
       return token_create(OP, value);
