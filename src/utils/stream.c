@@ -26,6 +26,13 @@ char stream_peek(Stream *s) {
    }
 }
 
+char stream_lastc(Stream *s) {
+   if(s->pos > 0)
+      return s->buff[s->pos - 1];
+   else
+      return s->buff[sizeof(s->buff) - 1];
+}
+
 char stream_ungetc(Stream *s, size_t count) {
    s->pos = (s->pos - count + sizeof(s->buff)) % sizeof(s->buff); // s->pos - count, but with modular math
    s->ahead += count;

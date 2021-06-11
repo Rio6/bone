@@ -101,7 +101,7 @@ type: LIST_L, value: (null)
 type: LIST_R, value: (null)
 type: IDENT, value: array
 type: OP, value: =
-type: BLOCK_L, value: (null)
+type: LIST_L, value: (null)
 type: INT, value: 1
 type: COMMA, value: (null)
 type: INT, value: 2
@@ -109,7 +109,7 @@ type: COMMA, value: (null)
 type: INT, value: 3
 type: COMMA, value: (null)
 type: INT, value: 4
-type: BLOCK_R, value: (null)
+type: LIST_R, value: (null)
 type: SEMICOLON, value: (null)
 type: IDENT, value: i32
 type: LIST_L, value: (null)
@@ -119,7 +119,7 @@ type: OP, value: =
 type: IDENT, value: i32
 type: LIST_L, value: (null)
 type: LIST_R, value: (null)
-type: BLOCK_L, value: (null)
+type: LIST_L, value: (null)
 type: INT, value: 1
 type: COMMA, value: (null)
 type: INT, value: 2
@@ -127,7 +127,7 @@ type: COMMA, value: (null)
 type: INT, value: 3
 type: COMMA, value: (null)
 type: INT, value: 4
-type: BLOCK_R, value: (null)
+type: LIST_R, value: (null)
 type: SEMICOLON, value: (null)
 type: IDENT, value: i32
 type: LIST_L, value: (null)
@@ -135,22 +135,16 @@ type: LIST_R, value: (null)
 type: REF, value: (null)
 type: IDENT, value: ptrToArray
 type: OP, value: =
-type: BLOCK_L, value: (null)
-type: INT, value: 1
-type: COMMA, value: (null)
-type: INT, value: 2
-type: COMMA, value: (null)
-type: INT, value: 3
-type: COMMA, value: (null)
-type: INT, value: 4
-type: BLOCK_R, value: (null)
+type: REF, value: (null)
+type: IDENT, value: array
 type: SEMICOLON, value: (null)
-type: COMMENT, value: (null)
 type: IDENT, value: i32
 type: REF, value: (null)
 type: LIST_L, value: (null)
 type: LIST_R, value: (null)
 type: IDENT, value: arrayOfPtr
+type: OP, value: =
+type: IDENT, value: null
 type: SEMICOLON, value: (null)
 type: IDENT, value: i32
 type: PAREN_L, value: (null)
@@ -159,33 +153,6 @@ type: PAREN_R, value: (null)
 type: REF, value: (null)
 type: IDENT, value: ptrToFuncReturnsI32
 type: SEMICOLON, value: (null)
-type: PAREN_L, value: (null)
-type: IDENT, value: u16
-type: PAREN_R, value: (null)
-type: REF, value: (null)
-type: IDENT, value: ptrToConst
-type: SEMICOLON, value: (null)
-type: IDENT, value: u16
-type: PAREN_L, value: (null)
-type: REF, value: (null)
-type: PAREN_R, value: (null)
-type: IDENT, value: constPtr
-type: SEMICOLON, value: (null)
-type: PAREN_L, value: (null)
-type: IDENT, value: u16
-type: REF, value: (null)
-type: PAREN_R, value: (null)
-type: IDENT, value: constPtrToConst
-type: SEMICOLON, value: (null)
-type: PAREN_L, value: (null)
-type: IDENT, value: u16
-type: PAREN_R, value: (null)
-type: PAREN_L, value: (null)
-type: REF, value: (null)
-type: PAREN_R, value: (null)
-type: IDENT, value: same
-type: SEMICOLON, value: (null)
-type: COMMENT, value: (null)
 type: COMMENT, value: (null)
 type: IDENT, value: char
 type: IDENT, value: aFunction
@@ -420,16 +387,14 @@ type: LIST_L, value: (null)
 type: LIST_R, value: (null)
 type: IDENT, value: string
 type: OP, value: =
-type: STRING, value: string $#%$^%$^$^
+type: STRING, value: string $#%$^%$^$ \" escape^
 type: SEMICOLON, value: (null)
 type: IDENT, value: char
 type: LIST_L, value: (null)
 type: LIST_R, value: (null)
 type: IDENT, value: string1
 type: OP, value: =
-type: STRING, value: concat string
-type: STRING, value: is
-type: STRING, value: here
+type: STRING, value: concat stringishere
 type: SEMICOLON, value: (null)
 type: IDENT, value: char
 type: LIST_L, value: (null)

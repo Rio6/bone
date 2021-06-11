@@ -26,6 +26,7 @@ typedef enum {
    DEREF,
    EOT,
 } TokenType;
+extern const char *TokenType_names[];
 
 typedef struct Token {
    TokenType type;
@@ -36,7 +37,6 @@ typedef struct Token {
 typedef Token *(Lexer)(Stream *stream);
 
 extern Lexer *lexers[];
-extern const char *TokenType_names[];
 
 Token *lex(Stream *stream);
 

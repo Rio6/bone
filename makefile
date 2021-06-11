@@ -16,6 +16,10 @@ all: $(TGT)
 test:
 	$(MAKE) -C $(TESTDIR)
 
+.PHONY: print-test
+print-test:
+	$(MAKE) -C $(TESTDIR) print
+
 $(TGT): $(OBJS)
 	$(CC) $(CFLAGS) $(LIBS) $(OBJS) -o $(TGT)
 

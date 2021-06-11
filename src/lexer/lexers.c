@@ -175,18 +175,25 @@ Token *string_lexer(Stream *stream) {
       for(int j = 0; j < batch_size; j++) {
          char c = stream_getc(stream);
          if(c == '\\') {
-            continue;
-         }
-         if(c == '"') {
+            stream_getc(stream); // TODO escape
+         } else if(c == '"') {
             finished = 1;
             break;
          }
       }
 
+      // Append to buff, shift left by one to overwrite previous \0 (thus have extra 1 byte for next \0)
       stream_ends(stream, mbuff + mbuff_size - batch_size - 1, batch_size + 1);
 
       if(finished) {
-         break;
+         while(isspace(stream_getc(stream)));
+         if(stream_lastc(stream) == '"') {
+            // Consecutive string literals, continuing
+            mbuff_size = strlen(mbuff);
+         } else {
+            stream_ungetc(stream, 1);
+            break;
+         }
       }
    }
 
