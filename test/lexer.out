@@ -101,7 +101,7 @@ type: LIST_L, value: (null)
 type: LIST_R, value: (null)
 type: IDENT, value: array
 type: OP, value: =
-type: LIST_L, value: (null)
+type: BLOCK_L, value: (null)
 type: INT, value: 1
 type: COMMA, value: (null)
 type: INT, value: 2
@@ -109,7 +109,7 @@ type: COMMA, value: (null)
 type: INT, value: 3
 type: COMMA, value: (null)
 type: INT, value: 4
-type: LIST_R, value: (null)
+type: BLOCK_R, value: (null)
 type: SEMICOLON, value: (null)
 type: IDENT, value: i32
 type: LIST_L, value: (null)
@@ -119,7 +119,7 @@ type: OP, value: =
 type: IDENT, value: i32
 type: LIST_L, value: (null)
 type: LIST_R, value: (null)
-type: LIST_L, value: (null)
+type: BLOCK_L, value: (null)
 type: INT, value: 1
 type: COMMA, value: (null)
 type: INT, value: 2
@@ -127,7 +127,7 @@ type: COMMA, value: (null)
 type: INT, value: 3
 type: COMMA, value: (null)
 type: INT, value: 4
-type: LIST_R, value: (null)
+type: BLOCK_R, value: (null)
 type: SEMICOLON, value: (null)
 type: IDENT, value: i32
 type: LIST_L, value: (null)
@@ -155,7 +155,6 @@ type: IDENT, value: ptrToFuncReturnsI32
 type: SEMICOLON, value: (null)
 type: COMMENT, value: (null)
 type: IDENT, value: char
-type: IDENT, value: aFunction
 type: PAREN_L, value: (null)
 type: IDENT, value: A
 type: IDENT, value: byValue
@@ -175,6 +174,8 @@ type: LIST_R, value: (null)
 type: REF, value: (null)
 type: IDENT, value: byReferenceOfArray
 type: PAREN_R, value: (null)
+type: IDENT, value: aFunction
+type: OP, value: =
 type: BLOCK_L, value: (null)
 type: KEYWORD, value: if
 type: PAREN_L, value: (null)
@@ -225,10 +226,13 @@ type: CHAR, value: x
 type: SEMICOLON, value: (null)
 type: BLOCK_R, value: (null)
 type: IDENT, value: void
-type: IDENT, value: normalFunction
 type: PAREN_L, value: (null)
 type: PAREN_R, value: (null)
+type: IDENT, value: normalFunction
+type: OP, value: =
 type: BLOCK_L, value: (null)
+type: IDENT, value: io
+type: DOT, value: (null)
 type: IDENT, value: print
 type: PAREN_L, value: (null)
 type: IDENT, value: stuff
@@ -236,9 +240,9 @@ type: PAREN_R, value: (null)
 type: SEMICOLON, value: (null)
 type: BLOCK_R, value: (null)
 type: IDENT, value: i32
-type: IDENT, value: main
 type: PAREN_L, value: (null)
 type: PAREN_R, value: (null)
+type: OP, value: =
 type: BLOCK_L, value: (null)
 type: IDENT, value: i32
 type: IDENT, value: a
@@ -297,8 +301,6 @@ type: BLOCK_R, value: (null)
 type: IDENT, value: f32
 type: IDENT, value: f
 type: OP, value: =
-type: IDENT, value: math
-type: DOT, value: (null)
 type: IDENT, value: sqrt
 type: PAREN_L, value: (null)
 type: INT, value: 2
@@ -307,8 +309,6 @@ type: SEMICOLON, value: (null)
 type: IDENT, value: f32
 type: IDENT, value: g
 type: OP, value: =
-type: IDENT, value: math
-type: DOT, value: (null)
 type: IDENT, value: sqrt
 type: PAREN_L, value: (null)
 type: FLOAT, value: 2.5e

@@ -20,8 +20,8 @@ export struct A {
 }
 
 i32# aPtr;
-i32[] array = [1, 2, 3, 4];
-i32[] arrayAgain = i32[] [1, 2, 3, 4];
+i32[] array = {1, 2, 3, 4};
+i32[] arrayAgain = i32[] {1, 2, 3, 4};
 i32[]# ptrToArray = #array;
 i32#[] arrayOfPtr = null;
 i32(char)# ptrToFuncReturnsI32;
@@ -30,7 +30,7 @@ i32(char)# ptrToFuncReturnsI32;
  * yeah, comments
  */
 
-char aFunction(A byValue, A# byPointer, A[] byValue, A[]# byReferenceOfArray) {
+char (A byValue, A# byPointer, A[] byValue, A[]# byReferenceOfArray) aFunction = {
    if(byValue.a == byPointer.b) { // . auto derefs
       return byPointer.c;
    }
@@ -47,11 +47,11 @@ char aFunction(A byValue, A# byPointer, A[] byValue, A[]# byReferenceOfArray) {
    return 'x';
 }
 
-void normalFunction() {
-   print(stuff);
+void () normalFunction = {
+   io.print(stuff);
 }
 
-i32 main() {
+i32 () = {
    i32 a = 10;
    while(a < 0) {
       a <<= 1;
@@ -67,8 +67,8 @@ i32 main() {
       }
    }
 
-   f32 f = math.sqrt(2);
-   f32 g = math.sqrt(2.5e-4);
+   f32 f = sqrt(2);
+   f32 g = sqrt(2.5e-4);
 
    if(true)
       if(a == 10)
