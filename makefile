@@ -2,8 +2,10 @@ SRCDIR:=src
 TESTDIR:=test
 BUILDDIR:=build
 
-CFLAGS:=-O2 -Wall
+CFLAGS+=-O2 -Wall
+INCLUDES=-I $(SRCDIR)
 LIBS:=
+
 SRCS:=$(shell find $(SRCDIR) -name '*.c')
 HDRS:=$(wildcard find $(SRCIR) -name '*.h')
 OBJS:= $(patsubst $(SRCDIR)/%.c, $(BUILDDIR)/%.o, $(SRCS))
@@ -21,7 +23,7 @@ print-test:
 	$(MAKE) -C $(TESTDIR) print
 
 $(TGT): $(OBJS)
-	$(CC) $(CFLAGS) $(LIBS) $(OBJS) -o $(TGT)
+	$(CC) $(CFLAGS) $(INCLUDES) $(LIBS) $(OBJS) -o $(TGT)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.c
 	mkdir -p $(@D)
