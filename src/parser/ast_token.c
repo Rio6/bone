@@ -13,6 +13,8 @@ static void parse(ASTNode *node, ASTParser *parser) {
 
 static void dump(ASTNode *node, unsigned indent) {
    ASTToken *ast_token = (ASTToken*) node;
+
+   print_indent(indent);
    printf("%s: %s\n", ASTType_names[node->type], TokenType_names[ast_token->token->type]);
 
    if(node->next) {
@@ -42,6 +44,7 @@ ASTToken *ast_token_from_tokens(Token *token) {
       tail->node.next->prev = (ASTNode*) tail;
       tail = (ASTToken*) tail->node.next;
 
+      tail->node.type = TOKEN;
       tail->node.parse = parse;
       tail->node.dump = dump;
       tail->node.delete = delete;

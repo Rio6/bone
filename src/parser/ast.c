@@ -1,5 +1,7 @@
 #include "ast.h"
 
+#include <stdio.h>
+
 const char *ASTType_names[] = {
    "ATOM",
    "UNARY",
@@ -9,9 +11,23 @@ const char *ASTType_names[] = {
    "TOKEN",
 };
 
+void print_indent(unsigned indent) {
+   for(unsigned i = 0; i < indent; i++) {
+      fputs("  ", stdout);
+   }
+}
+
 void ast_replace(ASTNode *node, ASTNode *prev, ASTNode *next) {
-   prev->next = node;
-   next->prev = node;
+   if(prev) {
+      if(prev->next) prev->next->prev = NULL;
+      prev->next = node;
+   }
+
+   if(next) {
+      if(next->prev) next->prev->next = NULL;
+      next->prev = node;
+   }
+
    node->prev = prev;
    node->next = next;
 }

@@ -24,5 +24,6 @@ struct ASTNode {
    void (*delete)(ASTNode*);
 };
 
+void print_indent(unsigned);
 void ast_replace(ASTNode *node, ASTNode *prev, ASTNode *next);
 ASTNode *ast_root(ASTNode*);
