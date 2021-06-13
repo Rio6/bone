@@ -3,7 +3,7 @@
 #include "ast.h"
 #include "lexer/token.h"
 
-typedef struct {
+typedef struct ASTToken {
    ASTNode node;
    Token *token; // owner
 } ASTToken;

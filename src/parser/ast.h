@@ -1,5 +1,7 @@
 #pragma once
 
+#include "parser.h"
+
 typedef enum {
    ATOM,
    UNARY,
@@ -11,8 +13,6 @@ typedef enum {
 extern const char *ASTType_names[];
 
 typedef struct ASTNode ASTNode;
-typedef void (ASTParser)(ASTNode*);
-
 struct ASTNode {
    ASTType type;
    ASTNode *up;

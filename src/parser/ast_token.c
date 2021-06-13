@@ -5,8 +5,10 @@
 #include <stdlib.h>
 
 static void parse(ASTNode *node, ASTParser *parser) {
-   parser(node);
-   if(node->next) {
+   ASTNode *new_node = parser((ASTToken*) node);
+   if(new_node && new_node != node) {
+      CALL_METHOD(parse, new_node, parser);
+   } else if(node->next) {
       CALL_METHOD(parse, node->next, parser);
    }
 }

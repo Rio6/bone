@@ -17,4 +17,4 @@ typedef struct {
 } ASTGroup;
 
 ASTGroup *ast_group_create(ASTGroupType, ASTNode*);
-void group_parser(ASTNode*);
+ASTNode *group_parser(ASTToken*);

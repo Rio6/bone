@@ -18,16 +18,8 @@ void print_indent(unsigned indent) {
 }
 
 void ast_replace(ASTNode *node, ASTNode *prev, ASTNode *next) {
-   if(prev) {
-      if(prev->next) prev->next->prev = NULL;
-      prev->next = node;
-   }
-
-   if(next) {
-      if(next->prev) next->prev->next = NULL;
-      next->prev = node;
-   }
-
+   if(prev) prev->next = node;
+   if(next) next->prev = node;
    node->prev = prev;
    node->next = next;
 }

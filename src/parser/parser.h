@@ -1,7 +1,12 @@
 #pragma once
 
-#include "ast.h"
 #include "lexer/token.h"
+
+// Forward typedef
+typedef struct ASTToken ASTToken;
+typedef struct ASTNode ASTNode;
+
+typedef ASTNode *(ASTParser)(ASTToken*);
 
 extern ASTParser *parsers[];
 

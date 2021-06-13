@@ -68,32 +68,40 @@ static void dump(ASTNode *node, unsigned indent) {
 
 ASTGroup *ast_group_create(ASTGroupType type, ASTNode *content) {
    ASTGroup *group = calloc(1, sizeof(ASTGroup));
-   group->type = type;
-   group->content = content;
+
    group->node.type = GROUP;
    group->node.parse = parse;
    group->node.dump = dump;
    group->node.delete = delete;
-   content->up = (ASTNode*) group;
+
+   group->type = type;
+   group->content = content;
+
+   if(content) {
+      content->up = (ASTNode*) group;
+      content->prev = NULL;
+   }
+
    return group;
 }
 
-void group_parser(ASTNode *node) {
-   if(node->type != TOKEN) return;
-
-   ASTToken *ast_token = (ASTToken*) node;
+ASTNode *group_parser(ASTToken *ast_token) {
+   // See if token is start of a group
    const GroupBoundary *group_boundary = NULL;
-
    for(size_t i = 0; i < sizeof(group_boundaries) / sizeof(group_boundaries[0]); i++) {
-      if(ast_token->token->type == group_boundaries[i].open) {
+      TokenType type = ast_token->token->type;
+      if(type == group_boundaries[i].open) {
          group_boundary = &group_boundaries[i];
          break;
+      } else if(type == group_boundaries[i].close) {
+         return NULL; // TODO  error
       }
    }
 
-   if(!group_boundary) return;
+   if(!group_boundary) return NULL;
 
-   ASTNode *tail = node;
+   // Loop until the end of the group
+   ASTNode *tail = &ast_token->node;
 
    int level = 0;
    while((tail = tail->next)) {
@@ -111,8 +119,18 @@ void group_parser(ASTNode *node) {
       }
    }
 
-   if(!tail) return; // TODO error
+   if(!tail) return NULL; // TODO error
 
-   ASTGroup *group = ast_group_create(group_boundary->type, node->next);
-   ast_replace(&group->node, node, tail->next);
+   if(tail->prev) tail->prev->next = NULL;
+
+   ASTGroup *group = ast_group_create(group_boundary->type, ast_token->node.next);
+   ast_replace(&group->node, ast_token->node.prev, tail->next);
+
+   ast_token->node.next = NULL;
+   CALL_METHOD(delete, &ast_token->node);
+
+   tail->next = NULL;
+   CALL_METHOD(delete, tail);
+
+   return &group->node;
 }
