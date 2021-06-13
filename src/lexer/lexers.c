@@ -1,26 +1,16 @@
 #include "lexer.h"
+#include "token.h"
 #include "utils/stream.h"
 
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
-Lexer *lexers[] = {
-   comment_lexer,
-   number_lexer,
-   char_lexer,
-   string_lexer,
-   ident_lexer,
-   sep_lexer,
-   operator_lexer,
-   NULL,
-};
-
 static const char * const keywords[] = {
    "import", "export", "struct", "if", "else", "switch", "case", "while", "for", "return",
 };
 
-static const char * const operators[] = {
+static const char * const operators[] = { // NOTE: sorted by length
    "+", "-", "*", "/", "%", "<", ">", "&", "|", "^" , "~", "=",
    "<<", ">>", "==", "!=", "<=", ">=", "+=", "-=", "*=", "/=", "%=", "&=", "|=", "^=",
    "<<=", ">>=",
@@ -258,3 +248,14 @@ Token *operator_lexer(Stream *stream) {
 
    return NULL;
 }
+
+Lexer *lexers[] = {
+   comment_lexer,
+   number_lexer,
+   char_lexer,
+   string_lexer,
+   ident_lexer,
+   sep_lexer,
+   operator_lexer,
+   NULL,
+};

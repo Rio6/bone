@@ -1,29 +1,8 @@
 #pragma once
 
-typedef enum {
-   ATOM,
-   UNARY,
-   BINARY,
-   TENARY,
-   GROUP,
-   TOKEN,
-} ASTType;
-extern const char *ASTType_names[];
+#include "ast.h"
+#include "lexer/token.h"
 
-typedef struct ASTNode {
-   ASTType type;
-   ASTNode *up;
-   ASTNode *prev;
-   ASTNode *next;
+extern ASTParser *parsers[];
 
-   void (print*)(ASTNode*);
-   void (parse*)(ASTNode*, ASTParser);
-   void (delete*)(ASTNode*);
-} ASTNode;
-
-typedef void (ASTParser*)(ASTNode*);
-typedef ASTNode *(Parser*)(Token*);
-
-extern Parser *parsers[];
-
-void ast_replace(ASTNode *node, ASTNode *prev, ASTNode next);
+ASTNode *parser_run(Token*);

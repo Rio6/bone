@@ -7,7 +7,7 @@ INCLUDES=-I $(SRCDIR)
 LIBS:=
 
 SRCS:=$(shell find $(SRCDIR) -name '*.c')
-HDRS:=$(wildcard find $(SRCIR) -name '*.h')
+HDRS:=$(shell find $(SRCDIR) -name '*.h')
 OBJS:= $(patsubst $(SRCDIR)/%.c, $(BUILDDIR)/%.o, $(SRCS))
 TGT:=$(BUILDDIR)/bone
 

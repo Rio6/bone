@@ -1,5 +1,10 @@
 #include "lexer/lexer.h"
+
+#include "parser/ast.h"
+#include "parser/parser.h"
+
 #include "utils/stream.h"
+#include "utils/oop.h"
 
 #include <stdio.h>
 
@@ -19,8 +24,12 @@ int main() {
 
    Token *tokens = lexer_run(&stream);
    fclose(file);
-   token_dump(tokens);
-   token_delete(tokens);
+
+   ASTNode *ast = parser_run(tokens);
+
+   CALL_METHOD(dump, ast, 0);
+   CALL_METHOD(delete, ast);
 
    return 0;
 }
+
