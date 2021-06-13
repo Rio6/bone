@@ -17,13 +17,6 @@ void print_indent(unsigned indent) {
    }
 }
 
-void ast_replace(ASTNode *node, ASTNode *prev, ASTNode *next) {
-   if(prev) prev->next = node;
-   if(next) next->prev = node;
-   node->prev = prev;
-   node->next = next;
-}
-
 ASTNode *ast_root(ASTNode *node) {
    while(node->up) node = node->up;
    return node;

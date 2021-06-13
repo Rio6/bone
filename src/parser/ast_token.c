@@ -4,13 +4,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static void parse(ASTNode *node, ASTParser *parser) {
+static ASTNode *parse(ASTNode *node, ASTParser *parser) {
    ASTNode *new_node = parser((ASTToken*) node);
+
    if(new_node && new_node != node) {
-      CALL_METHOD(parse, new_node, parser);
-   } else if(node->next) {
-      CALL_METHOD(parse, node->next, parser);
+      return CALL_METHOD(parse, new_node, parser);
    }
+
+   if(node->next) {
+      node->next = CALL_METHOD(parse, node->next, parser);
+   }
+
+   return node;
 }
 
 static void dump(ASTNode *node, unsigned indent) {
@@ -25,6 +30,8 @@ static void dump(ASTNode *node, unsigned indent) {
 }
 
 static void delete(ASTNode *node) {
+   if(!node) return;
+
    ASTToken *ast_token = (ASTToken*) node;
    token_delete(ast_token->token);
 

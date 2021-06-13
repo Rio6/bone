@@ -27,27 +27,32 @@ const char *ASTGroupType_names[] = {
    "BLOCK",
 };
 
-static void parse(ASTNode *node, ASTParser *parser) {
+static ASTNode *parse(ASTNode *node, ASTParser *parser) {
    ASTGroup *group = (ASTGroup*) node;
 
    if(group->content) {
-      CALL_METHOD(parse, group->content, parser);
-      if(group->content->up != node) {
+      ASTNode *new_content = CALL_METHOD(parse, group->content, parser);
+      if(new_content->up != node) {
          // AST rearranged, re-find root
-         group->content = ast_root(group->content);
+         group->content = ast_root(new_content);
          group->content->up = node;
       }
    }
 
    if(node->next) {
-      CALL_METHOD(parse, node->next, parser);
+      node->next = CALL_METHOD(parse, node->next, parser);
    }
+
+   return node;
 }
 
 static void delete(ASTNode *node) {
+   if(!node) return;
+
    ASTGroup *group = (ASTGroup*) node;
    if(node->next) CALL_METHOD(delete, node->next);
    if(group->content) CALL_METHOD(delete, group->content);
+
    free(group);
 }
 
@@ -124,12 +129,16 @@ ASTNode *group_parser(ASTToken *ast_token) {
    if(tail->prev) tail->prev->next = NULL;
 
    ASTGroup *group = ast_group_create(group_boundary->type, ast_token->node.next);
-   ast_replace(&group->node, ast_token->node.prev, tail->next);
+
+   if(tail->next) {
+      group->node.next = tail->next;
+      tail->next->prev = &group->node;
+   }
 
    ast_token->node.next = NULL;
-   CALL_METHOD(delete, &ast_token->node);
-
    tail->next = NULL;
+
+   CALL_METHOD(delete, &ast_token->node);
    CALL_METHOD(delete, tail);
 
    return &group->node;

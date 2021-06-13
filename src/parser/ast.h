@@ -19,11 +19,10 @@ struct ASTNode {
    ASTNode *prev;
    ASTNode *next;
 
-   void (*parse)(ASTNode*, ASTParser*);
+   ASTNode *(*parse)(ASTNode*, ASTParser*);
    void (*dump)(ASTNode*, unsigned indent);
    void (*delete)(ASTNode*);
 };
 
 void print_indent(unsigned);
-void ast_replace(ASTNode *node, ASTNode *prev, ASTNode *next);
 ASTNode *ast_root(ASTNode*);
