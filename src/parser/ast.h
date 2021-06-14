@@ -29,3 +29,6 @@ struct ASTNode {
 
 void print_indent(unsigned);
 ASTNode *ast_root(ASTNode*);
+
+// Chop the head, return the new head. Optionally relink the new head to prev
+ASTNode *ast_chop(ASTNode *ast, ASTNode *prev);

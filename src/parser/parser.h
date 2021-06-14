@@ -11,3 +11,5 @@ typedef ASTNode *(ASTParser)(ASTToken*);
 extern ASTParser **parsers[];
 
 ASTNode *parser_run(Token*);
+
+ASTNode *comment_parser(ASTToken*);

@@ -24,3 +24,8 @@ ASTNode *parser_run(Token *tokens) {
 
    return ast;
 }
+
+ASTNode *comment_parser(ASTToken *token) {
+   if(token->token->type != COMMENT) return NULL;
+   return ast_chop(&token->node, NULL);
+}

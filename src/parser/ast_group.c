@@ -133,19 +133,16 @@ ASTNode *group_parser(ASTToken *ast_token) {
    // Set the end of group's content to be the before the close bracket
    if(tail->prev) tail->prev->next = NULL;
 
-   ASTGroup *group = ast_group_create(group_boundary->type, head->next);
+   head = ast_chop(head, NULL);
+   tail = ast_chop(tail, NULL);
+
+   ASTGroup *group = ast_group_create(group_boundary->type, head);
 
    // Move the nodes after close bracket to be after group
-   if(tail->next) {
-      group->node.next = tail->next;
-      tail->next->prev = &group->node;
+   if(tail) {
+      group->node.next = tail;
+      tail->prev = &group->node;
    }
-
-   // Isolate and delete open and close brackets
-   head->next = NULL;
-   tail->next = NULL;
-   CALL_METHOD(delete, head);
-   CALL_METHOD(delete, tail);
 
    return &group->node;
 }

@@ -62,12 +62,8 @@ ASTNode *atom_parser(ASTToken *token) {
          {
             ASTAtom *atom = ast_atom_create(token->token);
 
-            atom->node.next = token->node.next;
-            if(token->node.next) token->node.next->prev = &atom->node;
-
-            token->node.next = NULL;
-            token->token = NULL;
-            CALL_METHOD(delete, &token->node);
+            token->token = NULL; // take ownership
+            atom->node.next = ast_chop(&token->node, &atom->node);
 
             return &atom->node;
          }
