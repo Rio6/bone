@@ -6,6 +6,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+static TokenType atom_tokens[] = {
+   IDENT,
+   KEYWORD,
+   INT,
+   FLOAT,
+   CHAR,
+   STRING,
+};
+
 static ASTNode *parse(ASTNode *node, ASTParser **parsers) {
    if(node->next) {
       node->next = CALL_METHOD(parse, node->next, parsers);
@@ -52,22 +61,13 @@ ASTAtom *ast_atom_create(Token *token) {
 }
 
 ASTNode *atom_parser(ASTToken *token) {
-   switch(token->token->type) {
-      case IDENT:
-      case KEYWORD:
-      case INT:
-      case FLOAT:
-      case CHAR:
-      case STRING:
-         {
-            ASTAtom *atom = ast_atom_create(token->token);
-
-            token->token = NULL; // take ownership
-            atom->node.next = ast_chop(&token->node, &atom->node);
-
-            return &atom->node;
-         }
-      default:
-         return NULL;
+   for(size_t i = 0; i < sizeof(atom_tokens) / sizeof(atom_tokens[0]); i++) {
+      if(token->token->type == atom_tokens[i]) {
+         ASTAtom *atom = ast_atom_create(token->token);
+         token->token = NULL; // take ownership
+         atom->node.next = ast_chop(&token->node, &atom->node);
+         return &atom->node;
+      }
    }
+   return NULL;
 }
