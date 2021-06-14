@@ -5,7 +5,8 @@
 typedef enum {
    AST_ERROR,
    ATOM,
-   UNARY,
+   PREFIX,
+   POSTFIX,
    BINARY,
    TENARY,
    GROUP,

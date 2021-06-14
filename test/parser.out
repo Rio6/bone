@@ -25,67 +25,67 @@ ATOM: type: KEYWORD, value: export
 ATOM: type: KEYWORD, value: struct
 ATOM: type: IDENT, value: A
 GROUP: BLOCK
-  ATOM: type: IDENT, value: i32
-  ATOM: type: IDENT, value: a
-  TOKEN: type: SEMICOLON, value: (null)
-  TOKEN: type: COMMENT, value: (null)
-  ATOM: type: IDENT, value: i32
-  ATOM: type: IDENT, value: b
-  TOKEN: type: OP, value: =
-  ATOM: type: INT, value: 10
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: IDENT, value: f64
-  ATOM: type: IDENT, value: c
-  TOKEN: type: OP, value: =
-  ATOM: type: FLOAT, value: 10.23
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: IDENT, value: f32
-  ATOM: type: IDENT, value: d
-  TOKEN: type: OP, value: =
-  ATOM: type: FLOAT, value: .65
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: IDENT, value: f32
-  ATOM: type: IDENT, value: e
-  TOKEN: type: OP, value: =
-  ATOM: type: FLOAT, value: .4e10
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: IDENT, value: f32
-  ATOM: type: IDENT, value: f
-  TOKEN: type: OP, value: =
-  ATOM: type: FLOAT, value: 4e4
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: IDENT, value: char
-  GROUP: PAREN
-    ATOM: type: IDENT, value: A
-    ATOM: type: IDENT, value: self
-    TOKEN: type: COMMA, value: (null)
-    ATOM: type: IDENT, value: bool
-    ATOM: type: IDENT, value: stuff
-  TOKEN: type: REF, value: (null)
-  ATOM: type: IDENT, value: method
-  TOKEN: type: OP, value: =
-  GROUP: BLOCK
-    ATOM: type: KEYWORD, value: return
-    ATOM: type: CHAR, value: x
-    TOKEN: type: SEMICOLON, value: (null)
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: IDENT, value: char
-  GROUP: PAREN
-    ATOM: type: IDENT, value: A
-    TOKEN: type: COMMA, value: (null)
-    ATOM: type: IDENT, value: bool
-  TOKEN: type: REF, value: (null)
-  ATOM: type: IDENT, value: sameThing
-  TOKEN: type: OP, value: =
-  ATOM: type: IDENT, value: char
-  GROUP: PAREN
-    ATOM: type: IDENT, value: A
-    ATOM: type: IDENT, value: self
-    TOKEN: type: COMMA, value: (null)
-    ATOM: type: IDENT, value: bool
-    ATOM: type: IDENT, value: stuff
-  GROUP: BLOCK
-  TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: i32
+   ATOM: type: IDENT, value: a
+   TOKEN: type: SEMICOLON, value: (null)
+   TOKEN: type: COMMENT, value: (null)
+   ATOM: type: IDENT, value: i32
+   ATOM: type: IDENT, value: b
+   TOKEN: type: OP, value: =
+   ATOM: type: INT, value: 10
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: f64
+   ATOM: type: IDENT, value: c
+   TOKEN: type: OP, value: =
+   ATOM: type: FLOAT, value: 10.23
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: f32
+   ATOM: type: IDENT, value: d
+   TOKEN: type: OP, value: =
+   ATOM: type: FLOAT, value: .65
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: f32
+   ATOM: type: IDENT, value: e
+   TOKEN: type: OP, value: =
+   ATOM: type: FLOAT, value: .4e10
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: f32
+   ATOM: type: IDENT, value: f
+   TOKEN: type: OP, value: =
+   ATOM: type: FLOAT, value: 4e4
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: char
+   GROUP: PAREN
+      ATOM: type: IDENT, value: A
+      ATOM: type: IDENT, value: self
+      TOKEN: type: COMMA, value: (null)
+      ATOM: type: IDENT, value: bool
+      ATOM: type: IDENT, value: stuff
+   TOKEN: type: REF, value: (null)
+   ATOM: type: IDENT, value: method
+   TOKEN: type: OP, value: =
+   GROUP: BLOCK
+      ATOM: type: KEYWORD, value: return
+      ATOM: type: CHAR, value: x
+      TOKEN: type: SEMICOLON, value: (null)
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: char
+   GROUP: PAREN
+      ATOM: type: IDENT, value: A
+      TOKEN: type: COMMA, value: (null)
+      ATOM: type: IDENT, value: bool
+   TOKEN: type: REF, value: (null)
+   ATOM: type: IDENT, value: sameThing
+   TOKEN: type: OP, value: =
+   ATOM: type: IDENT, value: char
+   GROUP: PAREN
+      ATOM: type: IDENT, value: A
+      ATOM: type: IDENT, value: self
+      TOKEN: type: COMMA, value: (null)
+      ATOM: type: IDENT, value: bool
+      ATOM: type: IDENT, value: stuff
+   GROUP: BLOCK
+   TOKEN: type: SEMICOLON, value: (null)
 ATOM: type: IDENT, value: i32
 TOKEN: type: REF, value: (null)
 ATOM: type: IDENT, value: aPtr
@@ -95,13 +95,13 @@ GROUP: LIST
 ATOM: type: IDENT, value: array
 TOKEN: type: OP, value: =
 GROUP: BLOCK
-  ATOM: type: INT, value: 1
-  TOKEN: type: COMMA, value: (null)
-  ATOM: type: INT, value: 2
-  TOKEN: type: COMMA, value: (null)
-  ATOM: type: INT, value: 3
-  TOKEN: type: COMMA, value: (null)
-  ATOM: type: INT, value: 4
+   ATOM: type: INT, value: 1
+   TOKEN: type: COMMA, value: (null)
+   ATOM: type: INT, value: 2
+   TOKEN: type: COMMA, value: (null)
+   ATOM: type: INT, value: 3
+   TOKEN: type: COMMA, value: (null)
+   ATOM: type: INT, value: 4
 TOKEN: type: SEMICOLON, value: (null)
 ATOM: type: IDENT, value: i32
 GROUP: LIST
@@ -110,13 +110,13 @@ TOKEN: type: OP, value: =
 ATOM: type: IDENT, value: i32
 GROUP: LIST
 GROUP: BLOCK
-  ATOM: type: INT, value: 1
-  TOKEN: type: COMMA, value: (null)
-  ATOM: type: INT, value: 2
-  TOKEN: type: COMMA, value: (null)
-  ATOM: type: INT, value: 3
-  TOKEN: type: COMMA, value: (null)
-  ATOM: type: INT, value: 4
+   ATOM: type: INT, value: 1
+   TOKEN: type: COMMA, value: (null)
+   ATOM: type: INT, value: 2
+   TOKEN: type: COMMA, value: (null)
+   ATOM: type: INT, value: 3
+   TOKEN: type: COMMA, value: (null)
+   ATOM: type: INT, value: 4
 TOKEN: type: SEMICOLON, value: (null)
 ATOM: type: IDENT, value: i32
 GROUP: LIST
@@ -135,232 +135,232 @@ ATOM: type: IDENT, value: null
 TOKEN: type: SEMICOLON, value: (null)
 ATOM: type: IDENT, value: i32
 GROUP: PAREN
-  ATOM: type: IDENT, value: char
+   ATOM: type: IDENT, value: char
 TOKEN: type: REF, value: (null)
 ATOM: type: IDENT, value: ptrToFuncReturnsI32
 TOKEN: type: SEMICOLON, value: (null)
 TOKEN: type: COMMENT, value: (null)
 ATOM: type: IDENT, value: char
 GROUP: PAREN
-  ATOM: type: IDENT, value: A
-  ATOM: type: IDENT, value: byValue
-  TOKEN: type: COMMA, value: (null)
-  ATOM: type: IDENT, value: A
-  TOKEN: type: REF, value: (null)
-  ATOM: type: IDENT, value: byPointer
-  TOKEN: type: COMMA, value: (null)
-  ATOM: type: IDENT, value: A
-  GROUP: LIST
-  ATOM: type: IDENT, value: byValue
-  TOKEN: type: COMMA, value: (null)
-  ATOM: type: IDENT, value: A
-  GROUP: LIST
-  TOKEN: type: REF, value: (null)
-  ATOM: type: IDENT, value: byReferenceOfArray
+   ATOM: type: IDENT, value: A
+   ATOM: type: IDENT, value: byValue
+   TOKEN: type: COMMA, value: (null)
+   ATOM: type: IDENT, value: A
+   TOKEN: type: REF, value: (null)
+   ATOM: type: IDENT, value: byPointer
+   TOKEN: type: COMMA, value: (null)
+   ATOM: type: IDENT, value: A
+   GROUP: LIST
+   ATOM: type: IDENT, value: byValue
+   TOKEN: type: COMMA, value: (null)
+   ATOM: type: IDENT, value: A
+   GROUP: LIST
+   TOKEN: type: REF, value: (null)
+   ATOM: type: IDENT, value: byReferenceOfArray
 ATOM: type: IDENT, value: aFunction
 TOKEN: type: OP, value: =
 GROUP: BLOCK
-  ATOM: type: KEYWORD, value: if
-  GROUP: PAREN
-    ATOM: type: IDENT, value: byValue
-    TOKEN: type: DOT, value: (null)
-    ATOM: type: IDENT, value: a
-    TOKEN: type: OP, value: ==
-    ATOM: type: IDENT, value: byPointer
-    TOKEN: type: DOT, value: (null)
-    ATOM: type: IDENT, value: b
-  GROUP: BLOCK
-    TOKEN: type: COMMENT, value: (null)
-    ATOM: type: KEYWORD, value: return
-    ATOM: type: IDENT, value: byPointer
-    TOKEN: type: DOT, value: (null)
-    ATOM: type: IDENT, value: c
-    TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: IDENT, value: A
-  ATOM: type: IDENT, value: copied
-  TOKEN: type: OP, value: =
-  TOKEN: type: DEREF, value: (null)
-  ATOM: type: IDENT, value: byPointer
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: IDENT, value: A
-  ATOM: type: IDENT, value: object
-  TOKEN: type: SEMICOLON, value: (null)
-  TOKEN: type: COMMENT, value: (null)
-  ATOM: type: IDENT, value: A
-  ATOM: type: IDENT, value: another
-  TOKEN: type: OP, value: =
-  GROUP: BLOCK
-    ATOM: type: INT, value: 1
-    TOKEN: type: COMMA, value: (null)
-    TOKEN: type: COMMENT, value: (null)
-    ATOM: type: IDENT, value: c
-    TOKEN: type: OP, value: =
-    ATOM: type: INT, value: 10
-    TOKEN: type: COMMA, value: (null)
-    ATOM: type: INT, value: 123
-    TOKEN: type: COMMA, value: (null)
-    TOKEN: type: COMMENT, value: (null)
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: KEYWORD, value: return
-  ATOM: type: CHAR, value: x
-  TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: KEYWORD, value: if
+   GROUP: PAREN
+      ATOM: type: IDENT, value: byValue
+      TOKEN: type: DOT, value: (null)
+      ATOM: type: IDENT, value: a
+      TOKEN: type: OP, value: ==
+      ATOM: type: IDENT, value: byPointer
+      TOKEN: type: DOT, value: (null)
+      ATOM: type: IDENT, value: b
+   GROUP: BLOCK
+      TOKEN: type: COMMENT, value: (null)
+      ATOM: type: KEYWORD, value: return
+      ATOM: type: IDENT, value: byPointer
+      TOKEN: type: DOT, value: (null)
+      ATOM: type: IDENT, value: c
+      TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: A
+   ATOM: type: IDENT, value: copied
+   TOKEN: type: OP, value: =
+   TOKEN: type: DEREF, value: (null)
+   ATOM: type: IDENT, value: byPointer
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: A
+   ATOM: type: IDENT, value: object
+   TOKEN: type: SEMICOLON, value: (null)
+   TOKEN: type: COMMENT, value: (null)
+   ATOM: type: IDENT, value: A
+   ATOM: type: IDENT, value: another
+   TOKEN: type: OP, value: =
+   GROUP: BLOCK
+      ATOM: type: INT, value: 1
+      TOKEN: type: COMMA, value: (null)
+      TOKEN: type: COMMENT, value: (null)
+      ATOM: type: IDENT, value: c
+      TOKEN: type: OP, value: =
+      ATOM: type: INT, value: 10
+      TOKEN: type: COMMA, value: (null)
+      ATOM: type: INT, value: 123
+      TOKEN: type: COMMA, value: (null)
+      TOKEN: type: COMMENT, value: (null)
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: KEYWORD, value: return
+   ATOM: type: CHAR, value: x
+   TOKEN: type: SEMICOLON, value: (null)
 ATOM: type: IDENT, value: void
 GROUP: PAREN
 ATOM: type: IDENT, value: normalFunction
 TOKEN: type: OP, value: =
 GROUP: BLOCK
-  ATOM: type: IDENT, value: io
-  TOKEN: type: DOT, value: (null)
-  ATOM: type: IDENT, value: print
-  GROUP: PAREN
-    ATOM: type: IDENT, value: stuff
-  TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: io
+   TOKEN: type: DOT, value: (null)
+   ATOM: type: IDENT, value: print
+   GROUP: PAREN
+      ATOM: type: IDENT, value: stuff
+   TOKEN: type: SEMICOLON, value: (null)
 ATOM: type: IDENT, value: i32
 GROUP: PAREN
 TOKEN: type: OP, value: =
 GROUP: BLOCK
-  ATOM: type: IDENT, value: i32
-  ATOM: type: IDENT, value: a
-  TOKEN: type: OP, value: =
-  ATOM: type: INT, value: 10
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: KEYWORD, value: while
-  GROUP: PAREN
-    ATOM: type: IDENT, value: a
-    TOKEN: type: OP, value: <
-    ATOM: type: INT, value: 0
-  GROUP: BLOCK
-    ATOM: type: IDENT, value: a
-    TOKEN: type: OP, value: <<=
-    ATOM: type: INT, value: 1
-    TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: KEYWORD, value: for
-  GROUP: PAREN
-    ATOM: type: IDENT, value: i32
-    ATOM: type: IDENT, value: i
-    TOKEN: type: OP, value: =
-    ATOM: type: INT, value: 0
-    TOKEN: type: SEMICOLON, value: (null)
-    ATOM: type: IDENT, value: i
-    TOKEN: type: OP, value: <
-    ATOM: type: INT, value: 100
-    TOKEN: type: SEMICOLON, value: (null)
-    ATOM: type: IDENT, value: i
-    TOKEN: type: OP, value: +=
-    ATOM: type: INT, value: 1
-  GROUP: BLOCK
-    ATOM: type: KEYWORD, value: if
-    GROUP: PAREN
-      ATOM: type: IDENT, value: i
-      TOKEN: type: OP, value: ==
-      ATOM: type: INT, value: 5
-    GROUP: BLOCK
-      ATOM: type: IDENT, value: continue
-      TOKEN: type: SEMICOLON, value: (null)
-    ATOM: type: KEYWORD, value: if
-    GROUP: PAREN
-      ATOM: type: IDENT, value: i
-      TOKEN: type: OP, value: ==
-      ATOM: type: INT, value: 8
-    GROUP: BLOCK
-      ATOM: type: IDENT, value: break
-      TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: IDENT, value: f32
-  ATOM: type: IDENT, value: f
-  TOKEN: type: OP, value: =
-  ATOM: type: IDENT, value: sqrt
-  GROUP: PAREN
-    ATOM: type: INT, value: 2
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: IDENT, value: f32
-  ATOM: type: IDENT, value: g
-  TOKEN: type: OP, value: =
-  ATOM: type: IDENT, value: sqrt
-  GROUP: PAREN
-    ATOM: type: FLOAT, value: 2.5e
-    TOKEN: type: OP, value: -
-    ATOM: type: INT, value: 4
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: KEYWORD, value: if
-  GROUP: PAREN
-    ATOM: type: IDENT, value: true
-  ATOM: type: KEYWORD, value: if
-  GROUP: PAREN
-    ATOM: type: IDENT, value: a
-    TOKEN: type: OP, value: ==
-    ATOM: type: INT, value: 10
-  ATOM: type: IDENT, value: a
-  TOKEN: type: OP, value: =
-  ATOM: type: INT, value: 11
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: KEYWORD, value: else
-  ATOM: type: IDENT, value: a
-  TOKEN: type: OP, value: =
-  ATOM: type: INT, value: 10
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: KEYWORD, value: switch
-  GROUP: PAREN
-    ATOM: type: IDENT, value: g
-    TOKEN: type: OP, value: *
-    ATOM: type: FLOAT, value: 0.5
-  GROUP: BLOCK
-    ATOM: type: KEYWORD, value: case
-    GROUP: PAREN
+   ATOM: type: IDENT, value: i32
+   ATOM: type: IDENT, value: a
+   TOKEN: type: OP, value: =
+   ATOM: type: INT, value: 10
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: KEYWORD, value: while
+   GROUP: PAREN
+      ATOM: type: IDENT, value: a
+      TOKEN: type: OP, value: <
       ATOM: type: INT, value: 0
-    ATOM: type: IDENT, value: print
-    GROUP: PAREN
-      ATOM: type: IDENT, value: g
-    TOKEN: type: SEMICOLON, value: (null)
-    ATOM: type: KEYWORD, value: case
-    GROUP: PAREN
+   GROUP: BLOCK
+      ATOM: type: IDENT, value: a
+      TOKEN: type: OP, value: <<=
       ATOM: type: INT, value: 1
-      TOKEN: type: COMMA, value: (null)
-      ATOM: type: INT, value: 2
-      TOKEN: type: COMMA, value: (null)
-      ATOM: type: INT, value: 3
-    GROUP: BLOCK
-      ATOM: type: IDENT, value: char
-      ATOM: type: IDENT, value: x
+      TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: KEYWORD, value: for
+   GROUP: PAREN
+      ATOM: type: IDENT, value: i32
+      ATOM: type: IDENT, value: i
       TOKEN: type: OP, value: =
-      ATOM: type: CHAR, value: 1
+      ATOM: type: INT, value: 0
       TOKEN: type: SEMICOLON, value: (null)
+      ATOM: type: IDENT, value: i
+      TOKEN: type: OP, value: <
+      ATOM: type: INT, value: 100
+      TOKEN: type: SEMICOLON, value: (null)
+      ATOM: type: IDENT, value: i
+      TOKEN: type: OP, value: +=
+      ATOM: type: INT, value: 1
+   GROUP: BLOCK
+      ATOM: type: KEYWORD, value: if
+      GROUP: PAREN
+         ATOM: type: IDENT, value: i
+         TOKEN: type: OP, value: ==
+         ATOM: type: INT, value: 5
+      GROUP: BLOCK
+         ATOM: type: IDENT, value: continue
+         TOKEN: type: SEMICOLON, value: (null)
+      ATOM: type: KEYWORD, value: if
+      GROUP: PAREN
+         ATOM: type: IDENT, value: i
+         TOKEN: type: OP, value: ==
+         ATOM: type: INT, value: 8
+      GROUP: BLOCK
+         ATOM: type: IDENT, value: break
+         TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: f32
+   ATOM: type: IDENT, value: f
+   TOKEN: type: OP, value: =
+   ATOM: type: IDENT, value: sqrt
+   GROUP: PAREN
+      ATOM: type: INT, value: 2
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: f32
+   ATOM: type: IDENT, value: g
+   TOKEN: type: OP, value: =
+   ATOM: type: IDENT, value: sqrt
+   GROUP: PAREN
+      ATOM: type: FLOAT, value: 2.5e
+      TOKEN: type: OP, value: -
+      ATOM: type: INT, value: 4
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: KEYWORD, value: if
+   GROUP: PAREN
+      ATOM: type: IDENT, value: true
+   ATOM: type: KEYWORD, value: if
+   GROUP: PAREN
+      ATOM: type: IDENT, value: a
+      TOKEN: type: OP, value: ==
+      ATOM: type: INT, value: 10
+   ATOM: type: IDENT, value: a
+   TOKEN: type: OP, value: =
+   ATOM: type: INT, value: 11
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: KEYWORD, value: else
+   ATOM: type: IDENT, value: a
+   TOKEN: type: OP, value: =
+   ATOM: type: INT, value: 10
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: KEYWORD, value: switch
+   GROUP: PAREN
+      ATOM: type: IDENT, value: g
+      TOKEN: type: OP, value: *
+      ATOM: type: FLOAT, value: 0.5
+   GROUP: BLOCK
+      ATOM: type: KEYWORD, value: case
+      GROUP: PAREN
+         ATOM: type: INT, value: 0
       ATOM: type: IDENT, value: print
       GROUP: PAREN
-        ATOM: type: IDENT, value: x
+         ATOM: type: IDENT, value: g
       TOKEN: type: SEMICOLON, value: (null)
-    ATOM: type: KEYWORD, value: case
-    GROUP: PAREN
-    GROUP: BLOCK
-      ATOM: type: IDENT, value: print
+      ATOM: type: KEYWORD, value: case
       GROUP: PAREN
-        ATOM: type: STRING, value: default
-      TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: IDENT, value: char
-  GROUP: LIST
-  ATOM: type: IDENT, value: string
-  TOKEN: type: OP, value: =
-  ATOM: type: STRING, value: string $#%$^%$^$ \" escape^
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: IDENT, value: char
-  GROUP: LIST
-  ATOM: type: IDENT, value: string1
-  TOKEN: type: OP, value: =
-  ATOM: type: STRING, value: concat stringishere
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: IDENT, value: char
-  GROUP: LIST
-  ATOM: type: IDENT, value: longstring
-  TOKEN: type: OP, value: =
-  ATOM: type: STRING, value: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: IDENT, value: A
-  ATOM: type: IDENT, value: a
-  TOKEN: type: SEMICOLON, value: (null)
-  ATOM: type: IDENT, value: a
-  TOKEN: type: COLON, value: (null)
-  ATOM: type: IDENT, value: method
-  GROUP: PAREN
-  TOKEN: type: SEMICOLON, value: (null)
-  TOKEN: type: COMMENT, value: (null)
+         ATOM: type: INT, value: 1
+         TOKEN: type: COMMA, value: (null)
+         ATOM: type: INT, value: 2
+         TOKEN: type: COMMA, value: (null)
+         ATOM: type: INT, value: 3
+      GROUP: BLOCK
+         ATOM: type: IDENT, value: char
+         ATOM: type: IDENT, value: x
+         TOKEN: type: OP, value: =
+         ATOM: type: CHAR, value: 1
+         TOKEN: type: SEMICOLON, value: (null)
+         ATOM: type: IDENT, value: print
+         GROUP: PAREN
+            ATOM: type: IDENT, value: x
+         TOKEN: type: SEMICOLON, value: (null)
+      ATOM: type: KEYWORD, value: case
+      GROUP: PAREN
+      GROUP: BLOCK
+         ATOM: type: IDENT, value: print
+         GROUP: PAREN
+            ATOM: type: STRING, value: default
+         TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: char
+   GROUP: LIST
+   ATOM: type: IDENT, value: string
+   TOKEN: type: OP, value: =
+   ATOM: type: STRING, value: string $#%$^%$^$ \" escape^
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: char
+   GROUP: LIST
+   ATOM: type: IDENT, value: string1
+   TOKEN: type: OP, value: =
+   ATOM: type: STRING, value: concat stringishere
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: char
+   GROUP: LIST
+   ATOM: type: IDENT, value: longstring
+   TOKEN: type: OP, value: =
+   ATOM: type: STRING, value: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: A
+   ATOM: type: IDENT, value: a
+   TOKEN: type: SEMICOLON, value: (null)
+   ATOM: type: IDENT, value: a
+   TOKEN: type: COLON, value: (null)
+   ATOM: type: IDENT, value: method
+   GROUP: PAREN
+   TOKEN: type: SEMICOLON, value: (null)
+   TOKEN: type: COMMENT, value: (null)
 TOKEN: type: COMMENT, value: (null)
 TOKEN: type: EOT, value: (null)

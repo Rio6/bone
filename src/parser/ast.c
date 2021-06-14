@@ -6,7 +6,8 @@
 const char *ASTType_names[] = {
    "AST_ERROR",
    "ATOM",
-   "UNARY",
+   "PREFIX",
+   "POSTFIX",
    "BINARY",
    "TENARY",
    "GROUP",
@@ -15,7 +16,7 @@ const char *ASTType_names[] = {
 
 void print_indent(unsigned indent) {
    for(unsigned i = 0; i < indent; i++) {
-      fputs("  ", stdout);
+      fputs("   ", stdout);
    }
 }
 
