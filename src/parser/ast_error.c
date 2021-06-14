@@ -11,7 +11,7 @@ static void dump(ASTNode *node, unsigned indent) {
    printf("%s: %s\n", ASTType_names[node->type], error->message);
 }
 
-static ASTNode *parse(ASTNode *node, ASTParser *parser) {
+static ASTNode *parse(ASTNode *node, ASTParser**) {
    return node;
 }
 

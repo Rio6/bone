@@ -20,9 +20,9 @@ struct ASTNode {
    ASTNode *prev;
    ASTNode *next;
 
-   // Parse method apply ASTParser to its children and also the rest of node behind it.
-   // Returns a new node that replaces the current node
-   ASTNode *(*parse)(ASTNode*, ASTParser*);
+   // Apply null-terminated ASTParser to its children and also the rest of node behind it.
+   // Stop at first non-null result, returns a new node that replaces the current node
+   ASTNode *(*parse)(ASTNode*, ASTParser**);
    void (*dump)(ASTNode*, unsigned indent);
    void (*delete)(ASTNode*);
 };

@@ -8,6 +8,6 @@ typedef struct ASTNode ASTNode;
 
 typedef ASTNode *(ASTParser)(ASTToken*);
 
-extern ASTParser *parsers[];
+extern ASTParser **parsers[];
 
 ASTNode *parser_run(Token*);

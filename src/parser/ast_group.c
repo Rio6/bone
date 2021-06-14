@@ -28,11 +28,11 @@ const char *ASTGroupType_names[] = {
    "BLOCK",
 };
 
-static ASTNode *parse(ASTNode *node, ASTParser *parser) {
+static ASTNode *parse(ASTNode *node, ASTParser **parsers) {
    ASTGroup *group = (ASTGroup*) node;
 
    if(group->content) {
-      ASTNode *new_content = CALL_METHOD(parse, group->content, parser);
+      ASTNode *new_content = CALL_METHOD(parse, group->content, parsers);
       if(new_content->up != node) {
          // AST rearranged, re-find root
          group->content = ast_root(new_content);
@@ -41,7 +41,7 @@ static ASTNode *parse(ASTNode *node, ASTParser *parser) {
    }
 
    if(node->next) {
-      node->next = CALL_METHOD(parse, node->next, parser);
+      node->next = CALL_METHOD(parse, node->next, parsers);
    }
 
    return node;

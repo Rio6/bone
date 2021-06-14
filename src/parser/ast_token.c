@@ -4,15 +4,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static ASTNode *parse(ASTNode *node, ASTParser *parser) {
-   ASTNode *new_node = parser((ASTToken*) node);
+static ASTNode *parse(ASTNode *node, ASTParser **parsers) {
+
+   ASTNode *new_node = NULL;
+   for(ASTParser **parser = parsers; *parser != NULL; parser++) {
+      new_node = (*parser)((ASTToken*) node);
+      if(new_node) break;
+   }
 
    if(new_node && new_node != node) {
-      return CALL_METHOD(parse, new_node, parser);
+      return CALL_METHOD(parse, new_node, parsers);
    }
 
    if(node->next) {
-      node->next = CALL_METHOD(parse, node->next, parser);
+      node->next = CALL_METHOD(parse, node->next, parsers);
    }
 
    return node;

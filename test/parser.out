@@ -1,366 +1,366 @@
-TOKEN: KEYWORD
-TOKEN: IDENT
-TOKEN: DOT
-TOKEN: IDENT
-TOKEN: DOT
-TOKEN: SEMICOLON
-TOKEN: KEYWORD
-TOKEN: IDENT
-TOKEN: DOT
-TOKEN: IDENT
-TOKEN: SEMICOLON
-TOKEN: KEYWORD
-TOKEN: IDENT
-TOKEN: DOT
-TOKEN: IDENT
-TOKEN: SEMICOLON
-TOKEN: KEYWORD
-TOKEN: IDENT
-TOKEN: DOT
-TOKEN: STRING
-TOKEN: DOT
-TOKEN: IDENT
-TOKEN: SEMICOLON
-TOKEN: KEYWORD
-TOKEN: KEYWORD
-TOKEN: IDENT
+TOKEN: type: KEYWORD, value: import
+TOKEN: type: IDENT, value: std
+TOKEN: type: DOT, value: (null)
+TOKEN: type: IDENT, value: math
+TOKEN: type: DOT, value: (null)
+TOKEN: type: SEMICOLON, value: (null)
+TOKEN: type: KEYWORD, value: import
+TOKEN: type: IDENT, value: std
+TOKEN: type: DOT, value: (null)
+TOKEN: type: IDENT, value: io
+TOKEN: type: SEMICOLON, value: (null)
+TOKEN: type: KEYWORD, value: import
+TOKEN: type: IDENT, value: directory
+TOKEN: type: DOT, value: (null)
+TOKEN: type: IDENT, value: file
+TOKEN: type: SEMICOLON, value: (null)
+TOKEN: type: KEYWORD, value: import
+TOKEN: type: IDENT, value: directory
+TOKEN: type: DOT, value: (null)
+TOKEN: type: STRING, value: fancy-name
+TOKEN: type: DOT, value: (null)
+TOKEN: type: IDENT, value: name
+TOKEN: type: SEMICOLON, value: (null)
+TOKEN: type: KEYWORD, value: export
+TOKEN: type: KEYWORD, value: struct
+TOKEN: type: IDENT, value: A
 GROUP: BLOCK
-  TOKEN: IDENT
-  TOKEN: IDENT
-  TOKEN: SEMICOLON
-  TOKEN: COMMENT
-  TOKEN: IDENT
-  TOKEN: IDENT
-  TOKEN: OP
-  TOKEN: INT
-  TOKEN: SEMICOLON
-  TOKEN: IDENT
-  TOKEN: IDENT
-  TOKEN: OP
-  TOKEN: FLOAT
-  TOKEN: SEMICOLON
-  TOKEN: IDENT
-  TOKEN: IDENT
-  TOKEN: OP
-  TOKEN: FLOAT
-  TOKEN: SEMICOLON
-  TOKEN: IDENT
-  TOKEN: IDENT
-  TOKEN: OP
-  TOKEN: FLOAT
-  TOKEN: SEMICOLON
-  TOKEN: IDENT
-  TOKEN: IDENT
-  TOKEN: OP
-  TOKEN: FLOAT
-  TOKEN: SEMICOLON
-  TOKEN: IDENT
+  TOKEN: type: IDENT, value: i32
+  TOKEN: type: IDENT, value: a
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: COMMENT, value: (null)
+  TOKEN: type: IDENT, value: i32
+  TOKEN: type: IDENT, value: b
+  TOKEN: type: OP, value: =
+  TOKEN: type: INT, value: 10
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: IDENT, value: f64
+  TOKEN: type: IDENT, value: c
+  TOKEN: type: OP, value: =
+  TOKEN: type: FLOAT, value: 10.23
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: IDENT, value: f32
+  TOKEN: type: IDENT, value: d
+  TOKEN: type: OP, value: =
+  TOKEN: type: FLOAT, value: .65
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: IDENT, value: f32
+  TOKEN: type: IDENT, value: e
+  TOKEN: type: OP, value: =
+  TOKEN: type: FLOAT, value: .4e10
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: IDENT, value: f32
+  TOKEN: type: IDENT, value: f
+  TOKEN: type: OP, value: =
+  TOKEN: type: FLOAT, value: 4e4
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: IDENT, value: char
   GROUP: PAREN
-    TOKEN: IDENT
-    TOKEN: IDENT
-    TOKEN: COMMA
-    TOKEN: IDENT
-    TOKEN: IDENT
-  TOKEN: REF
-  TOKEN: IDENT
-  TOKEN: OP
+    TOKEN: type: IDENT, value: A
+    TOKEN: type: IDENT, value: self
+    TOKEN: type: COMMA, value: (null)
+    TOKEN: type: IDENT, value: bool
+    TOKEN: type: IDENT, value: stuff
+  TOKEN: type: REF, value: (null)
+  TOKEN: type: IDENT, value: method
+  TOKEN: type: OP, value: =
   GROUP: BLOCK
-    TOKEN: KEYWORD
-    TOKEN: CHAR
-    TOKEN: SEMICOLON
-  TOKEN: SEMICOLON
-  TOKEN: IDENT
+    TOKEN: type: KEYWORD, value: return
+    TOKEN: type: CHAR, value: x
+    TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: IDENT, value: char
   GROUP: PAREN
-    TOKEN: IDENT
-    TOKEN: COMMA
-    TOKEN: IDENT
-  TOKEN: REF
-  TOKEN: IDENT
-  TOKEN: OP
-  TOKEN: IDENT
+    TOKEN: type: IDENT, value: A
+    TOKEN: type: COMMA, value: (null)
+    TOKEN: type: IDENT, value: bool
+  TOKEN: type: REF, value: (null)
+  TOKEN: type: IDENT, value: sameThing
+  TOKEN: type: OP, value: =
+  TOKEN: type: IDENT, value: char
   GROUP: PAREN
-    TOKEN: IDENT
-    TOKEN: IDENT
-    TOKEN: COMMA
-    TOKEN: IDENT
-    TOKEN: IDENT
+    TOKEN: type: IDENT, value: A
+    TOKEN: type: IDENT, value: self
+    TOKEN: type: COMMA, value: (null)
+    TOKEN: type: IDENT, value: bool
+    TOKEN: type: IDENT, value: stuff
   GROUP: BLOCK
-  TOKEN: SEMICOLON
-TOKEN: IDENT
-TOKEN: REF
-TOKEN: IDENT
-TOKEN: SEMICOLON
-TOKEN: IDENT
+  TOKEN: type: SEMICOLON, value: (null)
+TOKEN: type: IDENT, value: i32
+TOKEN: type: REF, value: (null)
+TOKEN: type: IDENT, value: aPtr
+TOKEN: type: SEMICOLON, value: (null)
+TOKEN: type: IDENT, value: i32
 GROUP: LIST
-TOKEN: IDENT
-TOKEN: OP
+TOKEN: type: IDENT, value: array
+TOKEN: type: OP, value: =
 GROUP: BLOCK
-  TOKEN: INT
-  TOKEN: COMMA
-  TOKEN: INT
-  TOKEN: COMMA
-  TOKEN: INT
-  TOKEN: COMMA
-  TOKEN: INT
-TOKEN: SEMICOLON
-TOKEN: IDENT
+  TOKEN: type: INT, value: 1
+  TOKEN: type: COMMA, value: (null)
+  TOKEN: type: INT, value: 2
+  TOKEN: type: COMMA, value: (null)
+  TOKEN: type: INT, value: 3
+  TOKEN: type: COMMA, value: (null)
+  TOKEN: type: INT, value: 4
+TOKEN: type: SEMICOLON, value: (null)
+TOKEN: type: IDENT, value: i32
 GROUP: LIST
-TOKEN: IDENT
-TOKEN: OP
-TOKEN: IDENT
+TOKEN: type: IDENT, value: arrayAgain
+TOKEN: type: OP, value: =
+TOKEN: type: IDENT, value: i32
 GROUP: LIST
 GROUP: BLOCK
-  TOKEN: INT
-  TOKEN: COMMA
-  TOKEN: INT
-  TOKEN: COMMA
-  TOKEN: INT
-  TOKEN: COMMA
-  TOKEN: INT
-TOKEN: SEMICOLON
-TOKEN: IDENT
+  TOKEN: type: INT, value: 1
+  TOKEN: type: COMMA, value: (null)
+  TOKEN: type: INT, value: 2
+  TOKEN: type: COMMA, value: (null)
+  TOKEN: type: INT, value: 3
+  TOKEN: type: COMMA, value: (null)
+  TOKEN: type: INT, value: 4
+TOKEN: type: SEMICOLON, value: (null)
+TOKEN: type: IDENT, value: i32
 GROUP: LIST
-TOKEN: REF
-TOKEN: IDENT
-TOKEN: OP
-TOKEN: REF
-TOKEN: IDENT
-TOKEN: SEMICOLON
-TOKEN: IDENT
-TOKEN: REF
+TOKEN: type: REF, value: (null)
+TOKEN: type: IDENT, value: ptrToArray
+TOKEN: type: OP, value: =
+TOKEN: type: REF, value: (null)
+TOKEN: type: IDENT, value: array
+TOKEN: type: SEMICOLON, value: (null)
+TOKEN: type: IDENT, value: i32
+TOKEN: type: REF, value: (null)
 GROUP: LIST
-TOKEN: IDENT
-TOKEN: OP
-TOKEN: IDENT
-TOKEN: SEMICOLON
-TOKEN: IDENT
+TOKEN: type: IDENT, value: arrayOfPtr
+TOKEN: type: OP, value: =
+TOKEN: type: IDENT, value: null
+TOKEN: type: SEMICOLON, value: (null)
+TOKEN: type: IDENT, value: i32
 GROUP: PAREN
-  TOKEN: IDENT
-TOKEN: REF
-TOKEN: IDENT
-TOKEN: SEMICOLON
-TOKEN: COMMENT
-TOKEN: IDENT
+  TOKEN: type: IDENT, value: char
+TOKEN: type: REF, value: (null)
+TOKEN: type: IDENT, value: ptrToFuncReturnsI32
+TOKEN: type: SEMICOLON, value: (null)
+TOKEN: type: COMMENT, value: (null)
+TOKEN: type: IDENT, value: char
 GROUP: PAREN
-  TOKEN: IDENT
-  TOKEN: IDENT
-  TOKEN: COMMA
-  TOKEN: IDENT
-  TOKEN: REF
-  TOKEN: IDENT
-  TOKEN: COMMA
-  TOKEN: IDENT
+  TOKEN: type: IDENT, value: A
+  TOKEN: type: IDENT, value: byValue
+  TOKEN: type: COMMA, value: (null)
+  TOKEN: type: IDENT, value: A
+  TOKEN: type: REF, value: (null)
+  TOKEN: type: IDENT, value: byPointer
+  TOKEN: type: COMMA, value: (null)
+  TOKEN: type: IDENT, value: A
   GROUP: LIST
-  TOKEN: IDENT
-  TOKEN: COMMA
-  TOKEN: IDENT
+  TOKEN: type: IDENT, value: byValue
+  TOKEN: type: COMMA, value: (null)
+  TOKEN: type: IDENT, value: A
   GROUP: LIST
-  TOKEN: REF
-  TOKEN: IDENT
-TOKEN: IDENT
-TOKEN: OP
+  TOKEN: type: REF, value: (null)
+  TOKEN: type: IDENT, value: byReferenceOfArray
+TOKEN: type: IDENT, value: aFunction
+TOKEN: type: OP, value: =
 GROUP: BLOCK
-  TOKEN: KEYWORD
+  TOKEN: type: KEYWORD, value: if
   GROUP: PAREN
-    TOKEN: IDENT
-    TOKEN: DOT
-    TOKEN: IDENT
-    TOKEN: OP
-    TOKEN: IDENT
-    TOKEN: DOT
-    TOKEN: IDENT
+    TOKEN: type: IDENT, value: byValue
+    TOKEN: type: DOT, value: (null)
+    TOKEN: type: IDENT, value: a
+    TOKEN: type: OP, value: ==
+    TOKEN: type: IDENT, value: byPointer
+    TOKEN: type: DOT, value: (null)
+    TOKEN: type: IDENT, value: b
   GROUP: BLOCK
-    TOKEN: COMMENT
-    TOKEN: KEYWORD
-    TOKEN: IDENT
-    TOKEN: DOT
-    TOKEN: IDENT
-    TOKEN: SEMICOLON
-  TOKEN: IDENT
-  TOKEN: IDENT
-  TOKEN: OP
-  TOKEN: DEREF
-  TOKEN: IDENT
-  TOKEN: SEMICOLON
-  TOKEN: IDENT
-  TOKEN: IDENT
-  TOKEN: SEMICOLON
-  TOKEN: COMMENT
-  TOKEN: IDENT
-  TOKEN: IDENT
-  TOKEN: OP
+    TOKEN: type: COMMENT, value: (null)
+    TOKEN: type: KEYWORD, value: return
+    TOKEN: type: IDENT, value: byPointer
+    TOKEN: type: DOT, value: (null)
+    TOKEN: type: IDENT, value: c
+    TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: IDENT, value: A
+  TOKEN: type: IDENT, value: copied
+  TOKEN: type: OP, value: =
+  TOKEN: type: DEREF, value: (null)
+  TOKEN: type: IDENT, value: byPointer
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: IDENT, value: A
+  TOKEN: type: IDENT, value: object
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: COMMENT, value: (null)
+  TOKEN: type: IDENT, value: A
+  TOKEN: type: IDENT, value: another
+  TOKEN: type: OP, value: =
   GROUP: BLOCK
-    TOKEN: INT
-    TOKEN: COMMA
-    TOKEN: COMMENT
-    TOKEN: IDENT
-    TOKEN: OP
-    TOKEN: INT
-    TOKEN: COMMA
-    TOKEN: INT
-    TOKEN: COMMA
-    TOKEN: COMMENT
-  TOKEN: SEMICOLON
-  TOKEN: KEYWORD
-  TOKEN: CHAR
-  TOKEN: SEMICOLON
-TOKEN: IDENT
+    TOKEN: type: INT, value: 1
+    TOKEN: type: COMMA, value: (null)
+    TOKEN: type: COMMENT, value: (null)
+    TOKEN: type: IDENT, value: c
+    TOKEN: type: OP, value: =
+    TOKEN: type: INT, value: 10
+    TOKEN: type: COMMA, value: (null)
+    TOKEN: type: INT, value: 123
+    TOKEN: type: COMMA, value: (null)
+    TOKEN: type: COMMENT, value: (null)
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: KEYWORD, value: return
+  TOKEN: type: CHAR, value: x
+  TOKEN: type: SEMICOLON, value: (null)
+TOKEN: type: IDENT, value: void
 GROUP: PAREN
-TOKEN: IDENT
-TOKEN: OP
+TOKEN: type: IDENT, value: normalFunction
+TOKEN: type: OP, value: =
 GROUP: BLOCK
-  TOKEN: IDENT
-  TOKEN: DOT
-  TOKEN: IDENT
+  TOKEN: type: IDENT, value: io
+  TOKEN: type: DOT, value: (null)
+  TOKEN: type: IDENT, value: print
   GROUP: PAREN
-    TOKEN: IDENT
-  TOKEN: SEMICOLON
-TOKEN: IDENT
+    TOKEN: type: IDENT, value: stuff
+  TOKEN: type: SEMICOLON, value: (null)
+TOKEN: type: IDENT, value: i32
 GROUP: PAREN
-TOKEN: OP
+TOKEN: type: OP, value: =
 GROUP: BLOCK
-  TOKEN: IDENT
-  TOKEN: IDENT
-  TOKEN: OP
-  TOKEN: INT
-  TOKEN: SEMICOLON
-  TOKEN: KEYWORD
+  TOKEN: type: IDENT, value: i32
+  TOKEN: type: IDENT, value: a
+  TOKEN: type: OP, value: =
+  TOKEN: type: INT, value: 10
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: KEYWORD, value: while
   GROUP: PAREN
-    TOKEN: IDENT
-    TOKEN: OP
-    TOKEN: INT
+    TOKEN: type: IDENT, value: a
+    TOKEN: type: OP, value: <
+    TOKEN: type: INT, value: 0
   GROUP: BLOCK
-    TOKEN: IDENT
-    TOKEN: OP
-    TOKEN: INT
-    TOKEN: SEMICOLON
-  TOKEN: KEYWORD
+    TOKEN: type: IDENT, value: a
+    TOKEN: type: OP, value: <<=
+    TOKEN: type: INT, value: 1
+    TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: KEYWORD, value: for
   GROUP: PAREN
-    TOKEN: IDENT
-    TOKEN: IDENT
-    TOKEN: OP
-    TOKEN: INT
-    TOKEN: SEMICOLON
-    TOKEN: IDENT
-    TOKEN: OP
-    TOKEN: INT
-    TOKEN: SEMICOLON
-    TOKEN: IDENT
-    TOKEN: OP
-    TOKEN: INT
+    TOKEN: type: IDENT, value: i32
+    TOKEN: type: IDENT, value: i
+    TOKEN: type: OP, value: =
+    TOKEN: type: INT, value: 0
+    TOKEN: type: SEMICOLON, value: (null)
+    TOKEN: type: IDENT, value: i
+    TOKEN: type: OP, value: <
+    TOKEN: type: INT, value: 100
+    TOKEN: type: SEMICOLON, value: (null)
+    TOKEN: type: IDENT, value: i
+    TOKEN: type: OP, value: +=
+    TOKEN: type: INT, value: 1
   GROUP: BLOCK
-    TOKEN: KEYWORD
+    TOKEN: type: KEYWORD, value: if
     GROUP: PAREN
-      TOKEN: IDENT
-      TOKEN: OP
-      TOKEN: INT
+      TOKEN: type: IDENT, value: i
+      TOKEN: type: OP, value: ==
+      TOKEN: type: INT, value: 5
     GROUP: BLOCK
-      TOKEN: IDENT
-      TOKEN: SEMICOLON
-    TOKEN: KEYWORD
+      TOKEN: type: IDENT, value: continue
+      TOKEN: type: SEMICOLON, value: (null)
+    TOKEN: type: KEYWORD, value: if
     GROUP: PAREN
-      TOKEN: IDENT
-      TOKEN: OP
-      TOKEN: INT
+      TOKEN: type: IDENT, value: i
+      TOKEN: type: OP, value: ==
+      TOKEN: type: INT, value: 8
     GROUP: BLOCK
-      TOKEN: IDENT
-      TOKEN: SEMICOLON
-  TOKEN: IDENT
-  TOKEN: IDENT
-  TOKEN: OP
-  TOKEN: IDENT
+      TOKEN: type: IDENT, value: break
+      TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: IDENT, value: f32
+  TOKEN: type: IDENT, value: f
+  TOKEN: type: OP, value: =
+  TOKEN: type: IDENT, value: sqrt
   GROUP: PAREN
-    TOKEN: INT
-  TOKEN: SEMICOLON
-  TOKEN: IDENT
-  TOKEN: IDENT
-  TOKEN: OP
-  TOKEN: IDENT
+    TOKEN: type: INT, value: 2
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: IDENT, value: f32
+  TOKEN: type: IDENT, value: g
+  TOKEN: type: OP, value: =
+  TOKEN: type: IDENT, value: sqrt
   GROUP: PAREN
-    TOKEN: FLOAT
-    TOKEN: OP
-    TOKEN: INT
-  TOKEN: SEMICOLON
-  TOKEN: KEYWORD
+    TOKEN: type: FLOAT, value: 2.5e
+    TOKEN: type: OP, value: -
+    TOKEN: type: INT, value: 4
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: KEYWORD, value: if
   GROUP: PAREN
-    TOKEN: IDENT
-  TOKEN: KEYWORD
+    TOKEN: type: IDENT, value: true
+  TOKEN: type: KEYWORD, value: if
   GROUP: PAREN
-    TOKEN: IDENT
-    TOKEN: OP
-    TOKEN: INT
-  TOKEN: IDENT
-  TOKEN: OP
-  TOKEN: INT
-  TOKEN: SEMICOLON
-  TOKEN: KEYWORD
-  TOKEN: IDENT
-  TOKEN: OP
-  TOKEN: INT
-  TOKEN: SEMICOLON
-  TOKEN: KEYWORD
+    TOKEN: type: IDENT, value: a
+    TOKEN: type: OP, value: ==
+    TOKEN: type: INT, value: 10
+  TOKEN: type: IDENT, value: a
+  TOKEN: type: OP, value: =
+  TOKEN: type: INT, value: 11
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: KEYWORD, value: else
+  TOKEN: type: IDENT, value: a
+  TOKEN: type: OP, value: =
+  TOKEN: type: INT, value: 10
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: KEYWORD, value: switch
   GROUP: PAREN
-    TOKEN: IDENT
-    TOKEN: OP
-    TOKEN: FLOAT
+    TOKEN: type: IDENT, value: g
+    TOKEN: type: OP, value: *
+    TOKEN: type: FLOAT, value: 0.5
   GROUP: BLOCK
-    TOKEN: KEYWORD
+    TOKEN: type: KEYWORD, value: case
     GROUP: PAREN
-      TOKEN: INT
-    TOKEN: IDENT
+      TOKEN: type: INT, value: 0
+    TOKEN: type: IDENT, value: print
     GROUP: PAREN
-      TOKEN: IDENT
-    TOKEN: SEMICOLON
-    TOKEN: KEYWORD
+      TOKEN: type: IDENT, value: g
+    TOKEN: type: SEMICOLON, value: (null)
+    TOKEN: type: KEYWORD, value: case
     GROUP: PAREN
-      TOKEN: INT
-      TOKEN: COMMA
-      TOKEN: INT
-      TOKEN: COMMA
-      TOKEN: INT
+      TOKEN: type: INT, value: 1
+      TOKEN: type: COMMA, value: (null)
+      TOKEN: type: INT, value: 2
+      TOKEN: type: COMMA, value: (null)
+      TOKEN: type: INT, value: 3
     GROUP: BLOCK
-      TOKEN: IDENT
-      TOKEN: IDENT
-      TOKEN: OP
-      TOKEN: CHAR
-      TOKEN: SEMICOLON
-      TOKEN: IDENT
+      TOKEN: type: IDENT, value: char
+      TOKEN: type: IDENT, value: x
+      TOKEN: type: OP, value: =
+      TOKEN: type: CHAR, value: 1
+      TOKEN: type: SEMICOLON, value: (null)
+      TOKEN: type: IDENT, value: print
       GROUP: PAREN
-        TOKEN: IDENT
-      TOKEN: SEMICOLON
-    TOKEN: KEYWORD
+        TOKEN: type: IDENT, value: x
+      TOKEN: type: SEMICOLON, value: (null)
+    TOKEN: type: KEYWORD, value: case
     GROUP: PAREN
     GROUP: BLOCK
-      TOKEN: IDENT
+      TOKEN: type: IDENT, value: print
       GROUP: PAREN
-        TOKEN: STRING
-      TOKEN: SEMICOLON
-  TOKEN: IDENT
+        TOKEN: type: STRING, value: default
+      TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: IDENT, value: char
   GROUP: LIST
-  TOKEN: IDENT
-  TOKEN: OP
-  TOKEN: STRING
-  TOKEN: SEMICOLON
-  TOKEN: IDENT
+  TOKEN: type: IDENT, value: string
+  TOKEN: type: OP, value: =
+  TOKEN: type: STRING, value: string $#%$^%$^$ \" escape^
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: IDENT, value: char
   GROUP: LIST
-  TOKEN: IDENT
-  TOKEN: OP
-  TOKEN: STRING
-  TOKEN: SEMICOLON
-  TOKEN: IDENT
+  TOKEN: type: IDENT, value: string1
+  TOKEN: type: OP, value: =
+  TOKEN: type: STRING, value: concat stringishere
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: IDENT, value: char
   GROUP: LIST
-  TOKEN: IDENT
-  TOKEN: OP
-  TOKEN: STRING
-  TOKEN: SEMICOLON
-  TOKEN: IDENT
-  TOKEN: IDENT
-  TOKEN: SEMICOLON
-  TOKEN: IDENT
-  TOKEN: COLON
-  TOKEN: IDENT
+  TOKEN: type: IDENT, value: longstring
+  TOKEN: type: OP, value: =
+  TOKEN: type: STRING, value: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: IDENT, value: A
+  TOKEN: type: IDENT, value: a
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: IDENT, value: a
+  TOKEN: type: COLON, value: (null)
+  TOKEN: type: IDENT, value: method
   GROUP: PAREN
-  TOKEN: SEMICOLON
-  TOKEN: COMMENT
-TOKEN: COMMENT
-TOKEN: EOT
+  TOKEN: type: SEMICOLON, value: (null)
+  TOKEN: type: COMMENT, value: (null)
+TOKEN: type: COMMENT, value: (null)
+TOKEN: type: EOT, value: (null)
