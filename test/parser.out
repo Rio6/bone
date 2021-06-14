@@ -24,7 +24,7 @@ TOKEN: type: SEMICOLON, value: (null)
 ATOM: type: KEYWORD, value: export
 ATOM: type: KEYWORD, value: struct
 ATOM: type: IDENT, value: A
-GROUP: BLOCK
+GROUP: BRACE
    ATOM: type: IDENT, value: i32
    ATOM: type: IDENT, value: a
    TOKEN: type: SEMICOLON, value: (null)
@@ -64,7 +64,7 @@ GROUP: BLOCK
    TOKEN: type: REF, value: (null)
    ATOM: type: IDENT, value: method
    TOKEN: type: OP, value: =
-   GROUP: BLOCK
+   GROUP: BRACE
       ATOM: type: KEYWORD, value: return
       ATOM: type: CHAR, value: x
       TOKEN: type: SEMICOLON, value: (null)
@@ -84,17 +84,17 @@ GROUP: BLOCK
       TOKEN: type: COMMA, value: (null)
       ATOM: type: IDENT, value: bool
       ATOM: type: IDENT, value: stuff
-   GROUP: BLOCK
+   GROUP: BRACE
    TOKEN: type: SEMICOLON, value: (null)
 ATOM: type: IDENT, value: i32
 TOKEN: type: REF, value: (null)
 ATOM: type: IDENT, value: aPtr
 TOKEN: type: SEMICOLON, value: (null)
 ATOM: type: IDENT, value: i32
-GROUP: LIST
+GROUP: BRACK
 ATOM: type: IDENT, value: array
 TOKEN: type: OP, value: =
-GROUP: BLOCK
+GROUP: BRACE
    ATOM: type: INT, value: 1
    TOKEN: type: COMMA, value: (null)
    ATOM: type: INT, value: 2
@@ -104,12 +104,12 @@ GROUP: BLOCK
    ATOM: type: INT, value: 4
 TOKEN: type: SEMICOLON, value: (null)
 ATOM: type: IDENT, value: i32
-GROUP: LIST
+GROUP: BRACK
 ATOM: type: IDENT, value: arrayAgain
 TOKEN: type: OP, value: =
 ATOM: type: IDENT, value: i32
-GROUP: LIST
-GROUP: BLOCK
+GROUP: BRACK
+GROUP: BRACE
    ATOM: type: INT, value: 1
    TOKEN: type: COMMA, value: (null)
    ATOM: type: INT, value: 2
@@ -119,7 +119,7 @@ GROUP: BLOCK
    ATOM: type: INT, value: 4
 TOKEN: type: SEMICOLON, value: (null)
 ATOM: type: IDENT, value: i32
-GROUP: LIST
+GROUP: BRACK
 TOKEN: type: REF, value: (null)
 ATOM: type: IDENT, value: ptrToArray
 TOKEN: type: OP, value: =
@@ -128,7 +128,7 @@ ATOM: type: IDENT, value: array
 TOKEN: type: SEMICOLON, value: (null)
 ATOM: type: IDENT, value: i32
 TOKEN: type: REF, value: (null)
-GROUP: LIST
+GROUP: BRACK
 ATOM: type: IDENT, value: arrayOfPtr
 TOKEN: type: OP, value: =
 ATOM: type: IDENT, value: null
@@ -150,16 +150,16 @@ GROUP: PAREN
    ATOM: type: IDENT, value: byPointer
    TOKEN: type: COMMA, value: (null)
    ATOM: type: IDENT, value: A
-   GROUP: LIST
+   GROUP: BRACK
    ATOM: type: IDENT, value: byValue
    TOKEN: type: COMMA, value: (null)
    ATOM: type: IDENT, value: A
-   GROUP: LIST
+   GROUP: BRACK
    TOKEN: type: REF, value: (null)
    ATOM: type: IDENT, value: byReferenceOfArray
 ATOM: type: IDENT, value: aFunction
 TOKEN: type: OP, value: =
-GROUP: BLOCK
+GROUP: BRACE
    ATOM: type: KEYWORD, value: if
    GROUP: PAREN
       ATOM: type: IDENT, value: byValue
@@ -169,7 +169,7 @@ GROUP: BLOCK
       ATOM: type: IDENT, value: byPointer
       TOKEN: type: DOT, value: (null)
       ATOM: type: IDENT, value: b
-   GROUP: BLOCK
+   GROUP: BRACE
       TOKEN: type: COMMENT, value: (null)
       ATOM: type: KEYWORD, value: return
       ATOM: type: IDENT, value: byPointer
@@ -189,7 +189,7 @@ GROUP: BLOCK
    ATOM: type: IDENT, value: A
    ATOM: type: IDENT, value: another
    TOKEN: type: OP, value: =
-   GROUP: BLOCK
+   GROUP: BRACE
       ATOM: type: INT, value: 1
       TOKEN: type: COMMA, value: (null)
       TOKEN: type: COMMENT, value: (null)
@@ -208,7 +208,7 @@ ATOM: type: IDENT, value: void
 GROUP: PAREN
 ATOM: type: IDENT, value: normalFunction
 TOKEN: type: OP, value: =
-GROUP: BLOCK
+GROUP: BRACE
    ATOM: type: IDENT, value: io
    TOKEN: type: DOT, value: (null)
    ATOM: type: IDENT, value: print
@@ -218,7 +218,7 @@ GROUP: BLOCK
 ATOM: type: IDENT, value: i32
 GROUP: PAREN
 TOKEN: type: OP, value: =
-GROUP: BLOCK
+GROUP: BRACE
    ATOM: type: IDENT, value: i32
    ATOM: type: IDENT, value: a
    TOKEN: type: OP, value: =
@@ -229,7 +229,7 @@ GROUP: BLOCK
       ATOM: type: IDENT, value: a
       TOKEN: type: OP, value: <
       ATOM: type: INT, value: 0
-   GROUP: BLOCK
+   GROUP: BRACE
       ATOM: type: IDENT, value: a
       TOKEN: type: OP, value: <<=
       ATOM: type: INT, value: 1
@@ -248,13 +248,13 @@ GROUP: BLOCK
       ATOM: type: IDENT, value: i
       TOKEN: type: OP, value: +=
       ATOM: type: INT, value: 1
-   GROUP: BLOCK
+   GROUP: BRACE
       ATOM: type: KEYWORD, value: if
       GROUP: PAREN
          ATOM: type: IDENT, value: i
          TOKEN: type: OP, value: ==
          ATOM: type: INT, value: 5
-      GROUP: BLOCK
+      GROUP: BRACE
          ATOM: type: IDENT, value: continue
          TOKEN: type: SEMICOLON, value: (null)
       ATOM: type: KEYWORD, value: if
@@ -262,7 +262,7 @@ GROUP: BLOCK
          ATOM: type: IDENT, value: i
          TOKEN: type: OP, value: ==
          ATOM: type: INT, value: 8
-      GROUP: BLOCK
+      GROUP: BRACE
          ATOM: type: IDENT, value: break
          TOKEN: type: SEMICOLON, value: (null)
    ATOM: type: IDENT, value: f32
@@ -303,7 +303,7 @@ GROUP: BLOCK
       ATOM: type: IDENT, value: g
       TOKEN: type: OP, value: *
       ATOM: type: FLOAT, value: 0.5
-   GROUP: BLOCK
+   GROUP: BRACE
       ATOM: type: KEYWORD, value: case
       GROUP: PAREN
          ATOM: type: INT, value: 0
@@ -318,7 +318,7 @@ GROUP: BLOCK
          ATOM: type: INT, value: 2
          TOKEN: type: COMMA, value: (null)
          ATOM: type: INT, value: 3
-      GROUP: BLOCK
+      GROUP: BRACE
          ATOM: type: IDENT, value: char
          ATOM: type: IDENT, value: x
          TOKEN: type: OP, value: =
@@ -330,25 +330,25 @@ GROUP: BLOCK
          TOKEN: type: SEMICOLON, value: (null)
       ATOM: type: KEYWORD, value: case
       GROUP: PAREN
-      GROUP: BLOCK
+      GROUP: BRACE
          ATOM: type: IDENT, value: print
          GROUP: PAREN
             ATOM: type: STRING, value: default
          TOKEN: type: SEMICOLON, value: (null)
    ATOM: type: IDENT, value: char
-   GROUP: LIST
+   GROUP: BRACK
    ATOM: type: IDENT, value: string
    TOKEN: type: OP, value: =
    ATOM: type: STRING, value: string $#%$^%$^$ \" escape^
    TOKEN: type: SEMICOLON, value: (null)
    ATOM: type: IDENT, value: char
-   GROUP: LIST
+   GROUP: BRACK
    ATOM: type: IDENT, value: string1
    TOKEN: type: OP, value: =
    ATOM: type: STRING, value: concat stringishere
    TOKEN: type: SEMICOLON, value: (null)
    ATOM: type: IDENT, value: char
-   GROUP: LIST
+   GROUP: BRACK
    ATOM: type: IDENT, value: longstring
    TOKEN: type: OP, value: =
    ATOM: type: STRING, value: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

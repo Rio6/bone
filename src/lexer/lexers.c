@@ -63,13 +63,13 @@ Token *sep_lexer(Stream *stream) {
       case ')':
          return token_create(PAREN_R, NULL);
       case '[':
-         return token_create(LIST_L, NULL);
+         return token_create(BRACK_L, NULL);
       case ']':
-         return token_create(LIST_R, NULL);
+         return token_create(BRACK_R, NULL);
       case '{':
-         return token_create(BLOCK_L, NULL);
+         return token_create(BRACE_L, NULL);
       case '}':
-         return token_create(BLOCK_R, NULL);
+         return token_create(BRACE_R, NULL);
       case '@':
          return token_create(DEREF, NULL);
       case '#':

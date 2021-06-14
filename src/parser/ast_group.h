@@ -5,8 +5,8 @@
 typedef enum {
    NONE,
    PAREN,
-   LIST,
-   BLOCK,
+   BRACK,
+   BRACE,
 } ASTGroupType;
 extern const char *ASTGroupType_names[];
 

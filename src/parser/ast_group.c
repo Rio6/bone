@@ -17,15 +17,15 @@ typedef struct {
 
 static const GroupBoundary group_boundaries[] = {
    { PAREN, PAREN_L, PAREN_R },
-   { LIST, LIST_L, LIST_R },
-   { BLOCK, BLOCK_L, BLOCK_R },
+   { BRACK, BRACK_L, BRACK_R },
+   { BRACE, BRACE_L, BRACE_R },
 };
 
 const char *ASTGroupType_names[] = {
    "NONE",
    "PAREN",
-   "LIST",
-   "BLOCK",
+   "BRACK",
+   "BRACE",
 };
 
 static ASTNode *parse(ASTNode *node, ASTParser **parsers) {
