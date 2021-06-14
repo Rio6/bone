@@ -2,7 +2,7 @@
 #include "ast.h"
 
 #include "ast_token.h"
-#include "ast_error.h"
+#include "ast_atom.h"
 #include "ast_group.h"
 
 #include "utils/oop.h"
@@ -10,6 +10,7 @@
 #include <stddef.h>
 
 ASTParser **parsers[] = {
+   (ASTParser*[]) { atom_parser, NULL},
    (ASTParser*[]) { group_parser, NULL },
    NULL,
 };
