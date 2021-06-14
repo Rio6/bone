@@ -1,7 +1,7 @@
 #pragma once
 
 typedef enum {
-   ERROR,
+   TOKEN_ERROR,
    IDENT,
    KEYWORD,
    INT,
@@ -36,3 +36,4 @@ Token *token_create(TokenType type, const char *value);
 Token *token_create_raw(TokenType type, char *value);
 void token_delete(Token*);
 void token_dump(Token*);
+void token_print(Token*);

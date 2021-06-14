@@ -5,7 +5,7 @@
 #include <string.h>
 
 const char *TokenType_names[] = {
-   "ERROR",
+   "TOKEN_ERROR",
    "IDENT",
    "KEYWORD",
    "INT",
@@ -34,7 +34,7 @@ Token *token_create(TokenType type, const char *value) {
    if(value) {
       size_t len = strlen(value) + 1;
       copied_value = malloc(len);
-      memcpy(copied_value, value, len);
+      strcpy(copied_value, value);
    }
 
    return token_create_raw(type, copied_value);
@@ -56,6 +56,10 @@ void token_delete(Token *token) {
 
 void token_dump(Token *token) {
    if(!token) return;
-   printf("type: %s, value: %s\n", TokenType_names[token->type], token->value);
+   token_print(token);
    token_dump(token->next);
+}
+
+void token_print(Token *token) {
+   printf("type: %s, value: %s\n", TokenType_names[token->type], token->value);
 }

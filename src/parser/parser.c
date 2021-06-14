@@ -2,6 +2,7 @@
 #include "ast.h"
 
 #include "ast_token.h"
+#include "ast_error.h"
 #include "ast_group.h"
 
 #include "utils/oop.h"

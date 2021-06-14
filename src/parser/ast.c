@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 const char *ASTType_names[] = {
+   "AST_ERROR",
    "ATOM",
    "UNARY",
    "BINARY",

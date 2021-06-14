@@ -3,6 +3,7 @@
 #include "parser.h"
 
 typedef enum {
+   AST_ERROR,
    ATOM,
    UNARY,
    BINARY,
@@ -19,6 +20,8 @@ struct ASTNode {
    ASTNode *prev;
    ASTNode *next;
 
+   // Parse method apply ASTParser to its children and also the rest of node behind it.
+   // Returns a new node that replaces the current node
    ASTNode *(*parse)(ASTNode*, ASTParser*);
    void (*dump)(ASTNode*, unsigned indent);
    void (*delete)(ASTNode*);

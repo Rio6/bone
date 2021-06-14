@@ -135,7 +135,7 @@ Token *char_lexer(Stream *stream) {
    }
 
    if(stream_peek(stream) != '\'') {
-      return token_create(ERROR, "character literal can only have one character");
+      return token_create(TOKEN_ERROR, "character literal can only have one character");
    }
 
    char buff[3];

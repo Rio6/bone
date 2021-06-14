@@ -22,7 +22,8 @@ static void dump(ASTNode *node, unsigned indent) {
    ASTToken *ast_token = (ASTToken*) node;
 
    print_indent(indent);
-   printf("%s: %s\n", ASTType_names[node->type], TokenType_names[ast_token->token->type]);
+   printf("%s: ", ASTType_names[node->type]);
+   token_print(ast_token->token);
 
    if(node->next) {
       CALL_METHOD(dump, node->next, indent);

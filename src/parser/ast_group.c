@@ -1,6 +1,7 @@
 #include "ast.h"
 #include "ast_group.h"
 #include "ast_token.h"
+#include "ast_error.h"
 #include "parser.h"
 
 #include "utils/oop.h"
@@ -99,14 +100,15 @@ ASTNode *group_parser(ASTToken *ast_token) {
          group_boundary = &group_boundaries[i];
          break;
       } else if(type == group_boundaries[i].close) {
-         return NULL; // TODO  error
+         return ast_error_create_node("Unexpected close bracket", &ast_token->node);
       }
    }
 
    if(!group_boundary) return NULL;
 
    // Loop until the end of the group
-   ASTNode *tail = &ast_token->node;
+   ASTNode *head = &ast_token->node;
+   ASTNode *tail = head;
 
    int level = 0;
    while((tail = tail->next)) {
@@ -124,21 +126,25 @@ ASTNode *group_parser(ASTToken *ast_token) {
       }
    }
 
-   if(!tail) return NULL; // TODO error
+   if(!tail) return NULL;//ast_error_create_node("Unmatched bracket", &ast_token->node);
 
+   // At this point, head would be the open bracket and tail would be the close bracket
+
+   // Set the end of group's content to be the before the close bracket
    if(tail->prev) tail->prev->next = NULL;
 
-   ASTGroup *group = ast_group_create(group_boundary->type, ast_token->node.next);
+   ASTGroup *group = ast_group_create(group_boundary->type, head->next);
 
+   // Move the nodes after close bracket to be after group
    if(tail->next) {
       group->node.next = tail->next;
       tail->next->prev = &group->node;
    }
 
-   ast_token->node.next = NULL;
+   // Isolate and delete open and close brackets
+   head->next = NULL;
    tail->next = NULL;
-
-   CALL_METHOD(delete, &ast_token->node);
+   CALL_METHOD(delete, head);
    CALL_METHOD(delete, tail);
 
    return &group->node;
