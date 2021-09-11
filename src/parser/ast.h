@@ -5,6 +5,10 @@
 typedef enum {
    AST_ERROR,
    AST_ATOM,
+   AST_PREFIX,
+   AST_POSTFIX,
+   AST_BINARY,
+   AST_TENARY,
    AST_GROUP,
    AST_TOKEN,
 } ASTType;
