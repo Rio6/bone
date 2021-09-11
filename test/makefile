@@ -1,7 +1,6 @@
 TESTSRCS:=$(wildcard *.c)
 BINS:=$(patsubst %.c, %.bin, $(TESTSRCS))
 OUTS:=$(patsubst %.c, %.out, $(TESTSRCS))
-TMPS:=$(patsubst %.c, %.tmp, $(TESTSRCS))
 PRINTS:=$(patsubst %.c, %.print, $(TESTSRCS))
 TESTS:=$(patsubst %.c, %, $(TESTSRCS))
 RESETS:=$(patsubst %.c, %.reset, $(TESTSRCS))
@@ -14,15 +13,11 @@ CFLAGS+=-O0 -Wall -g -ggdb -fsanitize=address -fsanitize=leak -fsanitize=undefin
 .PHONY: all
 all: $(TESTS)
 
-.PHONY: generate
-generate: clean-outs $(OUTS)
-
 .PHONY: print
 print: $(PRINTS)
 
 %: %.bin %.out
-	./$< > $*.tmp
-	diff $*.out $*.tmp
+	./$< | diff $*.out -
 
 .SILENT: $(PRINTS)
 %.print: %.bin
@@ -41,7 +36,7 @@ print: $(PRINTS)
 
 .PHONY: clean
 clean:
-	$(RM) -r $(BINS) $(TMPS)
+	$(RM) -r $(BINS)
 
 .PHONY: reset
 reset: $(RESETS)
