@@ -10,11 +10,13 @@ AST_TOKEN: type: T_DOT, value: (null)
 AST_ATOM: type: T_IDENT, value: io
 AST_TOKEN: type: T_SEMICOLON, value: (null)
 AST_TOKEN: type: T_KEYWORD, value: import
+AST_TOKEN: type: T_DOT, value: (null)
 AST_ATOM: type: T_IDENT, value: directory
 AST_TOKEN: type: T_DOT, value: (null)
 AST_ATOM: type: T_IDENT, value: file
 AST_TOKEN: type: T_SEMICOLON, value: (null)
 AST_TOKEN: type: T_KEYWORD, value: import
+AST_TOKEN: type: T_DOT, value: (null)
 AST_ATOM: type: T_IDENT, value: directory
 AST_TOKEN: type: T_DOT, value: (null)
 AST_ATOM: type: T_STRING, value: fancy-name
@@ -216,7 +218,19 @@ AST_GROUP: GROUP_BRACE
    AST_ATOM: type: T_IDENT, value: i32
    AST_ATOM: type: T_IDENT, value: a
    AST_TOKEN: type: T_OP, value: =
-   AST_ATOM: type: T_INT, value: 10
+   AST_GROUP: GROUP_PAREN
+      AST_GROUP: GROUP_PAREN
+         AST_ATOM: type: T_INT, value: 10
+         AST_TOKEN: type: T_OP, value: +
+         AST_ATOM: type: T_INT, value: 5
+      AST_TOKEN: type: T_OP, value: *
+      AST_ATOM: type: T_INT, value: 600
+      AST_TOKEN: type: T_OP, value: /
+      AST_ATOM: type: T_INT, value: 4
+      AST_TOKEN: type: T_OP, value: +
+      AST_ATOM: type: T_INT, value: 8
+   AST_TOKEN: type: T_OP, value: *
+   AST_ATOM: type: T_INT, value: 3
    AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_TOKEN: type: T_KEYWORD, value: while
    AST_GROUP: GROUP_PAREN

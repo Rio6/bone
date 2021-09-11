@@ -1,7 +1,7 @@
 import std.math.;
 import std.io;
-import directory.file;
-import directory."fancy-name".name;
+import .directory.file;
+import .directory."fancy-name".name;
 
 export struct A {
    i32 a; // defaults to 0
@@ -52,7 +52,7 @@ void () normalFunction = {
 }
 
 i32 () = {
-   i32 a = 10;
+   i32 a = ((10 + 5) * 600 / 4 + 8) * 3;
    while(a < 0) {
       a <<= 1;
    }
