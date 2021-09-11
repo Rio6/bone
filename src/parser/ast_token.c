@@ -74,3 +74,29 @@ ASTToken *ast_token_from_tokens(Token *token) {
 
    return (ASTToken*) head.node.next;
 }
+
+ASTNode *ast_token_replace(ASTToken *old, ASTNode *new) {
+   ASTNode *prev = old->node.prev, *next = old->node.next;
+   if(prev) prev->next = new;
+   if(next) next->prev = new;
+   new->prev = prev;
+   new->next = next;
+   old->node.next = NULL;
+   CALL_METHOD(delete, &old->node);
+   return new;
+}
+
+ASTNode *ast_token_chop(ASTToken *token) {
+   ASTNode *next = token->node.next;
+   if(next) next->prev = NULL;
+   token->node.next = NULL;
+   CALL_METHOD(delete, &token->node);
+   return next;
+}
+
+void ast_token_remove(ASTToken *token) {
+   ASTNode *prev = token->node.prev, *next = token->node.next;
+   if(next) next->prev = prev;
+   token->node.next = NULL;
+   CALL_METHOD(delete, &token->node);
+}

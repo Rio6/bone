@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
 typedef struct {
    ASTGroupType type;
@@ -124,11 +125,13 @@ ASTNode *group_parser(ASTToken *ast_token) {
 
    if(!tail) return (ASTNode*) ast_error_create("Unmatched bracket", &ast_token->node);
 
-   // At this point, head would be the open bracket and tail would be the close bracket
+   // At this point, head should be the open bracket and tail would be the close bracket
+   assert(head->type == AST_TOKEN && tail->type == AST_TOKEN);
 
-   ASTNode *content = ast_chop(head);
+   ASTNode *content = ast_token_chop((ASTToken*) head);
    if(content == tail) content = NULL;
-   ASTNode *after = ast_chop(tail);
+   if(tail->prev) tail->prev->next = NULL;
+   ASTNode *after = ast_token_chop((ASTToken*) tail);
    ASTGroup *group = ast_group_create(group_boundary->type, content);
 
    // Move the nodes after close bracket to be after group

@@ -9,7 +9,6 @@
 
 #include <stddef.h>
 
-// TODO right to left and left to right parsing
 ASTParserFn *parsers[] = {
    (ASTParserFn[]) { comment_parser, NULL },
    (ASTParserFn[]) { atom_parser, NULL },
@@ -30,6 +29,6 @@ ASTNode *parser_run(Token *tokens) {
 ASTNode *comment_parser(ASTToken *token) {
    if(token->token->type != T_COMMENT) return NULL;
    ASTNode *next = token->node.next;
-   ast_remove(&token->node);
+   ast_token_remove(token);
    return next;
 }

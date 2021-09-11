@@ -31,31 +31,3 @@ ASTNode *ast_root(ASTNode *node) {
    while(node->up) node = node->up;
    return node;
 }
-
-ASTNode *ast_replace(ASTNode *old, ASTNode *new) {
-   ASTNode *prev = old->prev, *next = old->next;
-   if(prev) prev->next = new;
-   if(next) next->prev = new;
-   new->prev = prev;
-   new->next = next;
-   old->next = NULL;
-   CALL_METHOD(delete, old);
-   return new;
-}
-
-ASTNode *ast_chop(ASTNode *ast) {
-   ASTNode *next = ast->next;
-   if(ast->prev) ast->prev->next = NULL;
-   if(next)           next->prev = NULL;
-   ast->next = NULL;
-   CALL_METHOD(delete, ast);
-   return next;
-}
-
-void ast_remove(ASTNode *ast) {
-   ASTNode *prev = ast->prev, *next = ast->next;
-   if(prev) prev->next = next;
-   if(next) next->prev = prev;
-   ast->next = NULL;
-   CALL_METHOD(delete, ast);
-}

@@ -58,7 +58,7 @@ ASTNode *atom_parser(ASTToken *token) {
       if(token->token->type == atom_tokens[i]) {
          ASTAtom *atom = ast_atom_create(token->token);
          token->token = NULL;
-         ast_replace(&token->node, &atom->node);
+         ast_token_replace(token, &atom->node);
          return &atom->node;
       }
    }

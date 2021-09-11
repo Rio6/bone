@@ -36,7 +36,3 @@ void print_indent(unsigned);
 
 void ast_init(ASTNode*, ASTType, ASTParseFn, ASTDumpFn, ASTDeleteFn);
 ASTNode *ast_root(ASTNode*);
-ASTNode *ast_replace(ASTNode *old, ASTNode *new);
-// Chop the head, return the new head.
-ASTNode *ast_chop(ASTNode*);
-void ast_remove(ASTNode*);
