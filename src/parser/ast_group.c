@@ -16,19 +16,19 @@ typedef struct {
 } GroupBoundary;
 
 static const GroupBoundary group_boundaries[] = {
-   { PAREN, PAREN_L, PAREN_R },
-   { BRACK, BRACK_L, BRACK_R },
-   { BRACE, BRACE_L, BRACE_R },
+   { GROUP_PAREN, T_PAREN_L, T_PAREN_R },
+   { GROUP_BRACK, T_BRACK_L, T_BRACK_R },
+   { GROUP_BRACE, T_BRACE_L, T_BRACE_R },
 };
 
 const char *ASTGroupType_names[] = {
-   "NONE",
-   "PAREN",
-   "BRACK",
-   "BRACE",
+   "GROUP_NONE",
+   "GROUP_PAREN",
+   "GROUP_BRACK",
+   "GROUP_BRACE",
 };
 
-static ASTNode *parse(ASTNode *node, ASTParser **parsers) {
+static ASTNode *parse(ASTNode *node, ASTParserFn *parsers) {
    ASTGroup *group = (ASTGroup*) node;
 
    if(group->content) {
@@ -75,17 +75,13 @@ static void dump(ASTNode *node, unsigned indent) {
 ASTGroup *ast_group_create(ASTGroupType type, ASTNode *content) {
    ASTGroup *group = calloc(1, sizeof(ASTGroup));
 
-   group->node.type = GROUP;
-   group->node.parse = parse;
-   group->node.dump = dump;
-   group->node.delete = delete;
+   ast_init(&group->node, AST_GROUP, parse, dump, delete);
 
    group->type = type;
    group->content = content;
 
    if(content) {
-      content->up = (ASTNode*) group;
-      content->prev = NULL;
+      content->up = &group->node;
    }
 
    return group;
@@ -100,7 +96,7 @@ ASTNode *group_parser(ASTToken *ast_token) {
          group_boundary = &group_boundaries[i];
          break;
       } else if(type == group_boundaries[i].close) {
-         return ast_error_create_node("Unexpected close bracket", &ast_token->node);
+         return (ASTNode*) ast_error_create("Unexpected close bracket", &ast_token->node);
       }
    }
 
@@ -112,7 +108,7 @@ ASTNode *group_parser(ASTToken *ast_token) {
 
    int level = 0;
    while((tail = tail->next)) {
-      if(tail->type == TOKEN) {
+      if(tail->type == AST_TOKEN) {
          ASTToken *ast_token = (ASTToken*) tail;
          if(ast_token->token->type == group_boundary->open) {
             level++;
@@ -126,22 +122,19 @@ ASTNode *group_parser(ASTToken *ast_token) {
       }
    }
 
-   if(!tail) return NULL;//ast_error_create_node("Unmatched bracket", &ast_token->node);
+   if(!tail) return (ASTNode*) ast_error_create("Unmatched bracket", &ast_token->node);
 
    // At this point, head would be the open bracket and tail would be the close bracket
 
-   // Set the end of group's content to be the before the close bracket
-   if(tail->prev) tail->prev->next = NULL;
-
-   head = ast_chop(head, NULL);
-   tail = ast_chop(tail, NULL);
-
-   ASTGroup *group = ast_group_create(group_boundary->type, head);
+   ASTNode *content = ast_chop(head);
+   if(content == tail) content = NULL;
+   ASTNode *after = ast_chop(tail);
+   ASTGroup *group = ast_group_create(group_boundary->type, content);
 
    // Move the nodes after close bracket to be after group
-   if(tail) {
-      group->node.next = tail;
-      tail->prev = &group->node;
+   if(after) {
+      group->node.next = after;
+      after->prev = &group->node;
    }
 
    return &group->node;

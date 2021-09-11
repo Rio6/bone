@@ -11,7 +11,7 @@ static void dump(ASTNode *node, unsigned indent) {
    printf("%s: %s\n", ASTType_names[node->type], error->message);
 }
 
-static ASTNode *parse(ASTNode *node, ASTParser**) {
+static ASTNode *parse(ASTNode *node, ASTParserFn*) {
    return node;
 }
 
@@ -23,14 +23,9 @@ static void delete(ASTNode *node) {
 }
 
 ASTError *ast_error_create(const char *message, ASTNode *replace) {
-   CALL_METHOD(delete, replace);
-
    ASTError *error = calloc(1, sizeof(ASTError));
 
-   error->node.type = AST_ERROR;
-   error->node.dump = dump;
-   error->node.parse = parse;
-   error->node.delete = delete;
+   ast_init(&error->node, AST_ERROR, parse, dump, delete);
 
    if(message) {
       size_t len = strlen(message) + 1;
@@ -38,9 +33,10 @@ ASTError *ast_error_create(const char *message, ASTNode *replace) {
       strcpy(error->message, message);
    }
 
-   return error;
-}
+   if(replace) {
+      if(replace->prev) replace->prev->next = &error->node;
+      CALL_METHOD(delete, replace);
+   }
 
-ASTNode *ast_error_create_node(const char *message, ASTNode *replace) {
-   return &ast_error_create(message, replace)->node;
+   return error;
 }

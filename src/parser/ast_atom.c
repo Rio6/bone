@@ -7,15 +7,14 @@
 #include <stdlib.h>
 
 static TokenType atom_tokens[] = {
-   IDENT,
-   KEYWORD,
-   INT,
-   FLOAT,
-   CHAR,
-   STRING,
+   T_IDENT,
+   T_INT,
+   T_FLOAT,
+   T_CHAR,
+   T_STRING,
 };
 
-static ASTNode *parse(ASTNode *node, ASTParser **parsers) {
+static ASTNode *parse(ASTNode *node, ASTParserFn *parsers) {
    if(node->next) {
       node->next = CALL_METHOD(parse, node->next, parsers);
    }
@@ -49,14 +48,8 @@ static void delete(ASTNode *node) {
 
 ASTAtom *ast_atom_create(Token *token) {
    ASTAtom *atom = calloc(1, sizeof(ASTAtom));
-
-   atom->node.type = ATOM;
-   atom->node.parse = parse;
-   atom->node.dump = dump;
-   atom->node.delete = delete;
-
+   ast_init(&atom->node, AST_ATOM, parse, dump, delete);
    atom->token = token;
-
    return atom;
 }
 
@@ -64,8 +57,8 @@ ASTNode *atom_parser(ASTToken *token) {
    for(size_t i = 0; i < sizeof(atom_tokens) / sizeof(atom_tokens[0]); i++) {
       if(token->token->type == atom_tokens[i]) {
          ASTAtom *atom = ast_atom_create(token->token);
-         token->token = NULL; // take ownership
-         atom->node.next = ast_chop(&token->node, &atom->node);
+         token->token = NULL;
+         ast_replace(&token->node, &atom->node);
          return &atom->node;
       }
    }

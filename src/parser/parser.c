@@ -9,16 +9,18 @@
 
 #include <stddef.h>
 
-ASTParser **parsers[] = {
-   (ASTParser*[]) { atom_parser, NULL},
-   (ASTParser*[]) { group_parser, NULL },
+// TODO right to left and left to right parsing
+ASTParserFn *parsers[] = {
+   (ASTParserFn[]) { comment_parser, NULL },
+   (ASTParserFn[]) { atom_parser, NULL },
+   (ASTParserFn[]) { group_parser, NULL },
    NULL,
 };
 
 ASTNode *parser_run(Token *tokens) {
    ASTNode *ast = (ASTNode*) ast_token_from_tokens(tokens);
 
-   for(ASTParser ***parser = parsers; *parser != NULL; parser++) {
+   for(ASTParserFn **parser = parsers; *parser != NULL; parser++) {
       ast = ast_root(CALL_METHOD(parse, ast, *parser));
    }
 
@@ -26,6 +28,8 @@ ASTNode *parser_run(Token *tokens) {
 }
 
 ASTNode *comment_parser(ASTToken *token) {
-   if(token->token->type != COMMENT) return NULL;
-   return ast_chop(&token->node, NULL);
+   if(token->token->type != T_COMMENT) return NULL;
+   ASTNode *next = token->node.next;
+   ast_remove(&token->node);
+   return next;
 }

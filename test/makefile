@@ -4,6 +4,7 @@ OUTS:=$(patsubst %.c, %.out, $(TESTSRCS))
 TMPS:=$(patsubst %.c, %.tmp, $(TESTSRCS))
 PRINTS:=$(patsubst %.c, %.print, $(TESTSRCS))
 TESTS:=$(patsubst %.c, %, $(TESTSRCS))
+RESETS:=$(patsubst %.c, %.reset, $(TESTSRCS))
 
 SRCDIR=$(realpath ../src)
 SRCS:=$(filter-out ../src/main.c, $(shell find $(SRCDIR) -name '*.c'))
@@ -35,10 +36,12 @@ print: $(PRINTS)
 %.bin: %.c $(SRCS)
 	$(CC) $(CFLAGS) -I$(SRCDIR) $(SRCS) $< -o $@
 
+%.reset:
+	$(RM) $*.out
+
 .PHONY: clean
 clean:
-	rm -rf $(BINS) $(TMPS)
+	$(RM) -r $(BINS) $(TMPS)
 
-.PHONY: clean-outs
-clean-outs:
-	rm -rf $(OUTS)
+.PHONY: reset
+reset: $(RESETS)

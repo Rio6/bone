@@ -8,4 +8,3 @@ typedef struct {
 } ASTError;
 
 ASTError *ast_error_create(const char*, ASTNode *replace);
-ASTNode *ast_error_create_node(const char*, ASTNode *replace);

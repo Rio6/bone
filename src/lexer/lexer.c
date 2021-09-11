@@ -32,11 +32,11 @@ Token *lexer_run(Stream *stream) {
       if(!has_token) {
          char buff[128];
          snprintf(buff, sizeof(buff), "Unexpected character: %1$c (%1$X)\n", last_c);
-         last_token->next = token_create(TOKEN_ERROR, buff);
+         last_token->next = token_create(T_ERROR, buff);
          last_token = last_token->next;
       }
 
-      if(last_token->type == TOKEN_ERROR || last_token->type == EOT) {
+      if(last_token->type == T_ERROR || last_token->type == T_EOT) {
          break;
       }
    }

@@ -1,366 +1,358 @@
-ATOM: type: KEYWORD, value: import
-ATOM: type: IDENT, value: std
-TOKEN: type: DOT, value: (null)
-ATOM: type: IDENT, value: math
-TOKEN: type: DOT, value: (null)
-TOKEN: type: SEMICOLON, value: (null)
-ATOM: type: KEYWORD, value: import
-ATOM: type: IDENT, value: std
-TOKEN: type: DOT, value: (null)
-ATOM: type: IDENT, value: io
-TOKEN: type: SEMICOLON, value: (null)
-ATOM: type: KEYWORD, value: import
-ATOM: type: IDENT, value: directory
-TOKEN: type: DOT, value: (null)
-ATOM: type: IDENT, value: file
-TOKEN: type: SEMICOLON, value: (null)
-ATOM: type: KEYWORD, value: import
-ATOM: type: IDENT, value: directory
-TOKEN: type: DOT, value: (null)
-ATOM: type: STRING, value: fancy-name
-TOKEN: type: DOT, value: (null)
-ATOM: type: IDENT, value: name
-TOKEN: type: SEMICOLON, value: (null)
-ATOM: type: KEYWORD, value: export
-ATOM: type: KEYWORD, value: struct
-ATOM: type: IDENT, value: A
-GROUP: BRACE
-   ATOM: type: IDENT, value: i32
-   ATOM: type: IDENT, value: a
-   TOKEN: type: SEMICOLON, value: (null)
-   TOKEN: type: COMMENT, value: (null)
-   ATOM: type: IDENT, value: i32
-   ATOM: type: IDENT, value: b
-   TOKEN: type: OP, value: =
-   ATOM: type: INT, value: 10
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: IDENT, value: f64
-   ATOM: type: IDENT, value: c
-   TOKEN: type: OP, value: =
-   ATOM: type: FLOAT, value: 10.23
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: IDENT, value: f32
-   ATOM: type: IDENT, value: d
-   TOKEN: type: OP, value: =
-   ATOM: type: FLOAT, value: .65
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: IDENT, value: f32
-   ATOM: type: IDENT, value: e
-   TOKEN: type: OP, value: =
-   ATOM: type: FLOAT, value: .4e10
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: IDENT, value: f32
-   ATOM: type: IDENT, value: f
-   TOKEN: type: OP, value: =
-   ATOM: type: FLOAT, value: 4e4
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: IDENT, value: char
-   GROUP: PAREN
-      ATOM: type: IDENT, value: A
-      ATOM: type: IDENT, value: self
-      TOKEN: type: COMMA, value: (null)
-      ATOM: type: IDENT, value: bool
-      ATOM: type: IDENT, value: stuff
-   TOKEN: type: REF, value: (null)
-   ATOM: type: IDENT, value: method
-   TOKEN: type: OP, value: =
-   GROUP: BRACE
-      ATOM: type: KEYWORD, value: return
-      ATOM: type: CHAR, value: x
-      TOKEN: type: SEMICOLON, value: (null)
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: IDENT, value: char
-   GROUP: PAREN
-      ATOM: type: IDENT, value: A
-      TOKEN: type: COMMA, value: (null)
-      ATOM: type: IDENT, value: bool
-   TOKEN: type: REF, value: (null)
-   ATOM: type: IDENT, value: sameThing
-   TOKEN: type: OP, value: =
-   ATOM: type: IDENT, value: char
-   GROUP: PAREN
-      ATOM: type: IDENT, value: A
-      ATOM: type: IDENT, value: self
-      TOKEN: type: COMMA, value: (null)
-      ATOM: type: IDENT, value: bool
-      ATOM: type: IDENT, value: stuff
-   GROUP: BRACE
-   TOKEN: type: SEMICOLON, value: (null)
-ATOM: type: IDENT, value: i32
-TOKEN: type: REF, value: (null)
-ATOM: type: IDENT, value: aPtr
-TOKEN: type: SEMICOLON, value: (null)
-ATOM: type: IDENT, value: i32
-GROUP: BRACK
-ATOM: type: IDENT, value: array
-TOKEN: type: OP, value: =
-GROUP: BRACE
-   ATOM: type: INT, value: 1
-   TOKEN: type: COMMA, value: (null)
-   ATOM: type: INT, value: 2
-   TOKEN: type: COMMA, value: (null)
-   ATOM: type: INT, value: 3
-   TOKEN: type: COMMA, value: (null)
-   ATOM: type: INT, value: 4
-TOKEN: type: SEMICOLON, value: (null)
-ATOM: type: IDENT, value: i32
-GROUP: BRACK
-ATOM: type: IDENT, value: arrayAgain
-TOKEN: type: OP, value: =
-ATOM: type: IDENT, value: i32
-GROUP: BRACK
-GROUP: BRACE
-   ATOM: type: INT, value: 1
-   TOKEN: type: COMMA, value: (null)
-   ATOM: type: INT, value: 2
-   TOKEN: type: COMMA, value: (null)
-   ATOM: type: INT, value: 3
-   TOKEN: type: COMMA, value: (null)
-   ATOM: type: INT, value: 4
-TOKEN: type: SEMICOLON, value: (null)
-ATOM: type: IDENT, value: i32
-GROUP: BRACK
-TOKEN: type: REF, value: (null)
-ATOM: type: IDENT, value: ptrToArray
-TOKEN: type: OP, value: =
-TOKEN: type: REF, value: (null)
-ATOM: type: IDENT, value: array
-TOKEN: type: SEMICOLON, value: (null)
-ATOM: type: IDENT, value: i32
-TOKEN: type: REF, value: (null)
-GROUP: BRACK
-ATOM: type: IDENT, value: arrayOfPtr
-TOKEN: type: OP, value: =
-ATOM: type: IDENT, value: null
-TOKEN: type: SEMICOLON, value: (null)
-ATOM: type: IDENT, value: i32
-GROUP: PAREN
-   ATOM: type: IDENT, value: char
-TOKEN: type: REF, value: (null)
-ATOM: type: IDENT, value: ptrToFuncReturnsI32
-TOKEN: type: SEMICOLON, value: (null)
-TOKEN: type: COMMENT, value: (null)
-ATOM: type: IDENT, value: char
-GROUP: PAREN
-   ATOM: type: IDENT, value: A
-   ATOM: type: IDENT, value: byValue
-   TOKEN: type: COMMA, value: (null)
-   ATOM: type: IDENT, value: A
-   TOKEN: type: REF, value: (null)
-   ATOM: type: IDENT, value: byPointer
-   TOKEN: type: COMMA, value: (null)
-   ATOM: type: IDENT, value: A
-   GROUP: BRACK
-   ATOM: type: IDENT, value: byValue
-   TOKEN: type: COMMA, value: (null)
-   ATOM: type: IDENT, value: A
-   GROUP: BRACK
-   TOKEN: type: REF, value: (null)
-   ATOM: type: IDENT, value: byReferenceOfArray
-ATOM: type: IDENT, value: aFunction
-TOKEN: type: OP, value: =
-GROUP: BRACE
-   ATOM: type: KEYWORD, value: if
-   GROUP: PAREN
-      ATOM: type: IDENT, value: byValue
-      TOKEN: type: DOT, value: (null)
-      ATOM: type: IDENT, value: a
-      TOKEN: type: OP, value: ==
-      ATOM: type: IDENT, value: byPointer
-      TOKEN: type: DOT, value: (null)
-      ATOM: type: IDENT, value: b
-   GROUP: BRACE
-      TOKEN: type: COMMENT, value: (null)
-      ATOM: type: KEYWORD, value: return
-      ATOM: type: IDENT, value: byPointer
-      TOKEN: type: DOT, value: (null)
-      ATOM: type: IDENT, value: c
-      TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: IDENT, value: A
-   ATOM: type: IDENT, value: copied
-   TOKEN: type: OP, value: =
-   TOKEN: type: DEREF, value: (null)
-   ATOM: type: IDENT, value: byPointer
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: IDENT, value: A
-   ATOM: type: IDENT, value: object
-   TOKEN: type: SEMICOLON, value: (null)
-   TOKEN: type: COMMENT, value: (null)
-   ATOM: type: IDENT, value: A
-   ATOM: type: IDENT, value: another
-   TOKEN: type: OP, value: =
-   GROUP: BRACE
-      ATOM: type: INT, value: 1
-      TOKEN: type: COMMA, value: (null)
-      TOKEN: type: COMMENT, value: (null)
-      ATOM: type: IDENT, value: c
-      TOKEN: type: OP, value: =
-      ATOM: type: INT, value: 10
-      TOKEN: type: COMMA, value: (null)
-      ATOM: type: INT, value: 123
-      TOKEN: type: COMMA, value: (null)
-      TOKEN: type: COMMENT, value: (null)
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: KEYWORD, value: return
-   ATOM: type: CHAR, value: x
-   TOKEN: type: SEMICOLON, value: (null)
-ATOM: type: IDENT, value: void
-GROUP: PAREN
-ATOM: type: IDENT, value: normalFunction
-TOKEN: type: OP, value: =
-GROUP: BRACE
-   ATOM: type: IDENT, value: io
-   TOKEN: type: DOT, value: (null)
-   ATOM: type: IDENT, value: print
-   GROUP: PAREN
-      ATOM: type: IDENT, value: stuff
-   TOKEN: type: SEMICOLON, value: (null)
-ATOM: type: IDENT, value: i32
-GROUP: PAREN
-TOKEN: type: OP, value: =
-GROUP: BRACE
-   ATOM: type: IDENT, value: i32
-   ATOM: type: IDENT, value: a
-   TOKEN: type: OP, value: =
-   ATOM: type: INT, value: 10
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: KEYWORD, value: while
-   GROUP: PAREN
-      ATOM: type: IDENT, value: a
-      TOKEN: type: OP, value: <
-      ATOM: type: INT, value: 0
-   GROUP: BRACE
-      ATOM: type: IDENT, value: a
-      TOKEN: type: OP, value: <<=
-      ATOM: type: INT, value: 1
-      TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: KEYWORD, value: for
-   GROUP: PAREN
-      ATOM: type: IDENT, value: i32
-      ATOM: type: IDENT, value: i
-      TOKEN: type: OP, value: =
-      ATOM: type: INT, value: 0
-      TOKEN: type: SEMICOLON, value: (null)
-      ATOM: type: IDENT, value: i
-      TOKEN: type: OP, value: <
-      ATOM: type: INT, value: 100
-      TOKEN: type: SEMICOLON, value: (null)
-      ATOM: type: IDENT, value: i
-      TOKEN: type: OP, value: +=
-      ATOM: type: INT, value: 1
-   GROUP: BRACE
-      ATOM: type: KEYWORD, value: if
-      GROUP: PAREN
-         ATOM: type: IDENT, value: i
-         TOKEN: type: OP, value: ==
-         ATOM: type: INT, value: 5
-      GROUP: BRACE
-         ATOM: type: IDENT, value: continue
-         TOKEN: type: SEMICOLON, value: (null)
-      ATOM: type: KEYWORD, value: if
-      GROUP: PAREN
-         ATOM: type: IDENT, value: i
-         TOKEN: type: OP, value: ==
-         ATOM: type: INT, value: 8
-      GROUP: BRACE
-         ATOM: type: IDENT, value: break
-         TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: IDENT, value: f32
-   ATOM: type: IDENT, value: f
-   TOKEN: type: OP, value: =
-   ATOM: type: IDENT, value: sqrt
-   GROUP: PAREN
-      ATOM: type: INT, value: 2
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: IDENT, value: f32
-   ATOM: type: IDENT, value: g
-   TOKEN: type: OP, value: =
-   ATOM: type: IDENT, value: sqrt
-   GROUP: PAREN
-      ATOM: type: FLOAT, value: 2.5e
-      TOKEN: type: OP, value: -
-      ATOM: type: INT, value: 4
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: KEYWORD, value: if
-   GROUP: PAREN
-      ATOM: type: IDENT, value: true
-   ATOM: type: KEYWORD, value: if
-   GROUP: PAREN
-      ATOM: type: IDENT, value: a
-      TOKEN: type: OP, value: ==
-      ATOM: type: INT, value: 10
-   ATOM: type: IDENT, value: a
-   TOKEN: type: OP, value: =
-   ATOM: type: INT, value: 11
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: KEYWORD, value: else
-   ATOM: type: IDENT, value: a
-   TOKEN: type: OP, value: =
-   ATOM: type: INT, value: 10
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: KEYWORD, value: switch
-   GROUP: PAREN
-      ATOM: type: IDENT, value: g
-      TOKEN: type: OP, value: *
-      ATOM: type: FLOAT, value: 0.5
-   GROUP: BRACE
-      ATOM: type: KEYWORD, value: case
-      GROUP: PAREN
-         ATOM: type: INT, value: 0
-      ATOM: type: IDENT, value: print
-      GROUP: PAREN
-         ATOM: type: IDENT, value: g
-      TOKEN: type: SEMICOLON, value: (null)
-      ATOM: type: KEYWORD, value: case
-      GROUP: PAREN
-         ATOM: type: INT, value: 1
-         TOKEN: type: COMMA, value: (null)
-         ATOM: type: INT, value: 2
-         TOKEN: type: COMMA, value: (null)
-         ATOM: type: INT, value: 3
-      GROUP: BRACE
-         ATOM: type: IDENT, value: char
-         ATOM: type: IDENT, value: x
-         TOKEN: type: OP, value: =
-         ATOM: type: CHAR, value: 1
-         TOKEN: type: SEMICOLON, value: (null)
-         ATOM: type: IDENT, value: print
-         GROUP: PAREN
-            ATOM: type: IDENT, value: x
-         TOKEN: type: SEMICOLON, value: (null)
-      ATOM: type: KEYWORD, value: case
-      GROUP: PAREN
-      GROUP: BRACE
-         ATOM: type: IDENT, value: print
-         GROUP: PAREN
-            ATOM: type: STRING, value: default
-         TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: IDENT, value: char
-   GROUP: BRACK
-   ATOM: type: IDENT, value: string
-   TOKEN: type: OP, value: =
-   ATOM: type: STRING, value: string $#%$^%$^$ \" escape^
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: IDENT, value: char
-   GROUP: BRACK
-   ATOM: type: IDENT, value: string1
-   TOKEN: type: OP, value: =
-   ATOM: type: STRING, value: concat stringishere
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: IDENT, value: char
-   GROUP: BRACK
-   ATOM: type: IDENT, value: longstring
-   TOKEN: type: OP, value: =
-   ATOM: type: STRING, value: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: IDENT, value: A
-   ATOM: type: IDENT, value: a
-   TOKEN: type: SEMICOLON, value: (null)
-   ATOM: type: IDENT, value: a
-   TOKEN: type: COLON, value: (null)
-   ATOM: type: IDENT, value: method
-   GROUP: PAREN
-   TOKEN: type: SEMICOLON, value: (null)
-   TOKEN: type: COMMENT, value: (null)
-TOKEN: type: COMMENT, value: (null)
-TOKEN: type: EOT, value: (null)
+AST_POSTFIX: type: T_KEYWORD, value: import
+AST_ATOM: type: T_IDENT, value: std
+AST_POSTFIX: type: T_DOT, value: (null)
+AST_ATOM: type: T_IDENT, value: math
+AST_POSTFIX: type: T_DOT, value: (null)
+AST_POSTFIX: type: T_SEMICOLON, value: (null)
+AST_POSTFIX: type: T_KEYWORD, value: import
+AST_ATOM: type: T_IDENT, value: std
+AST_POSTFIX: type: T_DOT, value: (null)
+AST_ATOM: type: T_IDENT, value: io
+AST_POSTFIX: type: T_SEMICOLON, value: (null)
+AST_POSTFIX: type: T_KEYWORD, value: import
+AST_ATOM: type: T_IDENT, value: directory
+AST_POSTFIX: type: T_DOT, value: (null)
+AST_ATOM: type: T_IDENT, value: file
+AST_POSTFIX: type: T_SEMICOLON, value: (null)
+AST_POSTFIX: type: T_KEYWORD, value: import
+AST_ATOM: type: T_IDENT, value: directory
+AST_POSTFIX: type: T_DOT, value: (null)
+AST_ATOM: type: T_STRING, value: fancy-name
+AST_POSTFIX: type: T_DOT, value: (null)
+AST_ATOM: type: T_IDENT, value: name
+AST_POSTFIX: type: T_SEMICOLON, value: (null)
+AST_POSTFIX: type: T_KEYWORD, value: export
+AST_POSTFIX: type: T_KEYWORD, value: struct
+AST_ATOM: type: T_IDENT, value: A
+AST_PREFIX: GROUP_BRACE
+   AST_ATOM: type: T_IDENT, value: i32
+   AST_ATOM: type: T_IDENT, value: a
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: i32
+   AST_ATOM: type: T_IDENT, value: b
+   AST_POSTFIX: type: T_OP, value: =
+   AST_ATOM: type: T_INT, value: 10
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: f64
+   AST_ATOM: type: T_IDENT, value: c
+   AST_POSTFIX: type: T_OP, value: =
+   AST_ATOM: type: T_FLOAT, value: 10.23
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: f32
+   AST_ATOM: type: T_IDENT, value: d
+   AST_POSTFIX: type: T_OP, value: =
+   AST_ATOM: type: T_FLOAT, value: .65
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: f32
+   AST_ATOM: type: T_IDENT, value: e
+   AST_POSTFIX: type: T_OP, value: =
+   AST_ATOM: type: T_FLOAT, value: .4e10
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: f32
+   AST_ATOM: type: T_IDENT, value: f
+   AST_POSTFIX: type: T_OP, value: =
+   AST_ATOM: type: T_FLOAT, value: 4e4
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: char
+   AST_PREFIX: GROUP_PAREN
+      AST_ATOM: type: T_IDENT, value: A
+      AST_ATOM: type: T_IDENT, value: self
+      AST_POSTFIX: type: T_COMMA, value: (null)
+      AST_ATOM: type: T_IDENT, value: bool
+      AST_ATOM: type: T_IDENT, value: stuff
+   AST_POSTFIX: type: T_REF, value: (null)
+   AST_ATOM: type: T_IDENT, value: method
+   AST_POSTFIX: type: T_OP, value: =
+   AST_PREFIX: GROUP_BRACE
+      AST_POSTFIX: type: T_KEYWORD, value: return
+      AST_ATOM: type: T_CHAR, value: x
+      AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: char
+   AST_PREFIX: GROUP_PAREN
+      AST_ATOM: type: T_IDENT, value: A
+      AST_POSTFIX: type: T_COMMA, value: (null)
+      AST_ATOM: type: T_IDENT, value: bool
+   AST_POSTFIX: type: T_REF, value: (null)
+   AST_ATOM: type: T_IDENT, value: sameThing
+   AST_POSTFIX: type: T_OP, value: =
+   AST_ATOM: type: T_IDENT, value: char
+   AST_PREFIX: GROUP_PAREN
+      AST_ATOM: type: T_IDENT, value: A
+      AST_ATOM: type: T_IDENT, value: self
+      AST_POSTFIX: type: T_COMMA, value: (null)
+      AST_ATOM: type: T_IDENT, value: bool
+      AST_ATOM: type: T_IDENT, value: stuff
+   AST_PREFIX: GROUP_BRACE
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+AST_ATOM: type: T_IDENT, value: i32
+AST_POSTFIX: type: T_REF, value: (null)
+AST_ATOM: type: T_IDENT, value: aPtr
+AST_POSTFIX: type: T_SEMICOLON, value: (null)
+AST_ATOM: type: T_IDENT, value: i32
+AST_PREFIX: GROUP_BRACK
+AST_ATOM: type: T_IDENT, value: array
+AST_POSTFIX: type: T_OP, value: =
+AST_PREFIX: GROUP_BRACE
+   AST_ATOM: type: T_INT, value: 1
+   AST_POSTFIX: type: T_COMMA, value: (null)
+   AST_ATOM: type: T_INT, value: 2
+   AST_POSTFIX: type: T_COMMA, value: (null)
+   AST_ATOM: type: T_INT, value: 3
+   AST_POSTFIX: type: T_COMMA, value: (null)
+   AST_ATOM: type: T_INT, value: 4
+AST_POSTFIX: type: T_SEMICOLON, value: (null)
+AST_ATOM: type: T_IDENT, value: i32
+AST_PREFIX: GROUP_BRACK
+AST_ATOM: type: T_IDENT, value: arrayAgain
+AST_POSTFIX: type: T_OP, value: =
+AST_ATOM: type: T_IDENT, value: i32
+AST_PREFIX: GROUP_BRACK
+AST_PREFIX: GROUP_BRACE
+   AST_ATOM: type: T_INT, value: 1
+   AST_POSTFIX: type: T_COMMA, value: (null)
+   AST_ATOM: type: T_INT, value: 2
+   AST_POSTFIX: type: T_COMMA, value: (null)
+   AST_ATOM: type: T_INT, value: 3
+   AST_POSTFIX: type: T_COMMA, value: (null)
+   AST_ATOM: type: T_INT, value: 4
+AST_POSTFIX: type: T_SEMICOLON, value: (null)
+AST_ATOM: type: T_IDENT, value: i32
+AST_PREFIX: GROUP_BRACK
+AST_POSTFIX: type: T_REF, value: (null)
+AST_ATOM: type: T_IDENT, value: ptrToArray
+AST_POSTFIX: type: T_OP, value: =
+AST_POSTFIX: type: T_REF, value: (null)
+AST_ATOM: type: T_IDENT, value: array
+AST_POSTFIX: type: T_SEMICOLON, value: (null)
+AST_ATOM: type: T_IDENT, value: i32
+AST_POSTFIX: type: T_REF, value: (null)
+AST_PREFIX: GROUP_BRACK
+AST_ATOM: type: T_IDENT, value: arrayOfPtr
+AST_POSTFIX: type: T_OP, value: =
+AST_ATOM: type: T_IDENT, value: null
+AST_POSTFIX: type: T_SEMICOLON, value: (null)
+AST_ATOM: type: T_IDENT, value: i32
+AST_PREFIX: GROUP_PAREN
+   AST_ATOM: type: T_IDENT, value: char
+AST_POSTFIX: type: T_REF, value: (null)
+AST_ATOM: type: T_IDENT, value: ptrToFuncReturnsI32
+AST_POSTFIX: type: T_SEMICOLON, value: (null)
+AST_ATOM: type: T_IDENT, value: char
+AST_PREFIX: GROUP_PAREN
+   AST_ATOM: type: T_IDENT, value: A
+   AST_ATOM: type: T_IDENT, value: byValue
+   AST_POSTFIX: type: T_COMMA, value: (null)
+   AST_ATOM: type: T_IDENT, value: A
+   AST_POSTFIX: type: T_REF, value: (null)
+   AST_ATOM: type: T_IDENT, value: byPointer
+   AST_POSTFIX: type: T_COMMA, value: (null)
+   AST_ATOM: type: T_IDENT, value: A
+   AST_PREFIX: GROUP_BRACK
+   AST_ATOM: type: T_IDENT, value: byValue
+   AST_POSTFIX: type: T_COMMA, value: (null)
+   AST_ATOM: type: T_IDENT, value: A
+   AST_PREFIX: GROUP_BRACK
+   AST_POSTFIX: type: T_REF, value: (null)
+   AST_ATOM: type: T_IDENT, value: byReferenceOfArray
+AST_ATOM: type: T_IDENT, value: aFunction
+AST_POSTFIX: type: T_OP, value: =
+AST_PREFIX: GROUP_BRACE
+   AST_POSTFIX: type: T_KEYWORD, value: if
+   AST_PREFIX: GROUP_PAREN
+      AST_ATOM: type: T_IDENT, value: byValue
+      AST_POSTFIX: type: T_DOT, value: (null)
+      AST_ATOM: type: T_IDENT, value: a
+      AST_POSTFIX: type: T_OP, value: ==
+      AST_ATOM: type: T_IDENT, value: byPointer
+      AST_POSTFIX: type: T_DOT, value: (null)
+      AST_ATOM: type: T_IDENT, value: b
+   AST_PREFIX: GROUP_BRACE
+      AST_POSTFIX: type: T_KEYWORD, value: return
+      AST_ATOM: type: T_IDENT, value: byPointer
+      AST_POSTFIX: type: T_DOT, value: (null)
+      AST_ATOM: type: T_IDENT, value: c
+      AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: A
+   AST_ATOM: type: T_IDENT, value: copied
+   AST_POSTFIX: type: T_OP, value: =
+   AST_POSTFIX: type: T_DEREF, value: (null)
+   AST_ATOM: type: T_IDENT, value: byPointer
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: A
+   AST_ATOM: type: T_IDENT, value: object
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: A
+   AST_ATOM: type: T_IDENT, value: another
+   AST_POSTFIX: type: T_OP, value: =
+   AST_PREFIX: GROUP_BRACE
+      AST_ATOM: type: T_INT, value: 1
+      AST_POSTFIX: type: T_COMMA, value: (null)
+      AST_ATOM: type: T_IDENT, value: c
+      AST_POSTFIX: type: T_OP, value: =
+      AST_ATOM: type: T_INT, value: 10
+      AST_POSTFIX: type: T_COMMA, value: (null)
+      AST_ATOM: type: T_INT, value: 123
+      AST_POSTFIX: type: T_COMMA, value: (null)
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_POSTFIX: type: T_KEYWORD, value: return
+   AST_ATOM: type: T_CHAR, value: x
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+AST_ATOM: type: T_IDENT, value: void
+AST_PREFIX: GROUP_PAREN
+AST_ATOM: type: T_IDENT, value: normalFunction
+AST_POSTFIX: type: T_OP, value: =
+AST_PREFIX: GROUP_BRACE
+   AST_ATOM: type: T_IDENT, value: io
+   AST_POSTFIX: type: T_DOT, value: (null)
+   AST_ATOM: type: T_IDENT, value: print
+   AST_PREFIX: GROUP_PAREN
+      AST_ATOM: type: T_IDENT, value: stuff
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+AST_ATOM: type: T_IDENT, value: i32
+AST_PREFIX: GROUP_PAREN
+AST_POSTFIX: type: T_OP, value: =
+AST_PREFIX: GROUP_BRACE
+   AST_ATOM: type: T_IDENT, value: i32
+   AST_ATOM: type: T_IDENT, value: a
+   AST_POSTFIX: type: T_OP, value: =
+   AST_ATOM: type: T_INT, value: 10
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_POSTFIX: type: T_KEYWORD, value: while
+   AST_PREFIX: GROUP_PAREN
+      AST_ATOM: type: T_IDENT, value: a
+      AST_POSTFIX: type: T_OP, value: <
+      AST_ATOM: type: T_INT, value: 0
+   AST_PREFIX: GROUP_BRACE
+      AST_ATOM: type: T_IDENT, value: a
+      AST_POSTFIX: type: T_OP, value: <<=
+      AST_ATOM: type: T_INT, value: 1
+      AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_POSTFIX: type: T_KEYWORD, value: for
+   AST_PREFIX: GROUP_PAREN
+      AST_ATOM: type: T_IDENT, value: i32
+      AST_ATOM: type: T_IDENT, value: i
+      AST_POSTFIX: type: T_OP, value: =
+      AST_ATOM: type: T_INT, value: 0
+      AST_POSTFIX: type: T_SEMICOLON, value: (null)
+      AST_ATOM: type: T_IDENT, value: i
+      AST_POSTFIX: type: T_OP, value: <
+      AST_ATOM: type: T_INT, value: 100
+      AST_POSTFIX: type: T_SEMICOLON, value: (null)
+      AST_ATOM: type: T_IDENT, value: i
+      AST_POSTFIX: type: T_OP, value: +=
+      AST_ATOM: type: T_INT, value: 1
+   AST_PREFIX: GROUP_BRACE
+      AST_POSTFIX: type: T_KEYWORD, value: if
+      AST_PREFIX: GROUP_PAREN
+         AST_ATOM: type: T_IDENT, value: i
+         AST_POSTFIX: type: T_OP, value: ==
+         AST_ATOM: type: T_INT, value: 5
+      AST_PREFIX: GROUP_BRACE
+         AST_ATOM: type: T_IDENT, value: continue
+         AST_POSTFIX: type: T_SEMICOLON, value: (null)
+      AST_POSTFIX: type: T_KEYWORD, value: if
+      AST_PREFIX: GROUP_PAREN
+         AST_ATOM: type: T_IDENT, value: i
+         AST_POSTFIX: type: T_OP, value: ==
+         AST_ATOM: type: T_INT, value: 8
+      AST_PREFIX: GROUP_BRACE
+         AST_ATOM: type: T_IDENT, value: break
+         AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: f32
+   AST_ATOM: type: T_IDENT, value: f
+   AST_POSTFIX: type: T_OP, value: =
+   AST_ATOM: type: T_IDENT, value: sqrt
+   AST_PREFIX: GROUP_PAREN
+      AST_ATOM: type: T_INT, value: 2
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: f32
+   AST_ATOM: type: T_IDENT, value: g
+   AST_POSTFIX: type: T_OP, value: =
+   AST_ATOM: type: T_IDENT, value: sqrt
+   AST_PREFIX: GROUP_PAREN
+      AST_ATOM: type: T_FLOAT, value: 2.5e
+      AST_POSTFIX: type: T_OP, value: -
+      AST_ATOM: type: T_INT, value: 4
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_POSTFIX: type: T_KEYWORD, value: if
+   AST_PREFIX: GROUP_PAREN
+      AST_ATOM: type: T_IDENT, value: true
+   AST_POSTFIX: type: T_KEYWORD, value: if
+   AST_PREFIX: GROUP_PAREN
+      AST_ATOM: type: T_IDENT, value: a
+      AST_POSTFIX: type: T_OP, value: ==
+      AST_ATOM: type: T_INT, value: 10
+   AST_ATOM: type: T_IDENT, value: a
+   AST_POSTFIX: type: T_OP, value: =
+   AST_ATOM: type: T_INT, value: 11
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_POSTFIX: type: T_KEYWORD, value: else
+   AST_ATOM: type: T_IDENT, value: a
+   AST_POSTFIX: type: T_OP, value: =
+   AST_ATOM: type: T_INT, value: 10
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_POSTFIX: type: T_KEYWORD, value: switch
+   AST_PREFIX: GROUP_PAREN
+      AST_ATOM: type: T_IDENT, value: g
+      AST_POSTFIX: type: T_OP, value: *
+      AST_ATOM: type: T_FLOAT, value: 0.5
+   AST_PREFIX: GROUP_BRACE
+      AST_POSTFIX: type: T_KEYWORD, value: case
+      AST_PREFIX: GROUP_PAREN
+         AST_ATOM: type: T_INT, value: 0
+      AST_ATOM: type: T_IDENT, value: print
+      AST_PREFIX: GROUP_PAREN
+         AST_ATOM: type: T_IDENT, value: g
+      AST_POSTFIX: type: T_SEMICOLON, value: (null)
+      AST_POSTFIX: type: T_KEYWORD, value: case
+      AST_PREFIX: GROUP_PAREN
+         AST_ATOM: type: T_INT, value: 1
+         AST_POSTFIX: type: T_COMMA, value: (null)
+         AST_ATOM: type: T_INT, value: 2
+         AST_POSTFIX: type: T_COMMA, value: (null)
+         AST_ATOM: type: T_INT, value: 3
+      AST_PREFIX: GROUP_BRACE
+         AST_ATOM: type: T_IDENT, value: char
+         AST_ATOM: type: T_IDENT, value: x
+         AST_POSTFIX: type: T_OP, value: =
+         AST_ATOM: type: T_CHAR, value: 1
+         AST_POSTFIX: type: T_SEMICOLON, value: (null)
+         AST_ATOM: type: T_IDENT, value: print
+         AST_PREFIX: GROUP_PAREN
+            AST_ATOM: type: T_IDENT, value: x
+         AST_POSTFIX: type: T_SEMICOLON, value: (null)
+      AST_POSTFIX: type: T_KEYWORD, value: case
+      AST_PREFIX: GROUP_PAREN
+      AST_PREFIX: GROUP_BRACE
+         AST_ATOM: type: T_IDENT, value: print
+         AST_PREFIX: GROUP_PAREN
+            AST_ATOM: type: T_STRING, value: default
+         AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: char
+   AST_PREFIX: GROUP_BRACK
+   AST_ATOM: type: T_IDENT, value: string
+   AST_POSTFIX: type: T_OP, value: =
+   AST_ATOM: type: T_STRING, value: string $#%$^%$^$ \" escape^
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: char
+   AST_PREFIX: GROUP_BRACK
+   AST_ATOM: type: T_IDENT, value: string1
+   AST_POSTFIX: type: T_OP, value: =
+   AST_ATOM: type: T_STRING, value: concat stringishere
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: char
+   AST_PREFIX: GROUP_BRACK
+   AST_ATOM: type: T_IDENT, value: longstring
+   AST_POSTFIX: type: T_OP, value: =
+   AST_ATOM: type: T_STRING, value: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: A
+   AST_ATOM: type: T_IDENT, value: a
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: a
+   AST_POSTFIX: type: T_COLON, value: (null)
+   AST_ATOM: type: T_IDENT, value: method
+   AST_PREFIX: GROUP_PAREN
+   AST_POSTFIX: type: T_SEMICOLON, value: (null)
+AST_POSTFIX: type: T_EOT, value: (null)

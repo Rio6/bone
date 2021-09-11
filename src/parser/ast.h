@@ -4,15 +4,15 @@
 
 typedef enum {
    AST_ERROR,
-   ATOM,
-   PREFIX,
-   POSTFIX,
-   BINARY,
-   TENARY,
-   GROUP,
-   TOKEN,
+   AST_ATOM,
+   AST_GROUP,
+   AST_TOKEN,
 } ASTType;
 extern const char *ASTType_names[];
+
+typedef ASTNode *(*ASTParseFn)(ASTNode*, ASTParserFn*);
+typedef void (*ASTDumpFn)(ASTNode*, unsigned indent);
+typedef void (*ASTDeleteFn)(ASTNode*);
 
 typedef struct ASTNode ASTNode;
 struct ASTNode {
@@ -21,15 +21,18 @@ struct ASTNode {
    ASTNode *prev;
    ASTNode *next;
 
-   // Apply null-terminated ASTParser to its children and also the rest of node behind it.
+   // Apply null-terminated ASTParserFn to its children and also the rest of node behind it.
    // Stop at first non-null result, returns a new node that replaces the current node
-   ASTNode *(*parse)(ASTNode*, ASTParser**);
-   void (*dump)(ASTNode*, unsigned indent);
-   void (*delete)(ASTNode*);
+   ASTParseFn parse;
+   ASTDumpFn dump;
+   ASTDeleteFn delete;
 };
 
 void print_indent(unsigned);
-ASTNode *ast_root(ASTNode*);
 
-// Chop the head, return the new head. Optionally relink the new head to prev
-ASTNode *ast_chop(ASTNode *ast, ASTNode *prev);
+void ast_init(ASTNode*, ASTType, ASTParseFn, ASTDumpFn, ASTDeleteFn);
+ASTNode *ast_root(ASTNode*);
+ASTNode *ast_replace(ASTNode *old, ASTNode *new);
+// Chop the head, return the new head.
+ASTNode *ast_chop(ASTNode*);
+void ast_remove(ASTNode*);

@@ -39,41 +39,41 @@ Token *ident_lexer(Stream *stream) {
 
    for(size_t i = 0; i < sizeof(keywords) / sizeof(keywords[0]); i++) {
       if(strcmp(buff, keywords[i]) == 0) {
-         return token_create(KEYWORD, buff);
+         return token_create(T_KEYWORD, buff);
       }
    }
 
-   return token_create(IDENT, buff);
+   return token_create(T_IDENT, buff);
 }
 
 Token *sep_lexer(Stream *stream) {
    switch(stream_getc(stream)) {
       case EOF:
-         return token_create(EOT, NULL);
+         return token_create(T_EOT, NULL);
       case '.':
-         return token_create(DOT, NULL);
+         return token_create(T_DOT, NULL);
       case ',':
-         return token_create(COMMA, NULL);
+         return token_create(T_COMMA, NULL);
       case ';':
-         return token_create(SEMICOLON, NULL);
+         return token_create(T_SEMICOLON, NULL);
       case ':':
-         return token_create(COLON, NULL);
+         return token_create(T_COLON, NULL);
       case '(':
-         return token_create(PAREN_L, NULL);
+         return token_create(T_PAREN_L, NULL);
       case ')':
-         return token_create(PAREN_R, NULL);
+         return token_create(T_PAREN_R, NULL);
       case '[':
-         return token_create(BRACK_L, NULL);
+         return token_create(T_BRACK_L, NULL);
       case ']':
-         return token_create(BRACK_R, NULL);
+         return token_create(T_BRACK_R, NULL);
       case '{':
-         return token_create(BRACE_L, NULL);
+         return token_create(T_BRACE_L, NULL);
       case '}':
-         return token_create(BRACE_R, NULL);
+         return token_create(T_BRACE_R, NULL);
       case '@':
-         return token_create(DEREF, NULL);
+         return token_create(T_DEREF, NULL);
       case '#':
-         return token_create(REF, NULL);
+         return token_create(T_REF, NULL);
       default:
          break;
    }
@@ -85,7 +85,7 @@ Token *sep_lexer(Stream *stream) {
 Token *number_lexer(Stream *stream) {
    stream_begins(stream);
 
-   TokenType type = INT;
+   TokenType type = T_INT;
    int digit_count = 0;
 
    while(isdigit(stream_getc(stream))) {
@@ -95,7 +95,7 @@ Token *number_lexer(Stream *stream) {
    stream_ungetc(stream, 1);
 
    if(stream_getc(stream) == '.') {
-      type = FLOAT;
+      type = T_FLOAT;
       while(isdigit(stream_getc(stream))) {
          digit_count++;
       };
@@ -105,7 +105,7 @@ Token *number_lexer(Stream *stream) {
 
    char c = stream_getc(stream);
    if(c == 'e' || c == 'E') {
-      type = FLOAT;
+      type = T_FLOAT;
       while(isdigit(stream_getc(stream)));
    }
 
@@ -135,14 +135,14 @@ Token *char_lexer(Stream *stream) {
    }
 
    if(stream_peek(stream) != '\'') {
-      return token_create(TOKEN_ERROR, "character literal can only have one character");
+      return token_create(T_ERROR, "character literal can only have one character");
    }
 
    char buff[3];
    stream_ends(stream, buff, sizeof(buff));
    stream_getc(stream);
 
-   return token_create(CHAR, buff);
+   return token_create(T_CHAR, buff);
 }
 
 Token *string_lexer(Stream *stream) {
@@ -192,7 +192,7 @@ Token *string_lexer(Stream *stream) {
    mbuff[mbuff_size - 1] = '\0';
    mbuff = realloc(mbuff, mbuff_size);
 
-   return token_create_raw(STRING, mbuff);
+   return token_create_raw(T_STRING, mbuff);
 }
 
 Token *comment_lexer(Stream *stream) {
@@ -202,12 +202,12 @@ Token *comment_lexer(Stream *stream) {
       char c = stream_getc(stream);
       if(c == '/') {
          while(c = stream_getc(stream), c != '\n' && c != EOF);
-         return token_create(COMMENT, NULL);
+         return token_create(T_COMMENT, NULL);
       } else if(c == '*') {
          while(1) {
             while(c = stream_getc(stream), c != '*' && c != EOF);
             if(stream_getc(stream) == '/') {
-               return token_create(COMMENT, NULL);
+               return token_create(T_COMMENT, NULL);
             }
          }
       }
@@ -243,7 +243,7 @@ Token *operator_lexer(Stream *stream) {
    stream_ungetc(stream, read - strlen(value));
 
    if(value != NULL) {
-      return token_create(OP, value);
+      return token_create(T_OP, value);
    }
 
    return NULL;

@@ -4,10 +4,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static ASTNode *parse(ASTNode *node, ASTParser **parsers) {
+static ASTNode *parse(ASTNode *node, ASTParserFn *parsers) {
 
    ASTNode *new_node = NULL;
-   for(ASTParser **parser = parsers; *parser != NULL; parser++) {
+   for(ASTParserFn *parser = parsers; *parser != NULL; parser++) {
       new_node = (*parser)((ASTToken*) node);
       if(new_node) break;
    }
@@ -48,24 +48,23 @@ static void delete(ASTNode *node) {
    free(ast_token);
 }
 
+ASTToken *ast_token_create(Token *token) {
+   ASTToken *ast = calloc(1, sizeof(ASTToken));
+   ast_init(&ast->node, AST_TOKEN, parse, dump, delete);
+   token->next = NULL;
+   ast->token = token;
+   return ast;
+}
+
 ASTToken *ast_token_from_tokens(Token *token) {
    ASTToken head;
    ASTToken *tail = &head;
 
    while(token) {
       Token *next = token->next;
-
-      tail->node.next = (ASTNode*) calloc(1, sizeof(ASTToken));
-      tail->node.next->prev = (ASTNode*) tail;
+      tail->node.next = (ASTNode*) ast_token_create(token);
+      tail->node.next->prev = &tail->node;
       tail = (ASTToken*) tail->node.next;
-
-      tail->node.type = TOKEN;
-      tail->node.parse = parse;
-      tail->node.dump = dump;
-      tail->node.delete = delete;
-
-      tail->token = token;
-      token->next = NULL;
       token = next;
    }
 
