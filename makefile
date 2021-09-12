@@ -2,7 +2,7 @@ SRCDIR:=src
 TESTDIR:=test
 BUILDDIR:=build
 
-CFLAGS+=-O2 -Wall
+CFLAGS+=-O2 -Wall -Wstrict-prototypes
 INCLUDES=-I $(SRCDIR)
 LIBS:=
 
