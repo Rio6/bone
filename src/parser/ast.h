@@ -12,7 +12,7 @@ typedef enum {
    AST_GROUP,
    AST_TOKEN,
 } ASTType;
-extern const char *ASTType_names[];
+extern const char * const ASTType_names[];
 
 typedef ASTNode *(*ASTParseFn)(ASTNode*, ASTParserFn*);
 typedef void (*ASTDumpFn)(ASTNode*, unsigned indent);
@@ -21,7 +21,6 @@ typedef void (*ASTDeleteFn)(ASTNode*);
 typedef struct ASTNode ASTNode;
 struct ASTNode {
    ASTType type;
-   ASTNode *up;
    ASTNode *prev;
    ASTNode *next;
 
@@ -35,4 +34,3 @@ struct ASTNode {
 void print_indent(unsigned);
 
 void ast_init(ASTNode*, ASTType, ASTParseFn, ASTDumpFn, ASTDeleteFn);
-ASTNode *ast_root(ASTNode*);

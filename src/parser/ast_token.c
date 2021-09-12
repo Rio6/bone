@@ -98,5 +98,4 @@ void ast_token_remove(ASTToken *token) {
    ASTNode *prev = token->node.prev, *next = token->node.next;
    if(next) next->prev = prev;
    token->node.next = NULL;
-   CALL_METHOD(delete, &token->node);
 }

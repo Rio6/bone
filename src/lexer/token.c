@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-const char *TokenType_names[] = {
+const char * const TokenType_names[] = {
    "T_ERROR",
    "T_IDENT",
    "T_KEYWORD",
@@ -23,9 +23,36 @@ const char *TokenType_names[] = {
    "T_COMMA",
    "T_SEMICOLON",
    "T_COLON",
-   "T_OP",
    "T_REF",
    "T_DEREF",
+   "T_PLUS",
+   "T_MINUS",
+   "T_MULT",
+   "T_DIV",
+   "T_MOD",
+   "T_LT",
+   "T_GT",
+   "T_AND",
+   "T_OR",
+   "T_XOR",
+   "T_NOT",
+   "T_ASSIGN",
+   "T_LSHIFT",
+   "T_RSHIFT",
+   "T_EQ",
+   "T_NE",
+   "T_LE",
+   "T_GE",
+   "T_ASPLUS",
+   "T_ASMINUS",
+   "T_ASMULT",
+   "T_ASDIV",
+   "T_ASMOD",
+   "T_ASAND",
+   "T_ASOR",
+   "T_ASXOR",
+   "T_ASLSHIFT",
+   "T_ASRSHIFT",
    "T_EOT",
 };
 

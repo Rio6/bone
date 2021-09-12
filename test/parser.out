@@ -1,21 +1,21 @@
-AST_TOKEN: type: T_KEYWORD, value: import
+AST_ATOM: type: T_KEYWORD, value: import
 AST_ATOM: type: T_IDENT, value: std
 AST_TOKEN: type: T_DOT, value: (null)
 AST_ATOM: type: T_IDENT, value: math
 AST_TOKEN: type: T_DOT, value: (null)
 AST_TOKEN: type: T_SEMICOLON, value: (null)
-AST_TOKEN: type: T_KEYWORD, value: import
+AST_ATOM: type: T_KEYWORD, value: import
 AST_ATOM: type: T_IDENT, value: std
 AST_TOKEN: type: T_DOT, value: (null)
 AST_ATOM: type: T_IDENT, value: io
 AST_TOKEN: type: T_SEMICOLON, value: (null)
-AST_TOKEN: type: T_KEYWORD, value: import
+AST_ATOM: type: T_KEYWORD, value: import
 AST_TOKEN: type: T_DOT, value: (null)
 AST_ATOM: type: T_IDENT, value: directory
 AST_TOKEN: type: T_DOT, value: (null)
 AST_ATOM: type: T_IDENT, value: file
 AST_TOKEN: type: T_SEMICOLON, value: (null)
-AST_TOKEN: type: T_KEYWORD, value: import
+AST_ATOM: type: T_KEYWORD, value: import
 AST_TOKEN: type: T_DOT, value: (null)
 AST_ATOM: type: T_IDENT, value: directory
 AST_TOKEN: type: T_DOT, value: (null)
@@ -23,40 +23,40 @@ AST_ATOM: type: T_STRING, value: fancy-name
 AST_TOKEN: type: T_DOT, value: (null)
 AST_ATOM: type: T_IDENT, value: name
 AST_TOKEN: type: T_SEMICOLON, value: (null)
-AST_TOKEN: type: T_KEYWORD, value: export
-AST_TOKEN: type: T_KEYWORD, value: struct
+AST_ATOM: type: T_KEYWORD, value: export
+AST_ATOM: type: T_KEYWORD, value: struct
 AST_ATOM: type: T_IDENT, value: A
-AST_GROUP: GROUP_BRACE
+AST_GROUP: T_BRACE_L
    AST_ATOM: type: T_IDENT, value: i32
    AST_ATOM: type: T_IDENT, value: a
    AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_ATOM: type: T_IDENT, value: i32
    AST_ATOM: type: T_IDENT, value: b
-   AST_TOKEN: type: T_OP, value: =
+   AST_TOKEN: type: T_ASSIGN, value: (null)
    AST_ATOM: type: T_INT, value: 10
    AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_ATOM: type: T_IDENT, value: f64
    AST_ATOM: type: T_IDENT, value: c
-   AST_TOKEN: type: T_OP, value: =
+   AST_TOKEN: type: T_ASSIGN, value: (null)
    AST_ATOM: type: T_FLOAT, value: 10.23
    AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_ATOM: type: T_IDENT, value: f32
    AST_ATOM: type: T_IDENT, value: d
-   AST_TOKEN: type: T_OP, value: =
+   AST_TOKEN: type: T_ASSIGN, value: (null)
    AST_ATOM: type: T_FLOAT, value: .65
    AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_ATOM: type: T_IDENT, value: f32
    AST_ATOM: type: T_IDENT, value: e
-   AST_TOKEN: type: T_OP, value: =
+   AST_TOKEN: type: T_ASSIGN, value: (null)
    AST_ATOM: type: T_FLOAT, value: .4e10
    AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_ATOM: type: T_IDENT, value: f32
    AST_ATOM: type: T_IDENT, value: f
-   AST_TOKEN: type: T_OP, value: =
+   AST_TOKEN: type: T_ASSIGN, value: (null)
    AST_ATOM: type: T_FLOAT, value: 4e4
    AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_ATOM: type: T_IDENT, value: char
-   AST_GROUP: GROUP_PAREN
+   AST_GROUP: T_PAREN_L
       AST_ATOM: type: T_IDENT, value: A
       AST_ATOM: type: T_IDENT, value: self
       AST_TOKEN: type: T_COMMA, value: (null)
@@ -64,38 +64,38 @@ AST_GROUP: GROUP_BRACE
       AST_ATOM: type: T_IDENT, value: stuff
    AST_TOKEN: type: T_REF, value: (null)
    AST_ATOM: type: T_IDENT, value: method
-   AST_TOKEN: type: T_OP, value: =
-   AST_GROUP: GROUP_BRACE
-      AST_TOKEN: type: T_KEYWORD, value: return
+   AST_TOKEN: type: T_ASSIGN, value: (null)
+   AST_GROUP: T_BRACE_L
+      AST_ATOM: type: T_KEYWORD, value: return
       AST_ATOM: type: T_CHAR, value: x
       AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_ATOM: type: T_IDENT, value: char
-   AST_GROUP: GROUP_PAREN
+   AST_GROUP: T_PAREN_L
       AST_ATOM: type: T_IDENT, value: A
       AST_TOKEN: type: T_COMMA, value: (null)
       AST_ATOM: type: T_IDENT, value: bool
    AST_TOKEN: type: T_REF, value: (null)
    AST_ATOM: type: T_IDENT, value: sameThing
-   AST_TOKEN: type: T_OP, value: =
+   AST_TOKEN: type: T_ASSIGN, value: (null)
    AST_ATOM: type: T_IDENT, value: char
-   AST_GROUP: GROUP_PAREN
+   AST_GROUP: T_PAREN_L
       AST_ATOM: type: T_IDENT, value: A
       AST_ATOM: type: T_IDENT, value: self
       AST_TOKEN: type: T_COMMA, value: (null)
       AST_ATOM: type: T_IDENT, value: bool
       AST_ATOM: type: T_IDENT, value: stuff
-   AST_GROUP: GROUP_BRACE
+   AST_GROUP: T_BRACE_L
    AST_TOKEN: type: T_SEMICOLON, value: (null)
 AST_ATOM: type: T_IDENT, value: i32
 AST_TOKEN: type: T_REF, value: (null)
 AST_ATOM: type: T_IDENT, value: aPtr
 AST_TOKEN: type: T_SEMICOLON, value: (null)
 AST_ATOM: type: T_IDENT, value: i32
-AST_GROUP: GROUP_BRACK
+AST_GROUP: T_BRACK_L
 AST_ATOM: type: T_IDENT, value: array
-AST_TOKEN: type: T_OP, value: =
-AST_GROUP: GROUP_BRACE
+AST_TOKEN: type: T_ASSIGN, value: (null)
+AST_GROUP: T_BRACE_L
    AST_ATOM: type: T_INT, value: 1
    AST_TOKEN: type: T_COMMA, value: (null)
    AST_ATOM: type: T_INT, value: 2
@@ -105,12 +105,12 @@ AST_GROUP: GROUP_BRACE
    AST_ATOM: type: T_INT, value: 4
 AST_TOKEN: type: T_SEMICOLON, value: (null)
 AST_ATOM: type: T_IDENT, value: i32
-AST_GROUP: GROUP_BRACK
+AST_GROUP: T_BRACK_L
 AST_ATOM: type: T_IDENT, value: arrayAgain
-AST_TOKEN: type: T_OP, value: =
+AST_TOKEN: type: T_ASSIGN, value: (null)
 AST_ATOM: type: T_IDENT, value: i32
-AST_GROUP: GROUP_BRACK
-AST_GROUP: GROUP_BRACE
+AST_GROUP: T_BRACK_L
+AST_GROUP: T_BRACE_L
    AST_ATOM: type: T_INT, value: 1
    AST_TOKEN: type: T_COMMA, value: (null)
    AST_ATOM: type: T_INT, value: 2
@@ -119,29 +119,34 @@ AST_GROUP: GROUP_BRACE
    AST_TOKEN: type: T_COMMA, value: (null)
    AST_ATOM: type: T_INT, value: 4
 AST_TOKEN: type: T_SEMICOLON, value: (null)
+AST_ATOM: type: T_IDENT, value: u8
+AST_GROUP: T_BRACK_L
+   AST_ATOM: type: T_INT, value: 128
+AST_ATOM: type: T_IDENT, value: preallocArray
+AST_TOKEN: type: T_SEMICOLON, value: (null)
 AST_ATOM: type: T_IDENT, value: i32
-AST_GROUP: GROUP_BRACK
+AST_GROUP: T_BRACK_L
 AST_TOKEN: type: T_REF, value: (null)
 AST_ATOM: type: T_IDENT, value: ptrToArray
-AST_TOKEN: type: T_OP, value: =
+AST_TOKEN: type: T_ASSIGN, value: (null)
 AST_TOKEN: type: T_REF, value: (null)
 AST_ATOM: type: T_IDENT, value: array
 AST_TOKEN: type: T_SEMICOLON, value: (null)
 AST_ATOM: type: T_IDENT, value: i32
 AST_TOKEN: type: T_REF, value: (null)
-AST_GROUP: GROUP_BRACK
+AST_GROUP: T_BRACK_L
 AST_ATOM: type: T_IDENT, value: arrayOfPtr
-AST_TOKEN: type: T_OP, value: =
+AST_TOKEN: type: T_ASSIGN, value: (null)
 AST_ATOM: type: T_IDENT, value: null
 AST_TOKEN: type: T_SEMICOLON, value: (null)
 AST_ATOM: type: T_IDENT, value: i32
-AST_GROUP: GROUP_PAREN
+AST_GROUP: T_PAREN_L
    AST_ATOM: type: T_IDENT, value: char
 AST_TOKEN: type: T_REF, value: (null)
 AST_ATOM: type: T_IDENT, value: ptrToFuncReturnsI32
 AST_TOKEN: type: T_SEMICOLON, value: (null)
 AST_ATOM: type: T_IDENT, value: char
-AST_GROUP: GROUP_PAREN
+AST_GROUP: T_PAREN_L
    AST_ATOM: type: T_IDENT, value: A
    AST_ATOM: type: T_IDENT, value: byValue
    AST_TOKEN: type: T_COMMA, value: (null)
@@ -150,34 +155,34 @@ AST_GROUP: GROUP_PAREN
    AST_ATOM: type: T_IDENT, value: byPointer
    AST_TOKEN: type: T_COMMA, value: (null)
    AST_ATOM: type: T_IDENT, value: A
-   AST_GROUP: GROUP_BRACK
+   AST_GROUP: T_BRACK_L
    AST_ATOM: type: T_IDENT, value: byValue
    AST_TOKEN: type: T_COMMA, value: (null)
    AST_ATOM: type: T_IDENT, value: A
-   AST_GROUP: GROUP_BRACK
+   AST_GROUP: T_BRACK_L
    AST_TOKEN: type: T_REF, value: (null)
    AST_ATOM: type: T_IDENT, value: byReferenceOfArray
 AST_ATOM: type: T_IDENT, value: aFunction
-AST_TOKEN: type: T_OP, value: =
-AST_GROUP: GROUP_BRACE
-   AST_TOKEN: type: T_KEYWORD, value: if
-   AST_GROUP: GROUP_PAREN
+AST_TOKEN: type: T_ASSIGN, value: (null)
+AST_GROUP: T_BRACE_L
+   AST_ATOM: type: T_KEYWORD, value: if
+   AST_GROUP: T_PAREN_L
       AST_ATOM: type: T_IDENT, value: byValue
       AST_TOKEN: type: T_DOT, value: (null)
       AST_ATOM: type: T_IDENT, value: a
-      AST_TOKEN: type: T_OP, value: ==
+      AST_TOKEN: type: T_EQ, value: (null)
       AST_ATOM: type: T_IDENT, value: byPointer
       AST_TOKEN: type: T_DOT, value: (null)
       AST_ATOM: type: T_IDENT, value: b
-   AST_GROUP: GROUP_BRACE
-      AST_TOKEN: type: T_KEYWORD, value: return
+   AST_GROUP: T_BRACE_L
+      AST_ATOM: type: T_KEYWORD, value: return
       AST_ATOM: type: T_IDENT, value: byPointer
       AST_TOKEN: type: T_DOT, value: (null)
       AST_ATOM: type: T_IDENT, value: c
       AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_ATOM: type: T_IDENT, value: A
    AST_ATOM: type: T_IDENT, value: copied
-   AST_TOKEN: type: T_OP, value: =
+   AST_TOKEN: type: T_ASSIGN, value: (null)
    AST_TOKEN: type: T_DEREF, value: (null)
    AST_ATOM: type: T_IDENT, value: byPointer
    AST_TOKEN: type: T_SEMICOLON, value: (null)
@@ -186,179 +191,179 @@ AST_GROUP: GROUP_BRACE
    AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_ATOM: type: T_IDENT, value: A
    AST_ATOM: type: T_IDENT, value: another
-   AST_TOKEN: type: T_OP, value: =
-   AST_GROUP: GROUP_BRACE
+   AST_TOKEN: type: T_ASSIGN, value: (null)
+   AST_GROUP: T_BRACE_L
       AST_ATOM: type: T_INT, value: 1
       AST_TOKEN: type: T_COMMA, value: (null)
       AST_ATOM: type: T_IDENT, value: c
-      AST_TOKEN: type: T_OP, value: =
+      AST_TOKEN: type: T_ASSIGN, value: (null)
       AST_ATOM: type: T_INT, value: 10
       AST_TOKEN: type: T_COMMA, value: (null)
       AST_ATOM: type: T_INT, value: 123
       AST_TOKEN: type: T_COMMA, value: (null)
    AST_TOKEN: type: T_SEMICOLON, value: (null)
-   AST_TOKEN: type: T_KEYWORD, value: return
+   AST_ATOM: type: T_KEYWORD, value: return
    AST_ATOM: type: T_CHAR, value: x
    AST_TOKEN: type: T_SEMICOLON, value: (null)
 AST_ATOM: type: T_IDENT, value: void
-AST_GROUP: GROUP_PAREN
+AST_GROUP: T_PAREN_L
 AST_ATOM: type: T_IDENT, value: normalFunction
-AST_TOKEN: type: T_OP, value: =
-AST_GROUP: GROUP_BRACE
+AST_TOKEN: type: T_ASSIGN, value: (null)
+AST_GROUP: T_BRACE_L
    AST_ATOM: type: T_IDENT, value: io
    AST_TOKEN: type: T_DOT, value: (null)
    AST_ATOM: type: T_IDENT, value: print
-   AST_GROUP: GROUP_PAREN
+   AST_GROUP: T_PAREN_L
       AST_ATOM: type: T_IDENT, value: stuff
    AST_TOKEN: type: T_SEMICOLON, value: (null)
 AST_ATOM: type: T_IDENT, value: i32
-AST_GROUP: GROUP_PAREN
-AST_TOKEN: type: T_OP, value: =
-AST_GROUP: GROUP_BRACE
+AST_GROUP: T_PAREN_L
+AST_TOKEN: type: T_ASSIGN, value: (null)
+AST_GROUP: T_BRACE_L
    AST_ATOM: type: T_IDENT, value: i32
    AST_ATOM: type: T_IDENT, value: a
-   AST_TOKEN: type: T_OP, value: =
-   AST_GROUP: GROUP_PAREN
-      AST_GROUP: GROUP_PAREN
+   AST_TOKEN: type: T_ASSIGN, value: (null)
+   AST_GROUP: T_PAREN_L
+      AST_GROUP: T_PAREN_L
          AST_ATOM: type: T_INT, value: 10
-         AST_TOKEN: type: T_OP, value: +
+         AST_TOKEN: type: T_PLUS, value: (null)
          AST_ATOM: type: T_INT, value: 5
-      AST_TOKEN: type: T_OP, value: *
+      AST_TOKEN: type: T_MULT, value: (null)
       AST_ATOM: type: T_INT, value: 600
-      AST_TOKEN: type: T_OP, value: /
+      AST_TOKEN: type: T_DIV, value: (null)
       AST_ATOM: type: T_INT, value: 4
-      AST_TOKEN: type: T_OP, value: +
+      AST_TOKEN: type: T_PLUS, value: (null)
       AST_ATOM: type: T_INT, value: 8
-   AST_TOKEN: type: T_OP, value: *
+   AST_TOKEN: type: T_MULT, value: (null)
    AST_ATOM: type: T_INT, value: 3
    AST_TOKEN: type: T_SEMICOLON, value: (null)
-   AST_TOKEN: type: T_KEYWORD, value: while
-   AST_GROUP: GROUP_PAREN
+   AST_ATOM: type: T_KEYWORD, value: while
+   AST_GROUP: T_PAREN_L
       AST_ATOM: type: T_IDENT, value: a
-      AST_TOKEN: type: T_OP, value: <
+      AST_TOKEN: type: T_LT, value: (null)
       AST_ATOM: type: T_INT, value: 0
-   AST_GROUP: GROUP_BRACE
+   AST_GROUP: T_BRACE_L
       AST_ATOM: type: T_IDENT, value: a
-      AST_TOKEN: type: T_OP, value: <<=
+      AST_TOKEN: type: T_ASLSHIFT, value: (null)
       AST_ATOM: type: T_INT, value: 1
       AST_TOKEN: type: T_SEMICOLON, value: (null)
-   AST_TOKEN: type: T_KEYWORD, value: for
-   AST_GROUP: GROUP_PAREN
+   AST_ATOM: type: T_KEYWORD, value: for
+   AST_GROUP: T_PAREN_L
       AST_ATOM: type: T_IDENT, value: i32
       AST_ATOM: type: T_IDENT, value: i
-      AST_TOKEN: type: T_OP, value: =
+      AST_TOKEN: type: T_ASSIGN, value: (null)
       AST_ATOM: type: T_INT, value: 0
       AST_TOKEN: type: T_SEMICOLON, value: (null)
       AST_ATOM: type: T_IDENT, value: i
-      AST_TOKEN: type: T_OP, value: <
+      AST_TOKEN: type: T_LT, value: (null)
       AST_ATOM: type: T_INT, value: 100
       AST_TOKEN: type: T_SEMICOLON, value: (null)
       AST_ATOM: type: T_IDENT, value: i
-      AST_TOKEN: type: T_OP, value: +=
+      AST_TOKEN: type: T_ASPLUS, value: (null)
       AST_ATOM: type: T_INT, value: 1
-   AST_GROUP: GROUP_BRACE
-      AST_TOKEN: type: T_KEYWORD, value: if
-      AST_GROUP: GROUP_PAREN
+   AST_GROUP: T_BRACE_L
+      AST_ATOM: type: T_KEYWORD, value: if
+      AST_GROUP: T_PAREN_L
          AST_ATOM: type: T_IDENT, value: i
-         AST_TOKEN: type: T_OP, value: ==
+         AST_TOKEN: type: T_EQ, value: (null)
          AST_ATOM: type: T_INT, value: 5
-      AST_GROUP: GROUP_BRACE
+      AST_GROUP: T_BRACE_L
          AST_ATOM: type: T_IDENT, value: continue
          AST_TOKEN: type: T_SEMICOLON, value: (null)
-      AST_TOKEN: type: T_KEYWORD, value: if
-      AST_GROUP: GROUP_PAREN
+      AST_ATOM: type: T_KEYWORD, value: if
+      AST_GROUP: T_PAREN_L
          AST_ATOM: type: T_IDENT, value: i
-         AST_TOKEN: type: T_OP, value: ==
+         AST_TOKEN: type: T_EQ, value: (null)
          AST_ATOM: type: T_INT, value: 8
-      AST_GROUP: GROUP_BRACE
+      AST_GROUP: T_BRACE_L
          AST_ATOM: type: T_IDENT, value: break
          AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_ATOM: type: T_IDENT, value: f32
    AST_ATOM: type: T_IDENT, value: f
-   AST_TOKEN: type: T_OP, value: =
+   AST_TOKEN: type: T_ASSIGN, value: (null)
    AST_ATOM: type: T_IDENT, value: sqrt
-   AST_GROUP: GROUP_PAREN
+   AST_GROUP: T_PAREN_L
       AST_ATOM: type: T_INT, value: 2
    AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_ATOM: type: T_IDENT, value: f32
    AST_ATOM: type: T_IDENT, value: g
-   AST_TOKEN: type: T_OP, value: =
+   AST_TOKEN: type: T_ASSIGN, value: (null)
    AST_ATOM: type: T_IDENT, value: sqrt
-   AST_GROUP: GROUP_PAREN
+   AST_GROUP: T_PAREN_L
       AST_ATOM: type: T_FLOAT, value: 2.5e
-      AST_TOKEN: type: T_OP, value: -
+      AST_TOKEN: type: T_MINUS, value: (null)
       AST_ATOM: type: T_INT, value: 4
    AST_TOKEN: type: T_SEMICOLON, value: (null)
-   AST_TOKEN: type: T_KEYWORD, value: if
-   AST_GROUP: GROUP_PAREN
+   AST_ATOM: type: T_KEYWORD, value: if
+   AST_GROUP: T_PAREN_L
       AST_ATOM: type: T_IDENT, value: true
-   AST_TOKEN: type: T_KEYWORD, value: if
-   AST_GROUP: GROUP_PAREN
+   AST_ATOM: type: T_KEYWORD, value: if
+   AST_GROUP: T_PAREN_L
       AST_ATOM: type: T_IDENT, value: a
-      AST_TOKEN: type: T_OP, value: ==
+      AST_TOKEN: type: T_EQ, value: (null)
       AST_ATOM: type: T_INT, value: 10
    AST_ATOM: type: T_IDENT, value: a
-   AST_TOKEN: type: T_OP, value: =
+   AST_TOKEN: type: T_ASSIGN, value: (null)
    AST_ATOM: type: T_INT, value: 11
    AST_TOKEN: type: T_SEMICOLON, value: (null)
-   AST_TOKEN: type: T_KEYWORD, value: else
+   AST_ATOM: type: T_KEYWORD, value: else
    AST_ATOM: type: T_IDENT, value: a
-   AST_TOKEN: type: T_OP, value: =
+   AST_TOKEN: type: T_ASSIGN, value: (null)
    AST_ATOM: type: T_INT, value: 10
    AST_TOKEN: type: T_SEMICOLON, value: (null)
-   AST_TOKEN: type: T_KEYWORD, value: switch
-   AST_GROUP: GROUP_PAREN
+   AST_ATOM: type: T_KEYWORD, value: switch
+   AST_GROUP: T_PAREN_L
       AST_ATOM: type: T_IDENT, value: g
-      AST_TOKEN: type: T_OP, value: *
+      AST_TOKEN: type: T_MULT, value: (null)
       AST_ATOM: type: T_FLOAT, value: 0.5
-   AST_GROUP: GROUP_BRACE
-      AST_TOKEN: type: T_KEYWORD, value: case
-      AST_GROUP: GROUP_PAREN
+   AST_GROUP: T_BRACE_L
+      AST_ATOM: type: T_KEYWORD, value: case
+      AST_GROUP: T_PAREN_L
          AST_ATOM: type: T_INT, value: 0
       AST_ATOM: type: T_IDENT, value: print
-      AST_GROUP: GROUP_PAREN
+      AST_GROUP: T_PAREN_L
          AST_ATOM: type: T_IDENT, value: g
       AST_TOKEN: type: T_SEMICOLON, value: (null)
-      AST_TOKEN: type: T_KEYWORD, value: case
-      AST_GROUP: GROUP_PAREN
+      AST_ATOM: type: T_KEYWORD, value: case
+      AST_GROUP: T_PAREN_L
          AST_ATOM: type: T_INT, value: 1
          AST_TOKEN: type: T_COMMA, value: (null)
          AST_ATOM: type: T_INT, value: 2
          AST_TOKEN: type: T_COMMA, value: (null)
          AST_ATOM: type: T_INT, value: 3
-      AST_GROUP: GROUP_BRACE
+      AST_GROUP: T_BRACE_L
          AST_ATOM: type: T_IDENT, value: char
          AST_ATOM: type: T_IDENT, value: x
-         AST_TOKEN: type: T_OP, value: =
+         AST_TOKEN: type: T_ASSIGN, value: (null)
          AST_ATOM: type: T_CHAR, value: 1
          AST_TOKEN: type: T_SEMICOLON, value: (null)
          AST_ATOM: type: T_IDENT, value: print
-         AST_GROUP: GROUP_PAREN
+         AST_GROUP: T_PAREN_L
             AST_ATOM: type: T_IDENT, value: x
          AST_TOKEN: type: T_SEMICOLON, value: (null)
-      AST_TOKEN: type: T_KEYWORD, value: case
-      AST_GROUP: GROUP_PAREN
-      AST_GROUP: GROUP_BRACE
+      AST_ATOM: type: T_KEYWORD, value: case
+      AST_GROUP: T_PAREN_L
+      AST_GROUP: T_BRACE_L
          AST_ATOM: type: T_IDENT, value: print
-         AST_GROUP: GROUP_PAREN
+         AST_GROUP: T_PAREN_L
             AST_ATOM: type: T_STRING, value: default
          AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_ATOM: type: T_IDENT, value: char
-   AST_GROUP: GROUP_BRACK
+   AST_GROUP: T_BRACK_L
    AST_ATOM: type: T_IDENT, value: string
-   AST_TOKEN: type: T_OP, value: =
+   AST_TOKEN: type: T_ASSIGN, value: (null)
    AST_ATOM: type: T_STRING, value: string $#%$^%$^$ \" escape^
    AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_ATOM: type: T_IDENT, value: char
-   AST_GROUP: GROUP_BRACK
+   AST_GROUP: T_BRACK_L
    AST_ATOM: type: T_IDENT, value: string1
-   AST_TOKEN: type: T_OP, value: =
+   AST_TOKEN: type: T_ASSIGN, value: (null)
    AST_ATOM: type: T_STRING, value: concat stringishere
    AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_ATOM: type: T_IDENT, value: char
-   AST_GROUP: GROUP_BRACK
+   AST_GROUP: T_BRACK_L
    AST_ATOM: type: T_IDENT, value: longstring
-   AST_TOKEN: type: T_OP, value: =
+   AST_TOKEN: type: T_ASSIGN, value: (null)
    AST_ATOM: type: T_STRING, value: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
    AST_TOKEN: type: T_SEMICOLON, value: (null)
    AST_ATOM: type: T_IDENT, value: A
@@ -367,6 +372,6 @@ AST_GROUP: GROUP_BRACE
    AST_ATOM: type: T_IDENT, value: a
    AST_TOKEN: type: T_COLON, value: (null)
    AST_ATOM: type: T_IDENT, value: method
-   AST_GROUP: GROUP_PAREN
+   AST_GROUP: T_PAREN_L
    AST_TOKEN: type: T_SEMICOLON, value: (null)
 AST_TOKEN: type: T_EOT, value: (null)

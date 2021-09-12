@@ -4,6 +4,7 @@
 #include "ast_error.h"
 #include "parser.h"
 
+#include "utils/array.h"
 #include "utils/oop.h"
 
 #include <stdio.h>
@@ -11,34 +12,21 @@
 #include <assert.h>
 
 typedef struct {
-   ASTGroupType type;
    TokenType open;
    TokenType close;
 } GroupBoundary;
 
 static const GroupBoundary group_boundaries[] = {
-   { GROUP_PAREN, T_PAREN_L, T_PAREN_R },
-   { GROUP_BRACK, T_BRACK_L, T_BRACK_R },
-   { GROUP_BRACE, T_BRACE_L, T_BRACE_R },
-};
-
-const char *ASTGroupType_names[] = {
-   "GROUP_NONE",
-   "GROUP_PAREN",
-   "GROUP_BRACK",
-   "GROUP_BRACE",
+   { T_PAREN_L, T_PAREN_R },
+   { T_BRACK_L, T_BRACK_R },
+   { T_BRACE_L, T_BRACE_R },
 };
 
 static ASTNode *parse(ASTNode *node, ASTParserFn *parsers) {
    ASTGroup *group = (ASTGroup*) node;
 
    if(group->content) {
-      ASTNode *new_content = CALL_METHOD(parse, group->content, parsers);
-      if(new_content->up != node) {
-         // AST rearranged, re-find root
-         group->content = ast_root(new_content);
-         group->content->up = node;
-      }
+      group->content = CALL_METHOD(parse, group->content, parsers);
    }
 
    if(node->next) {
@@ -62,7 +50,7 @@ static void dump(ASTNode *node, unsigned indent) {
    ASTGroup *group = (ASTGroup*) node;
 
    print_indent(indent);
-   printf("%s: %s\n", ASTType_names[node->type], ASTGroupType_names[group->type]);
+   printf("%s: %s\n", ASTType_names[node->type], TokenType_names[group->group_type]);
 
    if(group->content) {
       CALL_METHOD(dump, group->content, indent+1);
@@ -73,17 +61,13 @@ static void dump(ASTNode *node, unsigned indent) {
    }
 }
 
-ASTGroup *ast_group_create(ASTGroupType type, ASTNode *content) {
+ASTGroup *ast_group_create(TokenType group_type, ASTNode *content) {
    ASTGroup *group = calloc(1, sizeof(ASTGroup));
 
    ast_init(&group->node, AST_GROUP, parse, dump, delete);
 
-   group->type = type;
+   group->group_type = group_type;
    group->content = content;
-
-   if(content) {
-      content->up = &group->node;
-   }
 
    return group;
 }
@@ -91,7 +75,7 @@ ASTGroup *ast_group_create(ASTGroupType type, ASTNode *content) {
 ASTNode *group_parser(ASTToken *ast_token) {
    // See if token is start of a group
    const GroupBoundary *group_boundary = NULL;
-   for(size_t i = 0; i < sizeof(group_boundaries) / sizeof(group_boundaries[0]); i++) {
+   for(size_t i = 0; i < LEN(group_boundaries); i++) {
       TokenType type = ast_token->token->type;
       if(type == group_boundaries[i].open) {
          group_boundary = &group_boundaries[i];
@@ -132,7 +116,7 @@ ASTNode *group_parser(ASTToken *ast_token) {
    if(content == tail) content = NULL;
    if(tail->prev) tail->prev->next = NULL;
    ASTNode *after = ast_token_chop((ASTToken*) tail);
-   ASTGroup *group = ast_group_create(group_boundary->type, content);
+   ASTGroup *group = ast_group_create(group_boundary->open, content);
 
    // Move the nodes after close bracket to be after group
    if(after) {

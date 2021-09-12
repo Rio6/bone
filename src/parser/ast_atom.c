@@ -1,12 +1,14 @@
 #include "ast_atom.h"
 #include "ast_token.h"
 
+#include "utils/array.h"
 #include "utils/oop.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 
 static TokenType atom_tokens[] = {
+   T_KEYWORD,
    T_IDENT,
    T_INT,
    T_FLOAT,
@@ -54,7 +56,7 @@ ASTAtom *ast_atom_create(Token *token) {
 }
 
 ASTNode *atom_parser(ASTToken *token) {
-   for(size_t i = 0; i < sizeof(atom_tokens) / sizeof(atom_tokens[0]); i++) {
+   for(size_t i = 0; i < LEN(atom_tokens); i++) {
       if(token->token->type == atom_tokens[i]) {
          ASTAtom *atom = ast_atom_create(token->token);
          token->token = NULL;

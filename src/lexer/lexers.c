@@ -1,5 +1,7 @@
 #include "lexer.h"
 #include "token.h"
+
+#include "utils/array.h"
 #include "utils/stream.h"
 
 #include <stdlib.h>
@@ -10,10 +12,52 @@ static const char * const keywords[] = {
    "import", "export", "struct", "if", "else", "switch", "case", "while", "for", "return",
 };
 
-static const char * const operators[] = { // NOTE: sorted by length
-   "+", "-", "*", "/", "%", "<", ">", "&", "|", "^" , "~", "=",
-   "<<", ">>", "==", "!=", "<=", ">=", "+=", "-=", "*=", "/=", "%=", "&=", "|=", "^=",
-   "<<=", ">>=",
+typedef struct {
+   const char *op; // owner
+   TokenType type;
+} Symbol;
+
+static const Symbol symbols[] = { // NOTE: sorted by op's length
+   {".", T_DOT},
+   {",", T_COMMA},
+   {";", T_SEMICOLON},
+   {":", T_COLON},
+   {"(", T_PAREN_L},
+   {")", T_PAREN_R},
+   {"[", T_BRACK_L},
+   {"]", T_BRACK_R},
+   {"{", T_BRACE_L},
+   {"}", T_BRACE_R},
+   {"@", T_DEREF},
+   {"#", T_REF},
+   {"+", T_PLUS},
+   {"-", T_MINUS},
+   {"*", T_MULT},
+   {"/", T_DIV},
+   {"%", T_MOD},
+   {"<", T_LT},
+   {">", T_GT},
+   {"=", T_ASSIGN},
+   {"&", T_AND},
+   {"|", T_OR},
+   {"^", T_XOR},
+   {"~", T_NOT},
+   {"<<", T_LSHIFT},
+   {">>", T_RSHIFT},
+   {"==", T_EQ},
+   {"!=", T_NE},
+   {"<=", T_LE},
+   {">=", T_GE},
+   {"+=", T_ASPLUS},
+   {"-=", T_ASMINUS},
+   {"*=", T_ASMULT},
+   {"/=", T_ASDIV},
+   {"%=", T_ASMOD},
+   {"&=", T_ASAND},
+   {"|=", T_ASOR},
+   {"^=", T_ASXOR},
+   {"<<=", T_ASLSHIFT},
+   {">>=", T_ASRSHIFT},
 };
 
 
@@ -37,7 +81,7 @@ Token *ident_lexer(Stream *stream) {
       return NULL;
    }
 
-   for(size_t i = 0; i < sizeof(keywords) / sizeof(keywords[0]); i++) {
+   for(size_t i = 0; i < LEN(keywords); i++) {
       if(strcmp(buff, keywords[i]) == 0) {
          return token_create(T_KEYWORD, buff);
       }
@@ -46,38 +90,10 @@ Token *ident_lexer(Stream *stream) {
    return token_create(T_IDENT, buff);
 }
 
-Token *sep_lexer(Stream *stream) {
-   switch(stream_getc(stream)) {
-      case EOF:
-         return token_create(T_EOT, NULL);
-      case '.':
-         return token_create(T_DOT, NULL);
-      case ',':
-         return token_create(T_COMMA, NULL);
-      case ';':
-         return token_create(T_SEMICOLON, NULL);
-      case ':':
-         return token_create(T_COLON, NULL);
-      case '(':
-         return token_create(T_PAREN_L, NULL);
-      case ')':
-         return token_create(T_PAREN_R, NULL);
-      case '[':
-         return token_create(T_BRACK_L, NULL);
-      case ']':
-         return token_create(T_BRACK_R, NULL);
-      case '{':
-         return token_create(T_BRACE_L, NULL);
-      case '}':
-         return token_create(T_BRACE_R, NULL);
-      case '@':
-         return token_create(T_DEREF, NULL);
-      case '#':
-         return token_create(T_REF, NULL);
-      default:
-         break;
+Token *eof_lexer(Stream *stream) {
+   if(stream_getc(stream) == EOF) {
+      return token_create(T_EOT, NULL);
    }
-
    stream_ungetc(stream, 1);
    return NULL;
 }
@@ -217,45 +233,48 @@ Token *comment_lexer(Stream *stream) {
    return NULL;
 }
 
-Token *operator_lexer(Stream *stream) {
+Token *symbol_lexer(Stream *stream) {
    stream_begins(stream);
 
-   const char *value = NULL;
+   TokenType type = T_ERROR;
+
+   int symb_len = 0;
    int read = 0;
 
-   for(size_t i = 0; i < sizeof(operators) / sizeof(operators[0]); i++) {
-      size_t op_len = strlen(operators[i]);
+   for(size_t i = 0; i < LEN(symbols); i++) {
+      size_t op_len = strlen(symbols[i].op);
       while(read < op_len) {
          stream_getc(stream);
          read++;
       }
 
       char buff[4];
-      stream_ends(stream, buff, i+2);
+      stream_ends(stream, buff, op_len+1);
 
-      if(strncmp(operators[i], buff, op_len) == 0) {
-         if(op_len == read) {
-            value = operators[i];
-         }
+      if(strncmp(symbols[i].op, buff, op_len) == 0) {
+         type = symbols[i].type;
+         symb_len = op_len;
       }
    }
 
-   stream_ungetc(stream, read - strlen(value));
+   stream_ungetc(stream, read - symb_len);
 
-   if(value != NULL) {
-      return token_create(T_OP, value);
+   if(type != T_ERROR) {
+      return token_create(type, NULL);
    }
+
+   stream_rollback(stream);
 
    return NULL;
 }
 
 Lexer *lexers[] = {
+   eof_lexer,
    comment_lexer,
    number_lexer,
    char_lexer,
    string_lexer,
    ident_lexer,
-   sep_lexer,
-   operator_lexer,
+   symbol_lexer,
    NULL,
 };

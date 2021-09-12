@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-const char *ASTType_names[] = {
+const char * const ASTType_names[] = {
    "AST_ERROR",
    "AST_ATOM",
    "AST_PREFIX",
@@ -25,9 +25,4 @@ void ast_init(ASTNode *node, ASTType type, ASTParseFn parse, ASTDumpFn dump, AST
    node->parse = parse;
    node->dump = dump;
    node->delete = delete;
-}
-
-ASTNode *ast_root(ASTNode *node) {
-   while(node->up) node = node->up;
-   return node;
 }

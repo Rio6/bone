@@ -5,7 +5,7 @@
 
 #define TEST_FILE "../idea.bone"
 
-int main() {
+int main(void) {
    FILE *file = fopen(TEST_FILE, "r");
 
    if(!file) {
