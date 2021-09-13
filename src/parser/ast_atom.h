@@ -8,5 +8,5 @@ typedef struct ASTAtom {
    Token *token; // owner
 } ASTAtom;
 
-ASTNode *atom_parser(ASTToken*);
+ASTNode *atom_parser(ASTNode*);
 ASTAtom *ast_atom_create(Token*); // Takes ownership

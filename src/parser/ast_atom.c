@@ -17,6 +17,9 @@ static TokenType atom_tokens[] = {
 };
 
 static ASTNode *parse(ASTNode *node, ASTParserFn *parsers) {
+   ASTNode *new_node = parser_parse(node, parsers);
+   if(new_node) return new_node;
+
    if(node->next) {
       node->next = CALL_METHOD(parse, node->next, parsers);
    }
@@ -38,12 +41,12 @@ static void dump(ASTNode *node, unsigned indent) {
 static void delete(ASTNode *node) {
    if(!node) return;
 
-   ASTAtom *ast_atom = (ASTAtom*) node;
-   token_delete(ast_atom->token);
-
    if(node->next) {
       CALL_METHOD(delete, node->next);
    }
+
+   ASTAtom *ast_atom = (ASTAtom*) node;
+   token_delete(ast_atom->token);
 
    free(ast_atom);
 }
@@ -55,7 +58,10 @@ ASTAtom *ast_atom_create(Token *token) {
    return atom;
 }
 
-ASTNode *atom_parser(ASTToken *token) {
+ASTNode *atom_parser(ASTNode *node) {
+   if(node->type != AST_TOKEN) return NULL;
+   ASTToken *token = (ASTToken*) node;
+
    for(size_t i = 0; i < LEN(atom_tokens); i++) {
       if(token->token->type == atom_tokens[i]) {
          ASTAtom *atom = ast_atom_create(token->token);

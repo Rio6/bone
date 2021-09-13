@@ -5,16 +5,8 @@
 #include <stdlib.h>
 
 static ASTNode *parse(ASTNode *node, ASTParserFn *parsers) {
-
-   ASTNode *new_node = NULL;
-   for(ASTParserFn *parser = parsers; *parser != NULL; parser++) {
-      new_node = (*parser)((ASTToken*) node);
-      if(new_node) break;
-   }
-
-   if(new_node && new_node != node) {
-      return CALL_METHOD(parse, new_node, parsers);
-   }
+   ASTNode *new_node = parser_parse(node, parsers);
+   if(new_node) return new_node;
 
    if(node->next) {
       node->next = CALL_METHOD(parse, node->next, parsers);
@@ -38,12 +30,12 @@ static void dump(ASTNode *node, unsigned indent) {
 static void delete(ASTNode *node) {
    if(!node) return;
 
-   ASTToken *ast_token = (ASTToken*) node;
-   token_delete(ast_token->token);
-
    if(node->next) {
       CALL_METHOD(delete, node->next);
    }
+
+   ASTToken *ast_token = (ASTToken*) node;
+   token_delete(ast_token->token);
 
    free(ast_token);
 }
@@ -84,18 +76,4 @@ ASTNode *ast_token_replace(ASTToken *old, ASTNode *new) {
    old->node.next = NULL;
    CALL_METHOD(delete, &old->node);
    return new;
-}
-
-ASTNode *ast_token_chop(ASTToken *token) {
-   ASTNode *next = token->node.next;
-   if(next) next->prev = NULL;
-   token->node.next = NULL;
-   CALL_METHOD(delete, &token->node);
-   return next;
-}
-
-void ast_token_remove(ASTToken *token) {
-   ASTNode *prev = token->node.prev, *next = token->node.next;
-   if(next) next->prev = prev;
-   token->node.next = NULL;
 }

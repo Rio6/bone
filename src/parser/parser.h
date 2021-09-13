@@ -3,13 +3,13 @@
 #include "lexer/token.h"
 
 // Forward typedef
-typedef struct ASTToken ASTToken;
 typedef struct ASTNode ASTNode;
 
-typedef ASTNode *(*ASTParserFn)(ASTToken*);
+typedef ASTNode *(*ASTParserFn)(ASTNode*);
 
 extern ASTParserFn *parsers[];
 
 ASTNode *parser_run(Token*);
+ASTNode *parser_parse(ASTNode*, ASTParserFn*);
 
-ASTNode *comment_parser(ASTToken*);
+ASTNode *comment_parser(ASTNode*);
