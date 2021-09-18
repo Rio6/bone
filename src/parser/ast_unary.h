@@ -4,10 +4,10 @@
 
 typedef struct ASTUnary {
    ASTNode node;
-   TokenType op_type;
-   ASTNode *operand; // owner
+   ASTNode *op; // owner
+   ASTNode *opand; // owner
 } ASTUnary;
 
-ASTUnary *ast_unary_create(ASTType, TokenType, ASTNode*);
+ASTUnary *ast_unary_create(ASTType, ASTNode *op, ASTNode *opand);
 ASTNode *prefix_parser(ASTNode*);
 ASTNode *postfix_parser(ASTNode*);

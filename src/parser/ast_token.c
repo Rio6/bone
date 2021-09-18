@@ -4,17 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static ASTNode *parse(ASTNode *node, ASTParserFn *parsers) {
-   ASTNode *new_node = parser_parse(node, parsers);
-   if(new_node) return new_node;
-
-   if(node->next) {
-      node->next = CALL_METHOD(parse, node->next, parsers);
-   }
-
-   return node;
-}
-
 static void dump(ASTNode *node, unsigned indent) {
    ASTToken *ast_token = (ASTToken*) node;
 
@@ -42,7 +31,7 @@ static void delete(ASTNode *node) {
 
 ASTToken *ast_token_create(Token *token) {
    ASTToken *ast = calloc(1, sizeof(ASTToken));
-   ast_init(&ast->node, AST_TOKEN, parse, dump, delete);
+   ast_init(&ast->node, AST_TOKEN, NULL, &dump, &delete);
    token->next = NULL;
    ast->token = token;
    return ast;
@@ -65,15 +54,4 @@ ASTToken *ast_token_from_tokens(Token *token) {
    }
 
    return (ASTToken*) head.node.next;
-}
-
-ASTNode *ast_token_replace(ASTToken *old, ASTNode *new) {
-   ASTNode *prev = old->node.prev, *next = old->node.next;
-   if(prev) prev->next = new;
-   if(next) next->prev = new;
-   new->prev = prev;
-   new->next = next;
-   old->node.next = NULL;
-   CALL_METHOD(delete, &old->node);
-   return new;
 }

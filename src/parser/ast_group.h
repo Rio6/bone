@@ -10,5 +10,5 @@ typedef struct ASTGroup {
 
 // Create a group AST. Type is the TokenType of the opening bracket.
 // The content should be NULL on both ends already.
-ASTGroup *ast_group_create(TokenType, ASTNode*);
+ASTGroup *ast_group_create(TokenType, ASTNode*); // takes owner
 ASTNode *group_parser(ASTNode*);

@@ -123,25 +123,18 @@ ASTNode *group_parser(ASTNode *node) {
    assert(head->type == AST_TOKEN && tail->type == AST_TOKEN);
 
    // Get content
-   ASTNode *content = head->next;
+   ASTNode *content = head->next != tail ? head->next : NULL;
+   head->next->prev = NULL;
 
-   content->prev = NULL;
+   ASTGroup *group = ast_group_create(group_boundary->open, content);
+   ast_add_next(&group->node, tail->next);
+
+   // Free the tokens for the two brackets
    head->next = NULL;
-   CALL_METHOD(delete, head);
-
-   ASTGroup *group = ast_group_create(group_boundary->open, content != tail ? content : NULL);
-
-   // Move the nodes after close bracket to be after group
-   ASTNode *after = tail->next;
-
    tail->next = NULL;
    if(tail->prev) tail->prev->next = NULL;
+   CALL_METHOD(delete, head);
    CALL_METHOD(delete, tail);
-
-   if(after) {
-      group->node.next = after;
-      after->prev = &group->node;
-   }
 
    return &group->node;
 }

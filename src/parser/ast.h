@@ -5,6 +5,7 @@
 typedef enum {
    AST_ERROR,
    AST_ATOM,
+   AST_OP,
    AST_PREFIX,
    AST_POSTFIX,
    AST_BINARY,
@@ -34,3 +35,4 @@ struct ASTNode {
 void print_indent(unsigned);
 
 void ast_init(ASTNode*, ASTType, ASTParseFn, ASTDumpFn, ASTDeleteFn);
+void ast_add_next(ASTNode *node, ASTNode *next);
