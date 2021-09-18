@@ -15,7 +15,8 @@ export struct A {
       return 'x';
    };
 
-   char (A, bool)# sameThing = char (A self, bool stuff) {
+   i32# (A, bool)# sameThing = i32# (A self, bool stuff) {
+      return #self.d;
    };
 }
 

@@ -8,7 +8,7 @@ RESETS:=$(patsubst %.c, %.reset, $(TESTSRCS))
 SRCDIR=$(realpath ../src)
 SRCS:=$(filter-out ../src/main.c, $(shell find $(SRCDIR) -name '*.c'))
 
-CFLAGS+=-O0 -Wall -Wstrict-prototypes -g -ggdb -fsanitize=address -fsanitize=leak -fsanitize=undefined
+CFLAGS+=-g -ggdb -fsanitize=address -fsanitize=leak -fsanitize=undefined
 
 .PHONY: all
 all: $(TESTS)
