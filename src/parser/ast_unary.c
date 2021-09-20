@@ -1,6 +1,6 @@
 #include "ast.h"
 #include "ast_unary.h"
-#include "ast_op.h"
+#include "ast_token.h"
 #include "ast_group.h"
 
 #include "utils/array.h"
@@ -37,11 +37,7 @@ static void dump(ASTNode *node, unsigned indent) {
    ASTUnary *unary = (ASTUnary*) node;
 
    print_indent(indent);
-   printf("%s: op:\n", ASTType_names[node->type]);
-   CALL_METHOD(dump, unary->op, indent+1);
-
-   print_indent(indent);
-   puts("opand:");
+   printf("%s: type: %s\n", ASTType_names[node->type], TokenType_names[unary->op_type]);
    CALL_METHOD(dump, unary->opand, indent+1);
 
    if(node->next) {
@@ -58,79 +54,61 @@ static void delete(ASTNode *node) {
       CALL_METHOD(delete, node->next);
    }
 
-   CALL_METHOD(delete, unary->op);
    CALL_METHOD(delete, unary->opand);
 
    free(node);
 }
 
-ASTUnary *ast_unary_create(ASTType type, ASTNode *op, ASTNode *opand) {
+ASTUnary *ast_unary_create(ASTType type, TokenType op_type, ASTNode *opand) {
    ASTUnary *unary = calloc(1, sizeof(ASTUnary));
 
    ast_init(&unary->node, type, parse, dump, delete);
-   unary->op = op;
+   unary->op_type = op_type;
    unary->opand = opand;
 
    return unary;
 }
 
 ASTNode *prefix_parser(ASTNode *node) {
-   if(!node->next) return NULL;
+   if(!node->next || node->type != AST_TOKEN) return NULL;
 
-   if(node->type == AST_OP) {
-      bool is_prefix = false;
-      for(size_t i = 0; i < LEN(prefix_tokens); i++) {
-         TokenType op_type = ((ASTOp*) node)->op_type;
-         if(op_type == prefix_tokens[i]) {
-            is_prefix = true;
-            break;
-         }
+   TokenType op_type = T_ERROR;
+   for(size_t i = 0; i < LEN(prefix_tokens); i++) {
+      TokenType type = ((ASTToken*) node)->token->type;
+      if(type == prefix_tokens[i]) {
+         op_type = type;
+         break;
       }
-      if(!is_prefix) return NULL;
-
-   } else if(node->type == AST_GROUP) {
-      TokenType group_type = ((ASTGroup*) node)->group_type;
-      if(group_type != T_PAREN_L) {
-         return NULL;
-      }
-   } else {
-      return NULL;
    }
 
-   ASTUnary *unary = ast_unary_create(AST_PREFIX, node, node->next);
+   if(op_type == T_ERROR) return NULL;
+
+   ASTUnary *unary = ast_unary_create(AST_PREFIX, op_type, node->next);
    ast_add_next(&unary->node, node->next->next);
-   node->next->next = node->next->prev = NULL;
-   node->next = node->prev = NULL;
+   node->next = node->next->prev = NULL;
+   CALL_METHOD(delete, node);
 
    return &unary->node;
 }
 
 ASTNode *postfix_parser(ASTNode *node) {
-   if(!node->next) return NULL;
+   if(!node->next || node->next->type != AST_TOKEN) return NULL;
 
-   if(node->next->type == AST_OP) {
-      bool is_postfix = false;
-      for(size_t i = 0; i < LEN(postfix_tokens); i++) {
-         TokenType op_type = ((ASTOp*) node->next)->op_type;
-         if(op_type == postfix_tokens[i]) {
-            is_postfix = true;
-            break;
-         }
+   TokenType op_type = T_ERROR;
+   for(size_t i = 0; i < LEN(postfix_tokens); i++) {
+      TokenType type = ((ASTToken*) node->next)->token->type;
+      if(type == postfix_tokens[i]) {
+         op_type = type;
+         break;
       }
-      if(!is_postfix) return NULL;
-
-   } else if(node->next->type == AST_GROUP) {
-      TokenType group_type = ((ASTGroup*) node->next)->group_type;
-      if(group_type != T_PAREN_L && group_type != T_BRACK_L) {
-         return NULL;
-      }
-   } else {
-      return NULL;
    }
 
-   ASTUnary *unary = ast_unary_create(AST_POSTFIX, node->next, node);
+   if(op_type == T_ERROR) return NULL;
+
+   ASTUnary *unary = ast_unary_create(AST_POSTFIX, op_type, node);
    ast_add_next(&unary->node, node->next->next);
-   node->next->next = node->next->prev = NULL;
+   node->next->next = NULL;
+   CALL_METHOD(delete, node->next);
    node->next = node->prev = NULL;
 
    return &unary->node;

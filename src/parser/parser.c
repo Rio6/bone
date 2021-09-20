@@ -3,7 +3,6 @@
 
 #include "ast_token.h"
 #include "ast_atom.h"
-#include "ast_op.h"
 #include "ast_group.h"
 #include "ast_unary.h"
 
@@ -13,7 +12,7 @@
 
 ASTParserFn *parsers[] = {
    (ASTParserFn[]) { comment_parser, NULL },
-   (ASTParserFn[]) { atom_parser, op_parser, NULL },
+   (ASTParserFn[]) { atom_parser, NULL },
    (ASTParserFn[]) { group_parser, NULL },
    (ASTParserFn[]) { postfix_parser, NULL },
    (ASTParserFn[]) { prefix_parser, NULL },

@@ -5,12 +5,12 @@
 typedef enum {
    AST_ERROR,
    AST_ATOM,
-   AST_OP,
    AST_PREFIX,
    AST_POSTFIX,
    AST_BINARY,
    AST_TENARY,
    AST_GROUP,
+   AST_FUNC,
    AST_TOKEN,
 } ASTType;
 extern const char * const ASTType_names[];

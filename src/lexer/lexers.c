@@ -13,7 +13,7 @@ static const char * const keywords[] = {
 };
 
 typedef struct {
-   const char *op; // owner
+   const char *op;
    TokenType type;
 } Symbol;
 
