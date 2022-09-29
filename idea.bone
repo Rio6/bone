@@ -15,27 +15,29 @@ export struct A {
       return 'x';
    };
 
-   i32# (A, bool)# sameThing = i32# (A self, bool stuff) {
-      return #self.d;
+   i32# (A self, bool moreStuff)# method2 = {
+      return #self.b;
    };
 }
 
+usize size = 0x123;
 i32# aPtr;
 i32[] array = {1, 2, 3, 4};
-i32[] arrayAgain = i32[] {1, 2, 3, 4};
 u8[128] preallocArray;
-i32[]# ptrToArray = #array;
-i32#[] arrayOfPtr = null;
-i32(char)# ptrToFuncReturnsI32;
+i32[size]# ptrToArray = #array;
+i32#[size] arrayOfPtr = null;
+i32(char)# ptrToFuncTakingCharReturningI32;
 
 /*
  * yeah, comments
  */
 
-char (A byValue, A# byPointer, A[] byValue, A[]# byReferenceOfArray) aFunction = {
+char (A byValue, A# byPointer, A[] byValue, A[]# byReferenceOfArray)# aFunction = {
    if(byValue.a == byPointer.b) { // . auto derefs
       return byPointer.c;
    }
+
+   A## doublePointer = #byPointer;
 
    A copied = @byPointer;
 
@@ -49,11 +51,11 @@ char (A byValue, A# byPointer, A[] byValue, A[]# byReferenceOfArray) aFunction =
    return 'x';
 }
 
-void () normalFunction = {
+void ()# normalFunction = {
    io.print(stuff);
 }
 
-i32 () = {
+i32 ()# main = {
    i32 a = ((10 + 5) * 600 / 4 + 8) * 3;
    while(a < 0) {
       a <<= 1;
@@ -97,6 +99,9 @@ i32 () = {
 
    A a;
    a:method(); // passed a as first param
+
+   char (i32, i8)# (i8)# complicated_type = null;
+   char#[6+1] (u8, f32)## ptr_to_ptr_to_func_return_array_of_ptr_to_char;
 }
 
 /*
