@@ -4,7 +4,7 @@
 
 typedef struct ASTGroup {
    ASTNode node;
-   TokenType group_type; // owner, the token type of the open bracket
+   TokenType group_type; // the token type of the open bracket
    ASTNode *content; // owner
 } ASTGroup;
 

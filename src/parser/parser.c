@@ -4,6 +4,7 @@
 #include "ast_token.h"
 #include "ast_atom.h"
 #include "ast_group.h"
+#include "ast_func_type.h"
 #include "ast_unary.h"
 
 #include "utils/oop.h"
@@ -14,8 +15,9 @@ ASTParserFn *parsers[] = {
    (ASTParserFn[]) { comment_parser, NULL },
    (ASTParserFn[]) { atom_parser, NULL },
    (ASTParserFn[]) { group_parser, NULL },
-   (ASTParserFn[]) { postfix_parser, NULL },
-   (ASTParserFn[]) { prefix_parser, NULL },
+   (ASTParserFn[]) { func_type_parser, NULL },
+   //(ASTParserFn[]) { postfix_parser, NULL },
+   //(ASTParserFn[]) { prefix_parser, NULL },
    NULL,
 };
 

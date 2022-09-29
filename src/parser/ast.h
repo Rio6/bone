@@ -10,8 +10,9 @@ typedef enum {
    AST_BINARY,
    AST_TENARY,
    AST_GROUP,
-   AST_FUNC,
+   AST_FUNC_TYPE,
    AST_TOKEN,
+   AST_DECL,
 } ASTType;
 extern const char * const ASTType_names[];
 

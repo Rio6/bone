@@ -8,7 +8,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 static TokenType prefix_tokens[] = {
    T_REF, T_DEREF, T_PLUS, T_MINUS, T_NOT,

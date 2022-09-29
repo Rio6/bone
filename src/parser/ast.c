@@ -12,8 +12,9 @@ const char * const ASTType_names[] = {
    "AST_BINARY",
    "AST_TENARY",
    "AST_GROUP",
-   "AST_FUNC",
+   "AST_FUNC_TYPE",
    "AST_TOKEN",
+   "AST_DECL",
 };
 
 void print_indent(unsigned indent) {

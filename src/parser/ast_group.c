@@ -128,6 +128,7 @@ ASTNode *group_parser(ASTNode *node) {
 
    ASTGroup *group = ast_group_create(group_boundary->open, content);
    ast_add_next(&group->node, tail->next);
+   ast_add_next(head->prev, &group->node);
 
    // Free the tokens for the two brackets
    head->next = NULL;
